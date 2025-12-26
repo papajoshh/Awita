@@ -552,6 +552,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8641795152863489879, guid: c5f48072ddd593641981053414a05c57, type: 3}
   m_PrefabInstance: {fileID: 138275036}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &272527894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272527896}
+  - component: {fileID: 272527895}
+  m_Layer: 0
+  m_Name: GameLoop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &272527895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272527894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebbf426347f40cdaecd0f9348904a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingDialogue: {fileID: 11400000, guid: b24e147d5c4ee8b4ca32f768cc1a044f, type: 2}
+--- !u!4 &272527896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272527894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 968.403, y: 473.70007, z: 4.675741}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &353469461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1238,7 +1283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f05be396154769b75a2ae7be25ae61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: b24e147d5c4ee8b4ca32f768cc1a044f, type: 2}
+  itemOnHand: GlassOfWater
+  dialogueCompleted: {fileID: 11400000, guid: ea8a4b3447fd0ac44804c3fb5d63df80, type: 2}
+  dialogueNoItem: {fileID: 11400000, guid: 4d60e3b32652ad04e8460d93c7ad99c2, type: 2}
+  dialogueWrongItem: {fileID: 11400000, guid: 7788680e652b98540b1b696111e3a4c1, type: 2}
 --- !u!1001 &1364610774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3327,3 +3375,4 @@ SceneRoots:
   - {fileID: 1491404278}
   - {fileID: 83346531}
   - {fileID: 662888207}
+  - {fileID: 272527896}

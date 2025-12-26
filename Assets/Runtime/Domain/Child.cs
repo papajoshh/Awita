@@ -2,6 +2,7 @@ namespace Runtime.Domain
 {
     public class Child
     {
+        public bool FirstLevelHidrationCompleted => levelOfHidration >= 1;
         private int levelOfHidration;
         
         public static Child NewBorn()
