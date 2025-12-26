@@ -2,7 +2,8 @@ using UnityEngine;
 
 namespace Runtime.Domain
 {
-    public class Item
+    [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
+    public class Item: ScriptableObject
     {
         public Sprite sprite;
     }

@@ -4,14 +4,23 @@ namespace Runtime.Infrastructure
 {
     public static class UIResources
     {
-        public static UIIcon Grab => new UIIcon(UIIconPaths.GrabIcon);
-        public static UIIcon Interact => new UIIcon(UIIconPaths.InteractIcon);
+        public static UIIcon Grab {get; private set;}
+        public static UIIcon Interact {get; private set;}
+        public static UIIcon DefaultCursor {get; private set;}
+
+        public static void Initialize()
+        {
+            Grab = UIIcon.Grab();
+            Interact = UIIcon.Interact();
+            DefaultCursor = UIIcon.Default();
+        }
     }
     
     internal static class UIIconPaths
     {
-        public const string GrabIcon = "Icons/GrabIcon";
-        public const string InteractIcon = "Icons/InteractIcon";
+        public const string GrabIcon = "Icons/grab";
+        public const string InteractIcon = "Icons/interact";
+        public const string DefaultCursor = "Icons/default";
     }
 
     public class UIIcon
@@ -20,17 +29,21 @@ namespace Runtime.Infrastructure
         {
             get
             {
-                if(cache_Icon == null)
-                    Resources.Load<Sprite>("GrabIcon");
-                return cache_Icon;
+                if(!_cacheIcon)
+                    _cacheIcon = Resources.Load<Sprite>(_cachePath);
+                return _cacheIcon;
             }
         }
-        private string cache_Path;
-        private static Sprite cache_Icon;
+        private readonly string _cachePath;
+        private Sprite _cacheIcon;
         
         public UIIcon(string path)
         {
-            cache_Path = path;
+            _cachePath = path;
         }
+        
+        public static UIIcon Grab() => new(UIIconPaths.GrabIcon);
+        public static UIIcon Interact() => new(UIIconPaths.InteractIcon);
+        public static UIIcon Default() => new(UIIconPaths.DefaultCursor);
     }
 }

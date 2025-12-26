@@ -11,10 +11,19 @@ namespace Runtime.Infrastructure
         [SerializeField] private Image cursorImage;
         [SerializeField] private Vector2 hotSpot = Vector2.zero;
 
+        private Camera _camera;
+        private Sprite currentSprite;
         private void Awake()
         {
             Instance = this;
         }
+
+        public void Initialize()
+        {
+            ChangeSprite(UIResources.DefaultCursor.Icon);
+            _camera = Camera.main;
+        }
+
         private void Update()
         {
             FollowMouse();
@@ -29,13 +38,19 @@ namespace Runtime.Infrastructure
 
         private void ChangeSprite(Sprite sprite)
         {
+            if (sprite == cursorImage.sprite) return;
             cursorImage.sprite = sprite;
         }
-        
+
+        private void ChangeToDefault()
+        {
+            
+        }
         private void ChangeSpriteOnHover()
         {
-            var hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null)
+            if (!_camera) return;
+            var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider)
             {
                 var hover = hit.collider.GetComponent<Hoverable>();
                 if (hover != null)
@@ -45,7 +60,7 @@ namespace Runtime.Infrastructure
             }
             else
             {
-                // Reset to default cursor sprite if needed
+                ChangeSprite(UIResources.DefaultCursor.Icon);
             }
         }
     }
