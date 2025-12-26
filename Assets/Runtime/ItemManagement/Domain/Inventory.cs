@@ -6,10 +6,10 @@ namespace Runtime.ItemManagement.Domain
     public class Inventory
     {
         public List<Item> ItemsInPockets => Items.Values.ToList();
-        public bool HasSomethingOnHand => _itemOnHand != null;
+        public bool HasSomethingOnHand => ItemOnHand != null;
         private Dictionary<string, Item> Items { get; set; }
         private Catalogue _catalogue;
-        private Item _itemOnHand;
+        public Item ItemOnHand;
         public Inventory(Catalogue catalogue)
         {
             Items = new Dictionary<string, Item>();
@@ -34,17 +34,17 @@ namespace Runtime.ItemManagement.Domain
 
         public void Select(string id)
         {
-            _itemOnHand = Item(id);
+            ItemOnHand = Item(id);
         }
         
         public void Deselect()
         {
-            _itemOnHand = null;
+            ItemOnHand = null;
         }
         
         public bool HasitemOnHand(string id)
         {
-            return string.Equals(_itemOnHand?.ID, id);
+            return string.Equals(ItemOnHand?.ID, id);
         }
 
     }

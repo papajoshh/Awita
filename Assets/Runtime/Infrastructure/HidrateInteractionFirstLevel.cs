@@ -1,6 +1,7 @@
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.Domain;
+using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,6 +18,7 @@ namespace Runtime.Infrastructure
         
         [Inject] private readonly Child _child;
         [Inject] private readonly Inventory _inventory;
+        [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
         
         public override void Interact()
@@ -26,6 +28,7 @@ namespace Runtime.Infrastructure
             {
                 _child.Hidrate();
                 _showDialogue.Start(dialogueCompleted);
+                _handleInventory.RemoveItemOnHand();
             }
             else
             {

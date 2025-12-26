@@ -28,6 +28,13 @@ namespace Runtime.ItemManagement.Application
             _pockets.Display(_inventory.ItemsInPockets);
         }
         
+        public void RemoveItemOnHand()
+        {
+            var id = _inventory.ItemOnHand.ID;
+            RemoveItem(id);
+            DeselectItem();
+        }
+        
         public void SelectItem(string id)
         {
             _inventory.Select(id);
