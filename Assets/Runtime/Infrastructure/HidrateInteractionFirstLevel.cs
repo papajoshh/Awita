@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.Domain;
@@ -15,6 +16,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
+        [SerializeField] private Animator animator;
+        [SerializeField] private PauseAnimation pauseAnimation;
         
         [Inject] private readonly Child _child;
         [Inject] private readonly Inventory _inventory;
@@ -27,6 +30,8 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _child.Hidrate();
+                animator.Play("DrinkWater");
+                _showDialogue.OnShowNewLine += pauseAnimation.Resume;
                 _showDialogue.Start(dialogueCompleted);
                 _handleInventory.RemoveItemOnHand();
             }

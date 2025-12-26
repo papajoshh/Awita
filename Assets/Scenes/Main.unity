@@ -122,6 +122,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &82440141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 82440143}
+  - component: {fileID: 82440142}
+  m_Layer: 0
+  m_Name: DrinkFirstWater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &82440142
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82440141}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: e0d64e3c352bbf641a2ec0a4944df4ab, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 8102635067656255872, guid: e0d64e3c352bbf641a2ec0a4944df4ab, type: 2}
+    value: {fileID: 519420033}
+  m_ExposedReferences:
+    m_References:
+    - 42bdd621c68c86e48b6e10265ceeb02c: {fileID: 0}
+    - 5d787ffdb49107c4f9706df4e5454dc9: {fileID: 0}
+--- !u!4 &82440143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82440141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &83346527
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +939,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -967,6 +1022,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &519420033
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ff398b1126c666408f4bcb3149cd51f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03bdbf9fa839ba41bab233dc60b59ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 519420033}
 --- !u!1 &540956280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1526,8 @@ MonoBehaviour:
   dialogueCompleted: {fileID: 11400000, guid: ea8a4b3447fd0ac44804c3fb5d63df80, type: 2}
   dialogueNoItem: {fileID: 11400000, guid: 4d60e3b32652ad04e8460d93c7ad99c2, type: 2}
   dialogueWrongItem: {fileID: 11400000, guid: 7788680e652b98540b1b696111e3a4c1, type: 2}
+  animator: {fileID: 519420033}
+  pauseAnimation: {fileID: 519420034}
 --- !u!1001 &1364610774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3231,7 +3322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typewriterStartsAutomatically: 1
   animationLoop: 0
-  timeScale: 0
+  timeScale: 1
   _text: 
   useDynamicScaling: 1
   referenceFontSize: 10
@@ -3636,3 +3727,4 @@ SceneRoots:
   - {fileID: 83346531}
   - {fileID: 662888207}
   - {fileID: 272527896}
+  - {fileID: 82440143}
