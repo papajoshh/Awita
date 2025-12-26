@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.Infrastructure;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
@@ -9,10 +10,12 @@ namespace Runtime
 {
     public class Main: MonoBehaviour
     {
-        [SerializeField] private List<Item> AllItems;
+        private List<Item> AllItems;
         private void Awake()
         {
             UIResources.Initialize();
+            
+            AllItems = Resources.LoadAll<Item>("Items").ToList();
             var catalogue = new Catalogue(AllItems);
             var inventory = new Inventory(catalogue);
             

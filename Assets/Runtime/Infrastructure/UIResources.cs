@@ -36,8 +36,8 @@ namespace Runtime.Infrastructure
         }
         private readonly string _cachePath;
         private Sprite _cacheIcon;
-        
-        public UIIcon(string path)
+
+        private UIIcon(string path)
         {
             _cachePath = path;
         }
