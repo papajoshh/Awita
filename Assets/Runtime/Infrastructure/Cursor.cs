@@ -7,15 +7,14 @@ namespace Runtime.Infrastructure
 {
     public class Cursor : MonoBehaviour
     {
-        public static Cursor Instance { get; private set; }
         [SerializeField] private Image cursorImage;
         [SerializeField] private Vector2 hotSpot = Vector2.zero;
 
         private Camera _camera;
         private Sprite currentSprite;
+        
         private void Awake()
         {
-            Instance = this;
             ChangeSprite(UIResources.DefaultCursor.Icon);
             _camera = Camera.main;
         }

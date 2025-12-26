@@ -46,5 +46,6 @@ namespace Runtime.ItemManagement.Domain
         {
             return string.Equals(_itemOnHand?.ID, id);
         }
+
     }
 }

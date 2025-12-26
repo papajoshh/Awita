@@ -8,6 +8,7 @@ using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
 using Zenject;
+using Cursor = Runtime.Infrastructure.Cursor;
 
 namespace Runtime
 {
@@ -18,7 +19,7 @@ namespace Runtime
             UIResources.Initialize();
             Container.Bind<CurrentDialogue>().AsSingle();
             Container.Bind<Child>().FromInstance(Child.NewBorn()).AsSingle();
-            
+            Container.Bind<Cursor>().FromComponentInHierarchy().AsSingle();
             var allItems = Resources.LoadAll<Item>("Items").ToList();
             Container.Bind<List<Item>>().FromInstance(allItems).AsSingle();
 

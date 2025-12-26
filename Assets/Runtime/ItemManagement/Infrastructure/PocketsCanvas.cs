@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
@@ -27,6 +26,15 @@ namespace Runtime.ItemManagement.Infrastructure
             for(; auxiliarCount < _itemCells.Count; auxiliarCount++)
             {
                 _itemCells[auxiliarCount].Hide();
+            }
+        }
+
+        public void Highlight()
+        {
+            foreach (var itemCell in _itemCells)
+            {
+                if (!itemCell.gameObject.activeSelf) continue;
+                itemCell.HandleHighlight();
             }
         }
     }

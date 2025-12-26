@@ -10,6 +10,12 @@ namespace Runtime.Infrastructure
     {
         [Inject] private readonly HandleInventory _controller;
         [SerializeField] private Item item;
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        private void Start()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = item.sprite;
+        }
         public Sprite GetSprite => item.sprite;
         public Sprite Icon => UIResources.Grab.Icon;
         

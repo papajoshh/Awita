@@ -22,11 +22,9 @@ namespace Runtime.Dialogues.Infrastructure
         private bool isVisible => canvasGroup.alpha > 0;
         private void Awake()
         {
-            canvasGroup.alpha = 0;
-            canvasGroup.interactable = false;
             button = GetComponent<Button>();
             button.onClick.AddListener(Tap);
-            TypeLine("");
+            OnHide();
         }
 
         private void Tap()
@@ -45,7 +43,7 @@ namespace Runtime.Dialogues.Infrastructure
         {
             if (!isVisible)
             {
-                canvasGroup.DOFade(1, 0.5f).OnComplete(() =>OnShow(line));
+                canvasGroup.DOFade(1, 0.25f).OnComplete(() =>OnShow(line));
                 rectTransform.DOMove(showPosition.position, 0.25f);
             }
             else
@@ -69,11 +67,13 @@ namespace Runtime.Dialogues.Infrastructure
         {
             TypeLine(line);
             canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
         }
         private void OnHide()
         {
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
             TypeLine("");
         }
     }
