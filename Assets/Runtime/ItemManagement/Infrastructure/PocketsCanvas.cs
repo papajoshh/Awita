@@ -8,7 +8,7 @@ namespace Runtime.ItemManagement.Infrastructure
     public class PocketsCanvas: MonoBehaviour, Pockets
     {
         [SerializeField] private List<ItemCell> _itemCells;
-        public void Update(List<Item> items)
+        public void Display(List<Item> items)
         {
             var auxiliarCount = 0;
             foreach (var item in items)

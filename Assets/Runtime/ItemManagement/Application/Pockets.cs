@@ -5,6 +5,6 @@ namespace Runtime.ItemManagement.Application
 {
     public interface Pockets
     {
-        void Update(List<Item> items);
+        void Display(List<Item> items);
     }
 }
