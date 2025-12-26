@@ -5,5 +5,6 @@ namespace Runtime.Application
     public interface Hoverable
     {
         Sprite Icon { get; }
+        bool Interactable { get; }
     }
 }

@@ -1,16 +1,14 @@
-using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.Domain;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Runtime.Infrastructure
 {
-    public class HidrateInteractionFirstLevel: Interaction, Hoverable, Interactable
+    public class HidrateInteractionFirstLevel: Interaction
     {
         [SerializeField] private string itemOnHand = "GlassOfWater";
         [SerializeField] private DialogueData dialogueCompleted;
@@ -18,12 +16,26 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueWrongItem;
         [SerializeField] private Animator animator;
         [SerializeField] private PauseAnimation pauseAnimation;
+        [SerializeField] private Interaction[] roomInteractions;
+        [SerializeField] private ItemContainer[] roomitems;
         
         [Inject] private readonly Child _child;
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
-        
+
+        private void Awake()
+        {
+            foreach (var interaction in roomInteractions)
+            {
+                interaction.Disable();
+            }
+
+            foreach (var item in roomitems)
+            {
+                item.Disable();
+            }
+        }
         public override void Interact()
         {
             if (_child.FirstLevelHidrationCompleted) return;
@@ -34,6 +46,17 @@ namespace Runtime.Infrastructure
                 _showDialogue.OnShowNewLine += pauseAnimation.Resume;
                 _showDialogue.Start(dialogueCompleted);
                 _handleInventory.RemoveItemOnHand();
+                _handleInventory.AddItem("EmptyGlass");
+                foreach (var interaction in roomInteractions)
+                {
+                    interaction.Enable();
+                }
+
+                foreach (var item in roomitems)
+                {
+                    item.Enable();
+                }
+                Disable();
             }
             else
             {
@@ -46,7 +69,6 @@ namespace Runtime.Infrastructure
                     _showDialogue.Start(dialogueNoItem);
                 }
             }
-            
         }
     }
 }

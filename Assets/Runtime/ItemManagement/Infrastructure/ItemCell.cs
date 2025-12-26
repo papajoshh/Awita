@@ -43,6 +43,7 @@ namespace Runtime.ItemManagement.Infrastructure
         public void Hide()
         {
             gameObject.SetActive(false);
+            _highlight.enabled = false;
         }
 
         public void HandleHighlight()

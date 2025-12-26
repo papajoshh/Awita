@@ -52,7 +52,7 @@ namespace Runtime.Infrastructure
             if (hit.collider)
             {
                 var hover = hit.collider.GetComponent<Hoverable>();
-                if (hover != null)
+                if (hover is { Interactable: true })
                 {
                     ChangeSprite(hover.Icon);
                 }

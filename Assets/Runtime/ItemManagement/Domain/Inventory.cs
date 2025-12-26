@@ -10,6 +10,7 @@ namespace Runtime.ItemManagement.Domain
         private Dictionary<string, Item> Items { get; set; }
         private Catalogue _catalogue;
         public Item ItemOnHand;
+        
         public Inventory(Catalogue catalogue)
         {
             Items = new Dictionary<string, Item>();

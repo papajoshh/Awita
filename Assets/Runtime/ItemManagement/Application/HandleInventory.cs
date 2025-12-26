@@ -23,7 +23,7 @@ namespace Runtime.ItemManagement.Application
             _pockets.Display(_inventory.ItemsInPockets);
         }
 
-        public void RemoveItem(string id)
+        private void RemoveItem(string id)
         {
             _inventory.Remove(id);
             _pockets.Display(_inventory.ItemsInPockets);
