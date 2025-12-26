@@ -2,6 +2,7 @@ namespace Runtime.Application
 {
     public interface Dialogue
     {
-        void Show();
+        void Display(string line);
+        void Hide();
     }
 }

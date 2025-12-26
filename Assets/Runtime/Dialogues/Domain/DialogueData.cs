@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class DialogueData : MonoBehaviour
+namespace Runtime.Dialogues.Domain
 {
-    public string ID { get; private set; }
-    public string[] dialogueLines {get; private set;}
-    
-    public DialogueData(string id, string[] lines)
+    [CreateAssetMenu(fileName = "DialogueData", menuName = "DialogueData", order = 1)]
+    public class DialogueData : ScriptableObject
     {
-        ID = id;
-        dialogueLines = lines;
-    }
+        public string ID => _id;
+        public string[] dialogueLines => _dialogueLines;
     
+        [SerializeField] private string _id;
+        [SerializeField] private string[] _dialogueLines;
+        public string FirstLine => dialogueLines[0];
+    
+    }
 }

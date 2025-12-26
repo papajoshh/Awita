@@ -1,17 +1,77 @@
+using DG.Tweening;
+using Febucci.UI;
+using Runtime.Application;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Runtime.Dialogues.Infrastructure
 {
-    public class DialogueCanvas: MonoBehaviour
+    public class DialogueCanvas: MonoBehaviour, Dialogue
     {
         [SerializeField] private TextMeshProUGUI lineText;
-        public void Display(DialogueData data)
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private RectTransform rectTransform;
+        [SerializeField] private RectTransform showPosition;
+        [SerializeField] private RectTransform hidePosition;
+        [SerializeField] private TypewriterByCharacter writer;
+
+        private Button button;
+        private bool isVisible => canvasGroup.alpha > 0;
+        private void Awake()
         {
-            foreach (var line in data.dialogueLines)
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            button = GetComponent<Button>();
+            button.onClick.AddListener(Tap);
+        }
+
+        private void Tap()
+        {
+            if (writer.isShowingText)
             {
-                Debug.Log(line);
+                writer.SkipTypewriter();
             }
+            else
+            {
+                ShowDialogue.ShowNextLine();
+            }
+        }
+
+        public void Display(string line)
+        {
+            if (!isVisible)
+            {
+                canvasGroup.DOFade(1, 0.5f).OnComplete(() =>OnShow(line));
+                rectTransform.DOMove(showPosition.position, 0.25f);
+            }
+            else
+            {
+                TypeLine(line);
+            }
+        }
+        
+        private void TypeLine(string line)
+        {
+            lineText.text = line;
+        }
+
+        public void Hide()
+        {
+            if (!isVisible) return;
+            rectTransform.DOMove(hidePosition.position, 0.25f).OnComplete(OnHide);
+        }
+
+        private void OnShow(string line)
+        {
+            TypeLine(line);
+            canvasGroup.interactable = true;
+        }
+        private void OnHide()
+        {
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            TypeLine("");
         }
     }
 }

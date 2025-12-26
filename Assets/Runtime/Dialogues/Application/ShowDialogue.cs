@@ -1,13 +1,30 @@
+using Runtime.Dialogues.Domain;
+using UnityEngine;
+
 namespace Runtime.Application
 {
-    public class ShowDialogue
+    public static class ShowDialogue
     {
-        public void Run(DialogueData dialogue)
+        private static Dialogue Displayer => _cacheDisplayer ??= GameObject.FindGameObjectWithTag("DialogueCanvas").GetComponent<Dialogue>();
+
+        private static Dialogue _cacheDisplayer;
+        public static void Start(DialogueData data)
         {
-            foreach (var line in dialogue.dialogueLines)
+            CurrentDialogue.Start(data);
+            Displayer.Display(CurrentDialogue.FirstLine);
+        }
+
+        public static void ShowNextLine()
+        {
+            if (CurrentDialogue.HasEnded)
             {
-                UnityEngine.Debug.Log(line);
+                Displayer.Hide();
             }
+            else
+            {
+                Displayer.Display(CurrentDialogue.NextLine);
+            }
+            
         }
     }
 }
