@@ -1,5 +1,5 @@
 using Runtime.Application;
-using Runtime.Domain;
+using Runtime.ItemManagement.Domain;
 using UnityEngine;
 
 namespace Runtime.Infrastructure
