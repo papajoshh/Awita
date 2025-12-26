@@ -13,11 +13,9 @@ namespace Runtime.Infrastructure
         
         private void OnMouseOver()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                HandleInventory.AddItem(item.ID);
-                Destroy(gameObject);
-            }
+            if (!Input.GetMouseButtonDown(0)) return;
+            HandleInventory.AddItem(item.ID);
+            Destroy(gameObject);
         }
     }
 }
