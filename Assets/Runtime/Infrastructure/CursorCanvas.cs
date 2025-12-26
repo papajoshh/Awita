@@ -1,13 +1,16 @@
-using System;
+
 using Runtime.Application;
 using UnityEngine;
 using UnityEngine.UI;
+using Cursor = Runtime.Application.Cursor;
 
 namespace Runtime.Infrastructure
 {
-    public class Cursor : MonoBehaviour
+    public class CursorCanvas : MonoBehaviour, Cursor
     {
         [SerializeField] private Image cursorImage;
+        [SerializeField] private Image itemImage;
+        [SerializeField] private RectTransform rectTransform;
         [SerializeField] private Vector2 hotSpot = Vector2.zero;
 
         private Camera _camera;
@@ -17,6 +20,7 @@ namespace Runtime.Infrastructure
         {
             ChangeSprite(UIResources.DefaultCursor.Icon);
             _camera = Camera.main;
+            itemImage.enabled = false;
         }
 
         private void Update()
@@ -28,7 +32,7 @@ namespace Runtime.Infrastructure
         private void FollowMouse()
         {
             Vector2 mousePosition = Input.mousePosition;
-            cursorImage.rectTransform.position = mousePosition + hotSpot;
+            rectTransform.position = mousePosition + hotSpot;
         }
 
         private void ChangeSprite(Sprite sprite)
@@ -57,6 +61,17 @@ namespace Runtime.Infrastructure
             {
                 ChangeSprite(UIResources.DefaultCursor.Icon);
             }
+        }
+        
+        public void ChangeToItem(Sprite sprite)
+        {
+            itemImage.enabled = true;
+            itemImage.sprite = sprite;
+        }
+
+        public void DropItem()
+        {
+            itemImage.enabled = false;
         }
     }
 }

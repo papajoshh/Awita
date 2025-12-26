@@ -1,5 +1,6 @@
+using Runtime.Application;
+using Runtime.Infrastructure;
 using Runtime.ItemManagement.Domain;
-using Cursor = Runtime.Infrastructure.Cursor;
 
 namespace Runtime.ItemManagement.Application
 {
@@ -39,14 +40,14 @@ namespace Runtime.ItemManagement.Application
         {
             _inventory.Select(id);
             _pockets.Highlight();
-            //_cursor
+            _cursor.ChangeToItem(_inventory.ItemOnHand.sprite);
         }
         
         public void DeselectItem()
         {
             _inventory.Deselect();
             _pockets.Highlight();
-            //_cursor.Clear();
+            _cursor.DropItem();
         }
 
         public void ToogleItem(string id)

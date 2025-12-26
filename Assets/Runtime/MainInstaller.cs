@@ -8,7 +8,8 @@ using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
 using Zenject;
-using Cursor = Runtime.Infrastructure.Cursor;
+using Runtime.Application;
+using Cursor = Runtime.Application.Cursor;
 
 namespace Runtime
 {
@@ -19,7 +20,7 @@ namespace Runtime
             UIResources.Initialize();
             Container.Bind<CurrentDialogue>().AsSingle();
             Container.Bind<Child>().FromInstance(Child.NewBorn()).AsSingle();
-            Container.Bind<Cursor>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<CursorCanvas>().FromComponentInHierarchy().AsSingle();
             var allItems = Resources.LoadAll<Item>("Items").ToList();
             Container.Bind<List<Item>>().FromInstance(allItems).AsSingle();
 
@@ -31,6 +32,7 @@ namespace Runtime
 
             Container.Bind<Pockets>().FromComponentInHierarchy().AsSingle();
             Container.Bind<Dialogue>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<Cursor>().FromComponentInHierarchy().AsSingle();
         }
     }
 }
