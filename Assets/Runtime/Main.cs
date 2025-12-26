@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using Runtime.Infrastructure;
+using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
 using Cursor = Runtime.Infrastructure.Cursor;
@@ -14,7 +14,9 @@ namespace Runtime
         {
             UIResources.Initialize();
             var catalogue = new Catalogue(AllItems);
-            Inventory.Initialize(catalogue);
+            var inventory = new Inventory(catalogue);
+            
+            HandleInventory.Initialize(inventory);
         }
 
         private void Start()
