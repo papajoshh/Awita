@@ -1,26 +1,21 @@
-using System;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using UnityEngine;
+using Zenject;
 
 namespace Runtime.Infrastructure
 {
-    public class Interaction: MonoBehaviour, Hoverable
+    public abstract class Interaction: MonoBehaviour, Hoverable
     {
-        public Sprite Icon => UIResources.Interact.Icon;
-        [SerializeField] private DialogueData dialogue;
+        [Inject] private readonly CurrentDialogue _currentDialogue;
+        public virtual Sprite Icon => UIResources.Interact.Icon;
 
-        private void ShowText()
+        public void OnMouseOver()
         {
-            ShowDialogue.Start(dialogue);
+            if (!_currentDialogue.Hid) return;
+            if (Input.GetMouseButton(0)) Interact();
         }
 
-        private void OnMouseOver()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                ShowText();
-            }
-        }
+        public abstract void Interact();
     }
 }

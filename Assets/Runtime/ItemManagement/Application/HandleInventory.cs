@@ -3,28 +3,27 @@ using UnityEngine;
 
 namespace Runtime.ItemManagement.Application
 {
-    public static class HandleInventory
+    public class HandleInventory
     {
-        private static Inventory _inventory;
-        private static Pockets pockets => _cachePockets ??= GameObject.FindGameObjectWithTag("PocketCanvas").GetComponent<Pockets>();
-
-        private static Pockets _cachePockets;
-        public static void Initialize(Inventory inventory)
+        private readonly Inventory _inventory;
+        private readonly Pockets _pockets;
+        
+        public HandleInventory(Inventory inventory, Pockets pockets)
         {
             _inventory = inventory;
-            pockets.Display(_inventory.ItemsInPockets);
+            _pockets = pockets;
         }
 
-        public static void AddItem(string id)
+        public void AddItem(string id)
         {
             _inventory.Add(id);
-            pockets.Display(_inventory.ItemsInPockets);
+            _pockets.Display(_inventory.ItemsInPockets);
         }
 
-        public static void RemoveItem(string id)
+        public void RemoveItem(string id)
         {
             _inventory.Remove(id);
-            pockets.Display(_inventory.ItemsInPockets);
+            _pockets.Display(_inventory.ItemsInPockets);
         }
     }
 }

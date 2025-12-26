@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e07c65e7eff49d98000c310b3a9e115, type: 3}
-  m_Name: Vaso de agua
+  m_Name: GlassOfWater
   m_EditorClassIdentifier: 
-  ID: Vaso de agua
+  ID: GlassOfWater
   sprite: {fileID: 21300000, guid: 051bff741f384cd4d85062bfd4d66b1d, type: 3}

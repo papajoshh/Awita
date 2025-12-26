@@ -1,10 +1,10 @@
 namespace Runtime.Dialogues.Domain
 {
-    public static class CurrentDialogue
+    public class CurrentDialogue
     {
-        public static string FirstLine => _currentDialogue.FirstLine;
+        public string FirstLine => _currentDialogue.FirstLine;
         
-        public static string NextLine
+        public string NextLine
         {
             get
             {
@@ -14,14 +14,26 @@ namespace Runtime.Dialogues.Domain
             }
         }
         
-        public static bool HasEnded => _currentLineIndex >= _currentDialogue.dialogueLines.Length - 1;
+        public bool HasEnded => _currentLineIndex >= _currentDialogue.dialogueLines.Length - 1;
         
-        private static int _currentLineIndex = 0;
-        private static DialogueData _currentDialogue;
-        public static void Start(DialogueData data)
+        private int _currentLineIndex = 0;
+        private DialogueData _currentDialogue;
+        public bool Hid { get; private set; }
+
+        public CurrentDialogue()
+        {
+            Hid = true;
+        }
+        public void Start(DialogueData data)
         {
             _currentDialogue = data;
             _currentLineIndex = 0;
+            Hid = false;
+        }
+
+        public void End()
+        {
+            Hid = true;
         }
     }
 }

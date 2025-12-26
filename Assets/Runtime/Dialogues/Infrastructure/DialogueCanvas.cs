@@ -4,11 +4,13 @@ using Runtime.Application;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Runtime.Dialogues.Infrastructure
 {
     public class DialogueCanvas: MonoBehaviour, Dialogue
     {
+        [Inject] private readonly ShowDialogue _showDialogue;
         [SerializeField] private TextMeshProUGUI lineText;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private RectTransform rectTransform;
@@ -24,6 +26,7 @@ namespace Runtime.Dialogues.Infrastructure
             canvasGroup.interactable = false;
             button = GetComponent<Button>();
             button.onClick.AddListener(Tap);
+            TypeLine("");
         }
 
         private void Tap()
@@ -34,7 +37,7 @@ namespace Runtime.Dialogues.Infrastructure
             }
             else
             {
-                ShowDialogue.ShowNextLine();
+                _showDialogue.ShowNextLine();
             }
         }
 

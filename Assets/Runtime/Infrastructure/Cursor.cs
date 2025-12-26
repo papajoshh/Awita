@@ -16,10 +16,6 @@ namespace Runtime.Infrastructure
         private void Awake()
         {
             Instance = this;
-        }
-
-        public void Initialize()
-        {
             ChangeSprite(UIResources.DefaultCursor.Icon);
             _camera = Camera.main;
         }

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using Runtime.Domain;
 using Runtime.Infrastructure;
-using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
-using Cursor = Runtime.Infrastructure.Cursor;
 
 namespace Runtime
 {
@@ -16,15 +15,14 @@ namespace Runtime
             UIResources.Initialize();
             
             AllItems = Resources.LoadAll<Item>("Items").ToList();
+            Child.NewBorn();
             var catalogue = new Catalogue(AllItems);
             var inventory = new Inventory(catalogue);
-            
-            HandleInventory.Initialize(inventory);
         }
 
         private void Start()
         {
-            Cursor.Instance.Initialize();
+            //Cursor.Instance.Initialize();
         }
     }
 }
