@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.Domain;
@@ -7,13 +9,12 @@ using Runtime.ItemManagement.Domain;
 using UnityEngine;
 using Zenject;
 
-public class GetRed : Interaction
+public class RefillGlassWithBottle : Interaction
 {
-    [SerializeField] private string itemOnHand = "Palo";
+    [SerializeField] private string itemOnHand = "EmptyGlass";
     [SerializeField] private DialogueData dialogueCompleted;
     [SerializeField] private DialogueData dialogueNoItem;
     [SerializeField] private DialogueData dialogueWrongItem;
-    [SerializeField] private GameObject telaraña;
     
     [Inject] private readonly Inventory _inventory;
     [Inject] private HandleInventory _handleInventory;
@@ -25,8 +26,8 @@ public class GetRed : Interaction
         if (_inventory.HasitemOnHand(itemOnHand))
         {
             _handleInventory.RemoveItemOnHand();
-            _handleInventory.AddItem("Red");
-            telaraña.SetActive(false);
+            _handleInventory.AddItem("GlassFullOfWater");
+            _showDialogue.Start(dialogueCompleted);
             Disable();
         }
         else
