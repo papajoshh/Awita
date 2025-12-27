@@ -3873,7 +3873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7818d6cf0dba4df28cfd8dcc907a63d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemOnHand: GlassOfWater
+  itemOnHand: GlassFullOfWater
   dialogueCompleted: {fileID: 11400000, guid: 5f0fd4d7abe3e18408c534ce89e2fa1a, type: 2}
   dialogueNoItem: {fileID: 11400000, guid: 9ed5f2bc04d468747a6c212366e1b1d9, type: 2}
   dialogueWrongItem: {fileID: 11400000, guid: 0bc2666053caa4d419b6d25d282b2cfe, type: 2}

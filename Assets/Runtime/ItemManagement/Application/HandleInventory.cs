@@ -21,6 +21,7 @@ namespace Runtime.ItemManagement.Application
         {
             _inventory.Add(id);
             _pockets.Display(_inventory.ItemsInPockets);
+            SelectItem(id);
         }
 
         private void RemoveItem(string id)
