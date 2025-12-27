@@ -4,6 +4,7 @@ namespace Runtime.Domain
     {
         public bool FirstLevelHidrationCompleted => levelOfHidration >= 1;
         public bool SecondLevelHidrationCompleted => levelOfHidration >= 4;
+        public bool ThirdLevelHidrationCompleted => levelOfHidration >= 12;
         private int levelOfHidration;
         
         public static Child NewBorn()

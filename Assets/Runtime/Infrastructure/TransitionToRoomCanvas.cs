@@ -1,0 +1,38 @@
+using System;
+using DG.Tweening;
+using UnityEngine;
+
+namespace Runtime.Infrastructure
+{
+    public class TransitionToRoomCanvas: MonoBehaviour
+    {
+        [SerializeField] private CanvasGroup canvasGroup;
+        
+        private Camera _mainCamera;
+        private void Awake()
+        {
+            _mainCamera = Camera.main;
+            canvasGroup.blocksRaycasts = false;
+        }
+
+        public void GoToRoom(string roomName)
+        {
+            var sequence = DOTween.Sequence();
+            canvasGroup.blocksRaycasts = true;
+            sequence.Append(canvasGroup.DOFade(1, 0.3f).OnComplete(() => ChangeCameraToRoom(roomName)));
+            sequence.Append(canvasGroup.DOFade(0, 0.3f).SetDelay(0.5f).OnComplete(() => canvasGroup.blocksRaycasts = true));
+        }
+        
+        private void ChangeCameraToRoom(string roomName)
+        {
+            var roomTransform = roomName switch
+            {
+                "room" => new Vector3(0, 0, -10),
+                "bathroom" => new Vector3(20, 0, -10),
+                "kitchen" => new Vector3(20, 0, -10),
+                _ => throw new ArgumentOutOfRangeException(nameof(roomName), roomName, null)
+            };
+            _mainCamera.transform.parent.position = roomTransform;
+        }
+    }
+}

@@ -8,6 +8,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private GameObject closedGO;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private bool startClosed = true;
+        [SerializeField] private bool resetAtDisable = true;
         
         private bool closed;
 
@@ -32,6 +33,7 @@ namespace Runtime.Infrastructure
         
         private void OnDisable()
         {
+            if (!resetAtDisable) return;
             if (startClosed)
             {
                 Close();

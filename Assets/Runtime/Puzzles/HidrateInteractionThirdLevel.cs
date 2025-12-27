@@ -1,4 +1,3 @@
-using System;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.Domain;
@@ -9,7 +8,7 @@ using Zenject;
 
 namespace Runtime.Infrastructure
 {
-    public class HidrateInteractionSecondLevel: Interaction
+    public class HidrateInteractionThirdLevel: Interaction
     {
         [SerializeField] private string itemOnHand = "GlassOfWater";
         [SerializeField] private DialogueData dialogueCompleted;
@@ -25,19 +24,23 @@ namespace Runtime.Infrastructure
         [Inject] private readonly ShowDialogue _showDialogue;
         [Inject] private readonly TransitionToRoomCanvas _transition;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            Disable();
+        }
         public override void Interact()
         {
-            if (_child.SecondLevelHidrationCompleted) return;
+            if (_child.ThirdLevelHidrationCompleted) return;
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _child.Hidrate();
                 animator.Play("DrinkWater");
-                _showDialogue.OnShowNewLine += pauseAnimation.Resume;
                 pauseAnimation.OnEnded += DisableAndGoToBathroom;
+                _showDialogue.OnShowNewLine += pauseAnimation.Resume;
                 _showDialogue.Start(dialogueCompleted);
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("EmptyGlass");
-
             }
             else
             {
@@ -54,7 +57,7 @@ namespace Runtime.Infrastructure
         
         private void DisableAndGoToBathroom()
         {
-            if (!_child.SecondLevelHidrationCompleted) return;
+            if (!_child.ThirdLevelHidrationCompleted) return;
             Disable();
             _transition.GoToRoom("bathroom");
             hidrateInteraction.Enable();
