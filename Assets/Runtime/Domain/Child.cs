@@ -1,3 +1,5 @@
+using System;
+
 namespace Runtime.Domain
 {
     public class Child
@@ -6,7 +8,8 @@ namespace Runtime.Domain
         public bool SecondLevelHidrationCompleted => levelOfHidration >= 4;
         public bool ThirdLevelHidrationCompleted => levelOfHidration >= 12;
         private int levelOfHidration;
-        
+
+        public event Action OnHidrate;
         public static Child NewBorn()
         {
             return new Child()
@@ -18,6 +21,7 @@ namespace Runtime.Domain
         public void Hidrate()
         {
             levelOfHidration++;
+            OnHidrate?.Invoke();
         }
     }
 }

@@ -36,6 +36,7 @@ namespace Runtime
             Container.Bind<ShowDialogue>().AsSingle();
             Container.Bind<ShowPopupInteraction>().AsSingle();
             Container.Bind<TransitionToRoomCanvas>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<TravelButtonsCanvas>().FromComponentInHierarchy().AsSingle();
             Container.Bind<Pockets>().FromComponentInHierarchy().AsSingle();
             Container.Bind<Dialogue>().FromComponentInHierarchy().AsSingle();
             Container.Bind<ExtraInteractionPopup>().FromComponentInHierarchy().AsSingle();
