@@ -26,6 +26,7 @@ namespace Runtime.Dialogues.Domain
         }
         public void Start(DialogueData data)
         {
+            if (!Hid) return;
             _currentDialogue = data;
             _currentLineIndex = 0;
             Hid = false;

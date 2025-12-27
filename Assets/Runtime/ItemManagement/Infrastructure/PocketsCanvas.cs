@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
@@ -10,9 +11,18 @@ namespace Runtime.ItemManagement.Infrastructure
     {
         [SerializeField] private List<ItemCell> _itemCells;
         [Inject] private readonly Inventory _inventory;
+        [Inject] private readonly HandleInventory _handleInventory;
         private void Awake()
         {
             Display(_inventory.ItemsInPockets);
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButton(1))
+            {
+                _handleInventory.DeselectItem();
+            }
         }
 
         public void Display(List<Item> items)

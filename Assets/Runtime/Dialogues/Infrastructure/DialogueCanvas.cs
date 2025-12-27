@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Febucci.UI;
 using Runtime.Application;
+using Runtime.Dialogues.Domain;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ namespace Runtime.Dialogues.Infrastructure
     public class DialogueCanvas: MonoBehaviour, Dialogue
     {
         [Inject] private readonly ShowDialogue _showDialogue;
+        [Inject] private readonly CurrentDialogue _currentDialogue;
         [SerializeField] private TextMeshProUGUI lineText;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private RectTransform rectTransform;
@@ -27,6 +29,12 @@ namespace Runtime.Dialogues.Infrastructure
             OnHide();
         }
 
+        private void Update()
+        {
+            if (Time.frameCount % 30 != 0) return;
+            if (!isVisible && !_currentDialogue.Hid)_currentDialogue.End();
+        }
+        
         private void Tap()
         {
             if (writer.isShowingText)
