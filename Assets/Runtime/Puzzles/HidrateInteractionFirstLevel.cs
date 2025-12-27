@@ -15,7 +15,9 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
         [SerializeField] private Animator animator;
+        [SerializeField] private Animator animatorKid;
         [SerializeField] private PauseAnimation pauseAnimation;
+        [SerializeField] private PauseAnimation pauseKidAnimation;
         [SerializeField] private Interaction[] roomInteractions;
         [SerializeField] private ItemContainer[] roomitems;
         
@@ -44,7 +46,9 @@ namespace Runtime.Infrastructure
             {
                 _child.Hidrate();
                 animator.Play("DrinkWater");
+                animatorKid.Play("KidDrinkingAnimation");
                 _showDialogue.OnShowNewLine += pauseAnimation.Resume;
+                _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
                 _showDialogue.Start(dialogueCompleted);
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("EmptyGlass");
