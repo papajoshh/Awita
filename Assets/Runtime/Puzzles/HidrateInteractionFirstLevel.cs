@@ -57,6 +57,7 @@ namespace Runtime.Infrastructure
                     item.Enable();
                 }
                 Disable();
+                gameObject.SetActive(false);
             }
             else
             {
