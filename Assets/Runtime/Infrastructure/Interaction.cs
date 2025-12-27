@@ -56,13 +56,13 @@ namespace Runtime.Infrastructure
         public void Enable()
         {
             Interactable = true;
-            collider.enabled = true;
+            if (collider != null) collider.enabled = true;
         }
 
         public void Disable()
         {
             Interactable = false;
-            collider.enabled = false;
+            if (collider != null) collider.enabled = false;
         } 
 
         public abstract void Interact();
