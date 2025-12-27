@@ -19,7 +19,7 @@ namespace Runtime.Infrastructure
         private Button button;
         private bool isOver;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             button = GetComponent<Button>();
             if (button) button.onClick.AddListener(OnClick);
@@ -34,7 +34,6 @@ namespace Runtime.Infrastructure
         {
             if (!isOver || !Interactable) return;
             Interact();
-            ExitPointer();
         }
         public void OnMouseOver()
         {
@@ -49,6 +48,7 @@ namespace Runtime.Infrastructure
         public void OnPointerEnter(PointerEventData eventData)
         {
             isOver = true;
+            if (!Interactable) return;
             _cursor.ChangeSprite(Icon);
         }
 

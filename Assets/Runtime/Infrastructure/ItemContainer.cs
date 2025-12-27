@@ -69,6 +69,7 @@ namespace Runtime.Infrastructure
         public void OnPointerEnter(PointerEventData eventData)
         {
             isOver = true;
+            if (!Interactable) return;
             _cursor.ChangeSprite(Icon);
             _cursor.ChangeToItem(item.sprite);
         }

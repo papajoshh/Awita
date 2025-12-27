@@ -9,7 +9,7 @@ using Runtime.ItemManagement.Domain;
 using UnityEngine;
 using Zenject;
 
-public class RefillGlassWithBottle : Interaction
+public class RefillGlass : Interaction
 {
     [SerializeField] private string itemOnHand = "EmptyGlass";
     [SerializeField] private DialogueData dialogueCompleted;
