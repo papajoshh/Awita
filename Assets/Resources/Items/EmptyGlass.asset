@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EmptyGlass
   m_EditorClassIdentifier: 
   ID: EmptyGlass
-  sprite: {fileID: 21300000, guid: 20cc67e773b53074d865db9e27c87744, type: 3}
+  sprite: {fileID: 21300000, guid: 959ae8eb127a59546b56d25bfe1df272, type: 3}

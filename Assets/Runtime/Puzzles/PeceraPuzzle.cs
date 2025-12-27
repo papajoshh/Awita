@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.ItemManagement.Application;
@@ -14,6 +15,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueFishNoItem;
         [SerializeField] private DialogueData dialogueFishWrongItem;
         [SerializeField] private SpriteRenderer peceraRenderer;
+        [SerializeField] private SpriteRenderer fishRenderer;
         [SerializeField] private Sprite peceraConAgua;
         [SerializeField] private Sprite peceraVacia;
         [SerializeField] private Sprite peceraWithFish;
@@ -46,6 +48,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 peceraRenderer.sprite = peceraConAgua;
+                fishRenderer.DOFade(0, 0.25f);
                 _showDialogue.Start(dialogueFishCompleted);
                 fishIsOut = true;
             }
@@ -66,7 +69,7 @@ namespace Runtime.Infrastructure
             if (!fishIsOut) return;
             if (_inventory.HasitemOnHand(itemOnHand))
             {
-                peceraRenderer.sprite = peceraVacia;
+                peceraRenderer.DOFade(0, 0.25f);
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
                 _showDialogue.Start(dialogueCompleted);

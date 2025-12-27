@@ -1,6 +1,6 @@
+using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
-using Runtime.Domain;
 using Runtime.Infrastructure;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
@@ -13,7 +13,7 @@ public class GetRed : Interaction
     [SerializeField] private DialogueData dialogueCompleted;
     [SerializeField] private DialogueData dialogueNoItem;
     [SerializeField] private DialogueData dialogueWrongItem;
-    [SerializeField] private GameObject telaraña;
+    [SerializeField] private SpriteRenderer telaraña;
     
     [Inject] private readonly Inventory _inventory;
     [Inject] private HandleInventory _handleInventory;
@@ -26,7 +26,7 @@ public class GetRed : Interaction
         {
             _handleInventory.RemoveItemOnHand();
             _handleInventory.AddItem("Red");
-            telaraña.SetActive(false);
+            telaraña.DOFade(0, 0.25f);
             Disable();
         }
         else

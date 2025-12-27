@@ -28,7 +28,7 @@ namespace Runtime.Infrastructure
         [Inject] private readonly ShowDialogue _showDialogue;
 
         private int cuts = 0;
-        private int cutsNeeded = 4;
+        private int cutsNeeded = 3;
         private bool completelyCut = false;
 
         protected override void Awake()

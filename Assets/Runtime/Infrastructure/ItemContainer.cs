@@ -19,7 +19,23 @@ namespace Runtime.Infrastructure
 
         private Button button;
         private bool isOver;
-        private void Start()
+        private Collider2D collider
+        {
+            get
+            {
+                if(cacheCollider == null)
+                    cacheCollider = GetComponent<Collider2D>();
+                return cacheCollider;
+            }
+        }
+
+        private Collider2D cacheCollider;
+
+        protected virtual void Awake()
+        {
+            
+        }
+        protected virtual void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             button = GetComponent<Button>();
@@ -63,8 +79,17 @@ namespace Runtime.Infrastructure
             Destroy(gameObject);
         }
         
-        public void Enable() => Interactable = true;
-        public void Disable() => Interactable = false;
+        public void Enable()
+        {
+            Interactable = true;
+            collider.enabled = true;
+        }
+
+        public void Disable()
+        {
+            Interactable = false;
+            collider.enabled = false;
+        } 
 
         public void OnPointerEnter(PointerEventData eventData)
         {

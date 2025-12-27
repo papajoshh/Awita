@@ -24,8 +24,9 @@ namespace Runtime.Infrastructure
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             foreach (var interaction in roomInteractions)
             {
                 interaction.Disable();

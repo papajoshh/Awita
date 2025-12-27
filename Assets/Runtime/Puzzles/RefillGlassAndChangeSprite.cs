@@ -1,7 +1,5 @@
-using System;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
-using Runtime.Domain;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
@@ -9,40 +7,29 @@ using Zenject;
 
 namespace Runtime.Infrastructure
 {
-    public class HidrateInteractionSecondLevel: Interaction
+    public class RefillGlassAndChangeSprite : Interaction
     {
-        [SerializeField] private string itemOnHand = "GlassOfWater";
+        [SerializeField] private string itemOnHand = "EmptyGlass";
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
-        [SerializeField] private Animator animator;
-        [SerializeField] private PauseAnimation pauseAnimation;
+        [SerializeField] private SpriteRenderer rendererToChange;
+        [SerializeField] private Sprite spriteToChange;
         
-        [Inject] private readonly Child _child;
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
-        
 
         public override void Interact()
         {
-            if (_child.SecondLevelHidrationCompleted) return;
+            if (!Interactable) return;
             if (_inventory.HasitemOnHand(itemOnHand))
             {
-                _child.Hidrate();
-                animator.Play("DrinkWater");
-                _showDialogue.OnShowNewLine += pauseAnimation.Resume;
-                _showDialogue.Start(dialogueCompleted);
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("EmptyGlass");
-
-                if (_child.SecondLevelHidrationCompleted)
-                {
-                    Disable();
-                    gameObject.SetActive(false);
-                    //Gestión de ir al cuarto de baño
-                }
-                
+                _handleInventory.AddItem("GlassFullOfWater");
+                _showDialogue.Start(dialogueCompleted);
+                rendererToChange.sprite = spriteToChange;
+                Disable();
             }
             else
             {
