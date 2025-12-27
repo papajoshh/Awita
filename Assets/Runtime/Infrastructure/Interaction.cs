@@ -38,7 +38,7 @@ namespace Runtime.Infrastructure
         public void OnMouseOver()
         {
             if (!_currentDialogue.Hid) return;
-            if (Input.GetMouseButton(0)) Interact();
+            if (Input.GetMouseButtonDown(0)) Interact();
         }
         
         public void Enable() => Interactable = true;
