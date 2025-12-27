@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 127764e3aab941f6b2fc6d251428948b, type: 3}
-  m_Name: WaterWardrobe
+  m_Name: 0_WaterWardrobe
   m_EditorClassIdentifier: 
   PuzzleName: WaterWardrobe
   PuzzleIndex: 0

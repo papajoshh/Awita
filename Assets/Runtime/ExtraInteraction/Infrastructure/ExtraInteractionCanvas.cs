@@ -22,6 +22,15 @@ namespace Runtime.ExtraInteraction.Infrastructure
             OnHideComplete();
         }
 
+        private void Start()
+        {
+            var numberOfChilds = containerPuzzles.transform.childCount;
+            for (int i = 0; i < numberOfChilds; i++)
+            { 
+                containerPuzzles.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+
         private void OnDestroy()
         {
             closeButton.onClick.RemoveListener(Hide);

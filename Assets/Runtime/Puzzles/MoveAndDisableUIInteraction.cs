@@ -32,9 +32,14 @@ namespace Runtime.Infrastructure
         
         private void OnDisable()
         {
-            closed = true;
-            closedGO.SetActive(true);
-            openedGO.SetActive(false);
+            if (startClosed)
+            {
+                Close();
+            }
+            else
+            {
+                Open();
+            }
         }
 
         private void Close()
