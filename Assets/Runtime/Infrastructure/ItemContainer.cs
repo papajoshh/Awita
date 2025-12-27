@@ -43,7 +43,7 @@ namespace Runtime.Infrastructure
 
         private void OnClick()
         {
-            if (!isOver) return;
+            if (!isOver || !Interactable) return;
             ExitPointer();
             RecollectItem();
         }
@@ -53,7 +53,7 @@ namespace Runtime.Infrastructure
         
         private void OnMouseOver()
         {
-            if (!Input.GetMouseButtonDown(0)) return;
+            if (!Interactable || !Input.GetMouseButtonDown(0)) return;
             RecollectItem();
         }
 
