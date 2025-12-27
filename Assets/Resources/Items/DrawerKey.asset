@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DrawerKey
   m_EditorClassIdentifier: 
   ID: DrawerKey
-  sprite: {fileID: 21300000, guid: 3495ae8188d78164ab6405170b9fbfc0, type: 3}
+  sprite: {fileID: 21300000, guid: b6cac4717fbb8ad419524a0bfbd4487d, type: 3}
