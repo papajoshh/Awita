@@ -69,6 +69,7 @@ namespace Runtime.Infrastructure
         private void Open()
         {
             quesoItem.Enable();
+            hieloItem.Enable();
             _audioPlayer.PlaySFX(openAudio, 0.2f);
             openedCloset.DOColor(Color.white, 0.75f);
             closedCloset.DOColor(new Color (1, 1, 1, 0), 0.75f);
