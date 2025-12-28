@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Runtime.Application
 {
@@ -9,5 +10,6 @@ namespace Runtime.Application
         void ChangeToItem(Sprite sprite);
         void DropItem();
         void DropItem(Sprite sprite);
+        EventSystem EventSystem { get; }
     }
 }

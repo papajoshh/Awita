@@ -50,6 +50,7 @@ namespace Runtime.Infrastructure
         public void OnMouseOver()
         {
             if (!_currentDialogue.Hid) return;
+            if (_cursor.EventSystem.IsPointerOverGameObject())return;
             if (Input.GetMouseButtonDown(0)) Interact();
         }
 

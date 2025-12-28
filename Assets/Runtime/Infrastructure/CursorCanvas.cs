@@ -16,13 +16,13 @@ namespace Runtime.Infrastructure
 
         private Camera _camera;
         private Sprite currentSprite;
-        private EventSystem _eventSystem;
+        public EventSystem EventSystem { get; private set; }
         private void Awake()
         {
             ChangeSprite(UIResources.DefaultCursor.Icon);
             _camera = Camera.main;
             itemImage.enabled = false;
-            _eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+            EventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         }
 
         private void Update()
@@ -53,7 +53,7 @@ namespace Runtime.Infrastructure
         private void ChangeSpriteOnHover()
         {
             if (!_camera) return;
-            if (_eventSystem.IsPointerOverGameObject())return;
+            if (EventSystem.IsPointerOverGameObject())return;
             var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider)
             {

@@ -27,6 +27,7 @@ namespace Runtime
             Container.Bind<List<Item>>().FromInstance(allItems).AsSingle();
             Container.Bind<List<ExtraInteractionPuzzle>>().FromInstance(allExtraPuzzles).AsSingle();
             Container.Bind<Ratonera>().AsSingle();
+            Container.Bind<Router>().AsSingle();
             
             Container.Bind<ExtraInteractionPuzzleCatalogue>().AsSingle();
             Container.Bind<Catalogue>().AsSingle();
