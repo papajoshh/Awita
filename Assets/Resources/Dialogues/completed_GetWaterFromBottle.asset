@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "\xBFEl agua de aqu\xED sabr\xE1 a agua en miniatura tambi\xE9n?"
-  - Porque necesitamos maxi agua entonces
+  - "Construir el barquito llev\xF3 meses."
+  - Pero estaba acaparando toda el agua.

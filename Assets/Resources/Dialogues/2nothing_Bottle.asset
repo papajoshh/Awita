@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Esta botella est\xE1 llena de agua"
+  - "Una botella de agua. Podr\xEDa llenar un vaso con ella."

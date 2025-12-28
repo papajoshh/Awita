@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Qu\xE9 sed tengo"
-  - "No tendr\xEDa que haber comido tantos polvorones cuando lo dijo la abuela"
-  - Traeme un vaso de awita
+  - "Qu\xE9 sed tengo\u2026 "
+  - "P\xE1same ese vaso, porfa."

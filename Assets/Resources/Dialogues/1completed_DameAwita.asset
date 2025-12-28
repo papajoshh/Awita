@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "J\xEDjoles"
-  - "Qu\xE9 rica estaba"
-  - "Pero se me hace que voy a necesitar m\xE1s"
+  - "Qu\xE9 rica."
+  - "Pero tengo\u2026"
+  - Tengo mucha sed.

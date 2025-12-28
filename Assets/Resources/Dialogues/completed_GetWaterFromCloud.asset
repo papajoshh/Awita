@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Lluvia formada de una nube de caldo de pollo. La naturaleza es lo m\xE1ximo."
+  - Lluvia formada de una nube de caldo de pollo.
+  - "La naturaleza es lo m\xE1ximo."

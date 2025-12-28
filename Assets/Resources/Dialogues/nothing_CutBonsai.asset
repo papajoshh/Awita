@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Este bonsai necesita una poda
+  - "Se puede sentir la humedad que viene de las ra\xEDces."

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Si pudi\xE9ramos sacar el barco de dentro..."
-  - "nos podr\xEDamos quedar con el agua de dentro"
+  - 'El barquito en miniatura del abuelo. '
+  - "Qu\xE9 recuerdos."

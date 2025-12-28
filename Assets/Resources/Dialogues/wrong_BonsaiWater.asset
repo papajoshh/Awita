@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Se lo pongo de sombrero o qu\xE9 hago con esto"
+  - No puedo rellenar eso.

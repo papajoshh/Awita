@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - En las manos no las voy a llevar
+  - "No hay pez, v\xEDa libre para saborear esta rica rica agua."

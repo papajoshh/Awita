@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Perfecto
-  - "Todav\xEDa hay restos de comida de pez"
+  - 'Hay cositas flotando. '
+  - Agua premium.

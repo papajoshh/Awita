@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Tiene un agujero en forma de llave
-  - "Quiz\xE1 podr\xEDa abrirlo con una bombilla"
+  - "Est\xE1 cerrado con llave."

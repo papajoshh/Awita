@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - De verdad necesito awita ya
+  - De verdad...
+  - Necesito aguita...
   - Por favor

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "No creo que sea la mejor comida para \xE9l"
+  - Eso no sirve para Guille.

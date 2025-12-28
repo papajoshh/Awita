@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Le voy a llevar un vasito sin hielos
+  - Litros de agua.
+  - Con la temperatura perfecta.
+  - Y solo algunos pelos en el fondo.

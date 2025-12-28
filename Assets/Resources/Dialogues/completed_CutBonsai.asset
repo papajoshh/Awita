@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Vaya
-  - Creo que me he pasado podando
-  - "Pero se ve m\xE1s bonito as\xED"
+  - Vaya.
+  - Creo que me he pasado un poco.

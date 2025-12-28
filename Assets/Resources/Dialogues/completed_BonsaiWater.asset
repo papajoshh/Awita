@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Hmmmm
-  - "El agua terrosa es la que m\xE1s nutrientes tiene"
+  - "Pobre plantita, pero el ni\xF1o necesita beber."

@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "\xA1Oooopa!"
-  - "Lo que construyen las ara\xF1as es espectacular"
+  - "\xA1Ojo! \xA1Esta red es la leche!"

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Con eso la pizza va a seguir bloqueando el paso.
+  - '*Lo intentas, pero la pizza es resistente.'

@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Dificilmente vamos a abrir el caj\xF3n con eso"
-  - No parece una bombilla
+  - No puedo forzar la cerradura con eso.

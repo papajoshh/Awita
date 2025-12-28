@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "No s\xE9 qu\xE9 que puedo hacer con eso"
+  - Con eso no puedo utilizar la botella.

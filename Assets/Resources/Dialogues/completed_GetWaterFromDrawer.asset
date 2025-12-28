@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Lesgooo
-  - "Aguita estancada del caj\xF3n"
-  - Que ico
+  - "Mucho m\xE1s c\xF3modo que beber directo del caj\xF3n."

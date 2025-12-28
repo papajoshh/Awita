@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Construir el barquito llev\xF3 meses, pero estaba acaparando toda el agua."
+  - "Construir el barquito llev\xF3 meses."
+  - Pero estaba acaparando toda el agua.

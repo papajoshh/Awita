@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Oooooopaaa
-  - "Ahora s\xED me encuentro mejor"
-  - "Pero se me hace que voy a necesitar m\xE1s"
+  - "Estoy\u2026 "
+  - 'Estoy seco. '
+  - Tengo sed.

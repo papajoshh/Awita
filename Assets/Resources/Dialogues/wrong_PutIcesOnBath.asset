@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Seguro que esto revienta la ba\xF1era"
+  - "Eso no va a enfriar la ba\xF1era."

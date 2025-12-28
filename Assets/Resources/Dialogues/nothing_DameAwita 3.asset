@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Sigo necesitando m\xE1s awita"
-  - No es broma
+  - "Agua, necesito\u2026 "
+  - Necesito hidratarme.

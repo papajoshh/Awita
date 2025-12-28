@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Este agua se podr\xEDa beber perfectamente"
-  - De no ser por ese pescao
+  - 'Guille el pez. '
+  - "Lleva d\xE9cadas en la familia."
