@@ -1,3 +1,4 @@
+using Runtime.Dialogues.Domain;
 using UnityEngine;
 
 namespace Runtime.ItemManagement.Domain
@@ -7,5 +8,6 @@ namespace Runtime.ItemManagement.Domain
     {
         public string ID;
         public Sprite sprite;
+        public DialogueData dialogue;
     }
 }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Hielo
   sprite: {fileID: 21300000, guid: f366f68d08bf7184c87e957e5eb8b3a7, type: 3}
+  dialogue: {fileID: 11400000, guid: 2b9bfa43344504445b871dac4cafe2e9, type: 2}

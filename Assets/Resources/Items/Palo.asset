@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Palo
   sprite: {fileID: 21300000, guid: 6df573aabcbf15c499d1d14ca61a6329, type: 3}
+  dialogue: {fileID: 11400000, guid: 7c458e04d14c3ed49a44f087aed1c6f0, type: 2}

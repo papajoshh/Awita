@@ -25,6 +25,7 @@ namespace Runtime.Infrastructure
             bathroomButtons.SetActive(true);
             kitchenButtons.SetActive(false);
             canvasGroup.alpha = 1;
+            canvasGroup.interactable = true;
         }
         
         public void UpdateCurrentState()

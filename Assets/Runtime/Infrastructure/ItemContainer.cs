@@ -1,4 +1,3 @@
-using System;
 using Runtime.Application;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
@@ -17,8 +16,10 @@ namespace Runtime.Infrastructure
         [SerializeField] private Item item;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
+        [Inject] private readonly ShowDialogue _showDialogue;
         private Button button;
         private bool isOver;
+        private bool glassWaterShowed = false;
         private Collider2D collider
         {
             get
@@ -76,6 +77,15 @@ namespace Runtime.Infrastructure
         private void RecollectItem()
         {
             _controller.AddItem(item.ID);
+            if (string.Equals(item.ID, "GlassFullOfWater"))
+            {
+                if(!glassWaterShowed)_showDialogue.Start(item.dialogue);
+                glassWaterShowed = true;
+            }
+            else if (!string.Equals(item.ID, "EmptyGlass"))
+            {
+                _showDialogue.Start(item.dialogue);
+            }
             Destroy(gameObject);
         }
         

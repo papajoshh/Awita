@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: TijerasPodar
   sprite: {fileID: 21300000, guid: 9e43f60a2e5a41446866bbabce07f60e, type: 3}
+  dialogue: {fileID: 11400000, guid: 78567428589da4148a07204d82060886, type: 2}

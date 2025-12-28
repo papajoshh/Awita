@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e07c65e7eff49d98000c310b3a9e115, type: 3}
-  m_Name: Cassette
+  m_Script: {fileID: 11500000, guid: e489def3231b3b9498b023a35ff52116, type: 3}
+  m_Name: item_rama
   m_EditorClassIdentifier: 
-  ID: Cassette
-  sprite: {fileID: 21300000, guid: 296c05c70f2fd5147a2a9b9abfda6055, type: 3}
-  dialogue: {fileID: 11400000, guid: 4f5257f19d90c494a98b413f82ff3979, type: 2}
+  _id: 
+  _dialogueLines:
+  - "\xA1Una rama! Tiene una forma graciosita."

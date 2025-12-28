@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Red
   sprite: {fileID: 21300000, guid: e80359afba8574341a9d8f02c8aed31e, type: 3}
+  dialogue: {fileID: 11400000, guid: f36cf6b01dbd0b64dad27ddafc56834a, type: 2}

@@ -8,7 +8,6 @@ using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
 using Zenject;
-using Runtime.Application;
 using Runtime.ExtraInteraction.Application;
 using Runtime.ExtraInteraction.Domain;
 using Cursor = Runtime.Application.Cursor;
@@ -27,6 +26,7 @@ namespace Runtime
             var allExtraPuzzles = Resources.LoadAll<ExtraInteractionPuzzle>("ExtraInteractionPuzzles").ToList();
             Container.Bind<List<Item>>().FromInstance(allItems).AsSingle();
             Container.Bind<List<ExtraInteractionPuzzle>>().FromInstance(allExtraPuzzles).AsSingle();
+            Container.Bind<Ratonera>().AsSingle();
             
             Container.Bind<ExtraInteractionPuzzleCatalogue>().AsSingle();
             Container.Bind<Catalogue>().AsSingle();

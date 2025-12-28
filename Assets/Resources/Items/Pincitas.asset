@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Pincitas
   m_EditorClassIdentifier: 
   ID: Pincitas
-  sprite: {fileID: 21300000, guid: 44614ecfcc7d1b1468d3250d7fdfc80c, type: 3}
+  sprite: {fileID: 21300000, guid: a83239aeaa6f75c469cd3877af55e4b7, type: 3}
+  dialogue: {fileID: 11400000, guid: d7d67c68eb2222742aea0c05abcd226f, type: 2}
