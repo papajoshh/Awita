@@ -90,17 +90,10 @@ namespace Runtime.Infrastructure
         {
             dismountings++;
             botellaRenderer.sprite = barquitoStages[dismountings];
-
             
-            if (dismountings == 1)
-            {
-                stick.SetActive(true);
-            }
-            else if (dismountings >= dismountingsNeeded && !completelyDismounted)
-            {
-                _handleInventory.RemoveItemOnHand();
-                completelyDismounted = true;
-            }
+            if (dismountings < dismountingsNeeded || completelyDismounted) return;
+            _handleInventory.RemoveItemOnHand();
+            completelyDismounted = true;
         }
     }
 }
