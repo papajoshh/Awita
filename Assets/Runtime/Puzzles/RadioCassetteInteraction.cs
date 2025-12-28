@@ -14,6 +14,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
         [SerializeField] private AudioClip _audioClip;
+        [SerializeField] private GameObject animation;
 
         [Inject] private readonly Inventory _inventory;
         [Inject] private readonly AudioPlayer _audioPlayer;
@@ -21,6 +22,12 @@ namespace Runtime.Infrastructure
         [Inject] private readonly ShowDialogue _showDialogue;
 
         public bool IsMusicPlaying { get; private set; }
+        
+        protected override void Awake()
+        {
+            base.Awake();
+            animation.SetActive(false);
+        }
         public override void Interact()
         {
             if (!Interactable) return;
@@ -29,6 +36,7 @@ namespace Runtime.Infrastructure
                 _handleInventory.RemoveItemOnHand();
                 _audioPlayer.PlayMusic(_audioClip, 0.2f);
                 IsMusicPlaying = true;
+                animation.SetActive(true);
                 Disable();
             }
             else

@@ -14,6 +14,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueWrongWithGlass;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
+        [SerializeField] private GameObject animation;
         
         [SerializeField] private string itemOnHandTiGetWater = "EmptyGlass";
         [SerializeField] private DialogueData dialogueWaterCompleted;
@@ -39,6 +40,7 @@ namespace Runtime.Infrastructure
         protected override void Awake()
         {
             bathroomRenderer.sprite = initialBathroomSprite;
+            animation.SetActive(true);
         }
         public override void Interact()
         {
@@ -104,7 +106,7 @@ namespace Runtime.Infrastructure
         private void PutIces()
         {
             bathroomRenderer.sprite = iceBathroomSprite;
-
+            animation.SetActive(false);
             if (iceOnBathroom) return;
             _handleInventory.RemoveItemOnHand();
             iceOnBathroom = true;
