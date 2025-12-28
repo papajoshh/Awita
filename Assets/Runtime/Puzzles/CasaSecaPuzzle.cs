@@ -17,7 +17,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueWrongItem;
         [SerializeField] private Animator casaEnLlamas;
         [SerializeField] private AudioClip audioClip;
-        [SerializeField] private AudioClip sirenasClip;
+        [SerializeField] private AudioClip sirenasClipLoop;
+        [SerializeField] private AudioClip fireClipLoop;
         [SerializeField] private GetWaterFromFireFighters getWaterFromFireFighters;
         
         [Inject] private readonly AudioPlayer _audioPlayer;
@@ -48,7 +49,8 @@ namespace Runtime.Infrastructure
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("Red");
                 _audioPlayer.PlaySFX(audioClip, 0.5f);
-                _audioPlayer.PlaySfxWithDelay(sirenasClip, 0.2f, true, 9f);
+                _audioPlayer.PlaySfxWithDelay(sirenasClipLoop, 0.2f, true, 9f);
+                _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, true, 9f);
                 _showDialogue.Start(dialogueCompleted);
                 casaEnLlamas.Play("Llamas");
                 inFlames = true;

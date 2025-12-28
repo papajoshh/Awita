@@ -1,8 +1,10 @@
+using System.Collections;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Runtime.Infrastructure
@@ -21,7 +23,8 @@ namespace Runtime.Infrastructure
 
         //SFX
         [SerializeField] private AudioClip _audioClip_getWater;
-        [SerializeField] private AudioClip sirenasClip;
+        [FormerlySerializedAs("sirenasClip")] [SerializeField] private AudioClip sirenasLoopClip;
+        [SerializeField] private AudioClip fireLoopClip;
         [Inject] private readonly AudioPlayer _audioPlayer;
         
         public override void Interact()
@@ -34,7 +37,8 @@ namespace Runtime.Infrastructure
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
                 fireAnimator.Play("Calcinada");
-                _audioPlayer.StopSFX(sirenasClip);
+                _audioPlayer.StopSFX(sirenasLoopClip);
+                _audioPlayer.StopSFX(fireLoopClip);
                 Disable();
             }
             else
@@ -48,6 +52,12 @@ namespace Runtime.Infrastructure
                     _showDialogue.Start(dialogueNoItem);
                 }
             }
+        }
+
+        private IEnumerator FirefightersGoOut()
+        {
+            yield return new WaitForSeconds(10f);
+            _audioPlayer.StopSFX(sirenasLoopClip, true);
         }
     }
 }

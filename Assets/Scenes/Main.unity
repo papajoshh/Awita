@@ -3403,7 +3403,8 @@ MonoBehaviour:
   dialogueWrongItem: {fileID: 11400000, guid: 4ec76b8121538924ea6bcf8606db763a, type: 2}
   fireAnimator: {fileID: 1587205834}
   _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
-  sirenasClip: {fileID: 8300000, guid: 9e2374aefa1d3cd4d98041811badf18e, type: 3}
+  sirenasLoopClip: {fileID: 8300000, guid: 9e2374aefa1d3cd4d98041811badf18e, type: 3}
+  fireLoopClip: {fileID: 8300000, guid: e501ff17960d27141a411ec6b22ff820, type: 3}
 --- !u!61 &381200839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14904,7 +14905,8 @@ MonoBehaviour:
   dialogueWrongItem: {fileID: 11400000, guid: 603fd94e4d0205b4ab96cb6bb70b29df, type: 2}
   casaEnLlamas: {fileID: 1587205834}
   audioClip: {fileID: 8300000, guid: ee6f8867ef869104aae9d7ace41238cc, type: 3}
-  sirenasClip: {fileID: 8300000, guid: 9e2374aefa1d3cd4d98041811badf18e, type: 3}
+  sirenasClipLoop: {fileID: 8300000, guid: 9e2374aefa1d3cd4d98041811badf18e, type: 3}
+  fireClipLoop: {fileID: 8300000, guid: e501ff17960d27141a411ec6b22ff820, type: 3}
   getWaterFromFireFighters: {fileID: 381200838}
 --- !u!212 &1587205836
 SpriteRenderer:

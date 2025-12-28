@@ -27,7 +27,7 @@ namespace Runtime.Infrastructure
                     musicAudioSource.clip = clip;
                     musicAudioSource.volume = volume;
                     musicAudioSource.Play();
-                    musicAudioSource.DOFade(1, 1f);
+                    musicAudioSource.DOFade(1, 1f).OnComplete(() => {musicAudioSource.Stop();});
                 });
             }
             musicAudioSource.clip = clip;
@@ -55,13 +55,21 @@ namespace Runtime.Infrastructure
             sfxAudioSources[0].clip = clip;
             sfxAudioSources[0].Play();
         }
-        
-        public void StopSFX(AudioClip clip)
+
+        public void StopSFX(AudioClip clip, bool withFade = false)
         {
             foreach (var sfxAudioSource in sfxAudioSources)
             {
                 if (sfxAudioSource.clip != clip) continue;
-                sfxAudioSource.Stop();
+                if (withFade)
+                {
+                    sfxAudioSource.DOFade(1, 1f).OnComplete(() => {musicAudioSource.Stop();});
+                }
+                else
+                {
+                    sfxAudioSource.Stop();
+                }
+                
             }
         }
         
