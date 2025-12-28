@@ -19,7 +19,7 @@ namespace Runtime.Infrastructure
             count = -1;
             foreach (var image in hidratationImages)
             {
-                image.color = Color.clear;
+                image.color = new Color (1, 1, 1, 0);
             }
         }
         

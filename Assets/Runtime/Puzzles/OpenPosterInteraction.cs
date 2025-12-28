@@ -28,14 +28,14 @@ namespace Runtime.Infrastructure
 
         private void Close()
         {
-            openedPoster.color = Color.clear;
+            openedPoster.color = new Color (1, 1, 1, 0);
             closedPoster.color = Color.white;
         }
 
         private void Open()
         {
             openedPoster.DOColor(Color.white, 0.75f);
-            closedPoster.DOColor(Color.clear, 0.75f);
+            closedPoster.DOColor(new Color (1, 1, 1, 0), 0.75f);
             _audioPlayer.PlaySfx(_audioClip, 0.2f);
         }
     }

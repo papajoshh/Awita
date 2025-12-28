@@ -41,7 +41,7 @@ namespace Runtime.Infrastructure
         protected override void Awake()
         {
             cisternaRenderer.sprite = initialCisternaSprite;
-            ghostRenderer.color = Color.clear;
+            ghostRenderer.color = new Color (1, 1, 1, 0);
         }
         public override void Interact()
         {

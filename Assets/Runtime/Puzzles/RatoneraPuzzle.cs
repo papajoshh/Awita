@@ -67,8 +67,8 @@ namespace Runtime.Infrastructure
 
         private void Open()
         {
-            backgroundCloseImage.DOColor(Color.clear, 0.75f);
-            ratoneraInRoomClosedRenderer.DOColor(Color.clear, 0.75f);
+            backgroundCloseImage.DOColor(new Color (1, 1, 1, 0), 0.75f);
+            ratoneraInRoomClosedRenderer.DOColor(new Color (1, 1, 1, 0), 0.75f);
             ratoneraInRoomOpenedRenderer.DOColor(Color.white, 0.75f);
             pincitas.SetActive(true);
         }
@@ -77,7 +77,7 @@ namespace Runtime.Infrastructure
         {
             backgroundCloseImage.color = Color.white;
             ratoneraInRoomClosedRenderer.color = Color.white;
-            ratoneraInRoomOpenedRenderer.color = Color.clear;
+            ratoneraInRoomOpenedRenderer.color = new Color (1, 1, 1, 0);
             pincitas.SetActive(false);
         }
     }

@@ -29,7 +29,7 @@ namespace Runtime.Infrastructure
         private void Close()
         {
             itemContainer.Disable();
-            openedCloset.color = Color.clear;
+            openedCloset.color = new Color (1, 1, 1, 0);
             closedCloset.color = Color.white;
         }
 
@@ -38,7 +38,7 @@ namespace Runtime.Infrastructure
             itemContainer.Enable();
             _audioPlayer.PlaySfx(openAudio, 0.2f);
             openedCloset.DOColor(Color.white, 0.75f);
-            closedCloset.DOColor(Color.clear, 0.75f);
+            closedCloset.DOColor(new Color (1, 1, 1, 0), 0.75f);
         }
     }
 }
