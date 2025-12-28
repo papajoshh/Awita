@@ -14,6 +14,7 @@ namespace Runtime.Infrastructure
             {
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
+                canvasGroup.gameObject.SetActive(false);
             });
         }
     }

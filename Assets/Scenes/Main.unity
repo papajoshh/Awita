@@ -20676,7 +20676,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noInternetWindow: {fileID: 418870422}
+  noInternetCanvasGroup: {fileID: 418870424}
   waterAtHomeWindow: {fileID: 1826951016}
+  waterAtHomeCanvasGroup: {fileID: 1826951018}
 --- !u!1 &2015869521
 GameObject:
   m_ObjectHideFlags: 0

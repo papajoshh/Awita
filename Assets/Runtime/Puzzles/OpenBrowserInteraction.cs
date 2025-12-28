@@ -6,7 +6,9 @@ namespace Runtime.Infrastructure
     public class OpenBrowserInteraction:Interaction
     {
         [SerializeField] private GameObject noInternetWindow;
+        [SerializeField] private CanvasGroup noInternetCanvasGroup;
         [SerializeField] private GameObject waterAtHomeWindow;
+        [SerializeField] private CanvasGroup waterAtHomeCanvasGroup;
         [Inject] private readonly Router _router;
         
         protected override void Awake()
@@ -21,10 +23,16 @@ namespace Runtime.Infrastructure
             if (_router.IsConnected)
             {
                 waterAtHomeWindow.SetActive(true);
+                waterAtHomeCanvasGroup.alpha = 1;
+                waterAtHomeCanvasGroup.interactable = true;
+                waterAtHomeCanvasGroup.blocksRaycasts = true;
             }
             else
             {
                 noInternetWindow.SetActive(true);
+                noInternetCanvasGroup.alpha = 1;
+                waterAtHomeCanvasGroup.interactable = true;
+                waterAtHomeCanvasGroup.blocksRaycasts = true;
             }
         }
     }
