@@ -22,10 +22,12 @@ namespace Runtime.Infrastructure
         [SerializeField] private Sprite initialPlatosSuciosSprite;
         [SerializeField] private Sprite platosJabonososSprite;
         [SerializeField] private Sprite cleanPlatosSprite;
+        [SerializeField] private AudioClip cleanAudio;
         
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
+        [Inject] private readonly AudioPlayer _audioPlayer;
 
         private bool absolutelyClean = false;
         private int numberOfCleans = 0;
@@ -79,6 +81,7 @@ namespace Runtime.Infrastructure
         private void Clean()
         {
             numberOfCleans++;
+            _audioPlayer.PlaySfx(cleanAudio);
             if (numberOfCleans <= 1)
             {
                 fregaPlatosRenderer.sprite = platosJabonososSprite;
