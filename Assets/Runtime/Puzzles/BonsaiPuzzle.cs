@@ -100,6 +100,7 @@ namespace Runtime.Infrastructure
             else if (cuts >= cutsNeeded && !completelyCut)
             {
                 _handleInventory.RemoveItemOnHand();
+                _showDialogue.Start(dialogueCompleted);
                 completelyCut = true;
             }
         }

@@ -12,6 +12,7 @@ namespace Runtime.Infrastructure
     {
         [SerializeField] private string itemOnHandToGetFish = "Red";
         [SerializeField] private DialogueData dialogueFishCompleted;
+        [SerializeField] private DialogueData dialogueFishWithGlassCompleted;
         [SerializeField] private DialogueData dialogueFishNoItem;
         [SerializeField] private DialogueData dialogueFishWrongItem;
         [SerializeField] private SpriteRenderer peceraRenderer;
@@ -56,7 +57,15 @@ namespace Runtime.Infrastructure
             {
                 if (_inventory.HasSomethingOnHand)
                 {
-                    _showDialogue.Start(dialogueFishWrongItem);
+                    if (_inventory.HasitemOnHand(itemOnHand))
+                    {
+                        _showDialogue.Start(dialogueFishWithGlassCompleted);
+                    }
+                    else
+                    {
+                        _showDialogue.Start(dialogueFishWrongItem);
+                    }
+                    
                 }
                 else
                 {

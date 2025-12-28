@@ -11,6 +11,7 @@ namespace Runtime.Infrastructure
     {
         [SerializeField] private string itemOnHand = "Hielo";
         [SerializeField] private DialogueData dialogueCompleted;
+        [SerializeField] private DialogueData dialogueWrongWithGlass;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
         
@@ -52,7 +53,14 @@ namespace Runtime.Infrastructure
             {
                 if (_inventory.HasSomethingOnHand)
                 {
-                    _showDialogue.Start(dialogueWrongItem);
+                    if (_inventory.HasitemOnHand(itemOnHandTiGetWater))
+                    {
+                        _showDialogue.Start(dialogueWrongWithGlass);
+                    }
+                    else
+                    {
+                        _showDialogue.Start(dialogueWrongItem);
+                    }
                 }
                 else
                 {
