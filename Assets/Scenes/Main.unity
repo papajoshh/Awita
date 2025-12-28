@@ -4010,7 +4010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &418870423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12363,6 +12363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterAtEntrance: {fileID: 765060120}
+  pedidoClip: {fileID: 8300000, guid: 878dcbddcec504945a34e70d89846d73, type: 3}
 --- !u!114 &1409306588
 MonoBehaviour:
   m_ObjectHideFlags: 0

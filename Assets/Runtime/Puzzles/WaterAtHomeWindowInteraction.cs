@@ -1,12 +1,16 @@
 
 
 using UnityEngine;
+using Zenject;
 
 namespace Runtime.Infrastructure
 {
     public class WaterAtHomeWindowInteraction:Interaction
     {
         [SerializeField] private GameObject waterAtEntrance;
+        [SerializeField] private AudioClip pedidoClip;
+        
+        [Inject] private readonly AudioPlayer _audioPlayer;
         
         protected override void Awake()
         {
@@ -17,6 +21,7 @@ namespace Runtime.Infrastructure
         {
             if(!Interactable) return;
             waterAtEntrance.SetActive(true);
+            _audioPlayer.PlaySFX(pedidoClip);
         }
     }
 }
