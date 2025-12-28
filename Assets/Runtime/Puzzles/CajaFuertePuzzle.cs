@@ -1,7 +1,8 @@
-using System.Collections;
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Runtime.Infrastructure
 {
@@ -18,7 +19,14 @@ namespace Runtime.Infrastructure
         [SerializeField] private Sprite indicatorFilledSprite;
         private const string correctCode = "2711";
         private string enteredCode = "";
-        
+
+        //SFX
+        [SerializeField] private AudioClip _audioClip_tecla;
+        [SerializeField] private AudioClip _audioClip_correct;
+        [SerializeField] private AudioClip _audioClip_error;
+        [SerializeField] private AudioClip _audioClip_openSafe;
+        [Inject] private readonly AudioPlayer _audioPlayer;
+
         private void Awake()
         {
             foreach (var tecla in teclas)
@@ -40,6 +48,7 @@ namespace Runtime.Infrastructure
         {
             enteredCode += numero.ToString();
             UpdateIndicators();
+            _audioPlayer.PlaySfx(_audioClip_tecla, 0.2f);
             if (enteredCode.Length != correctCode.Length) return;
             if(string.Equals(enteredCode, correctCode))
             {
@@ -71,8 +80,11 @@ namespace Runtime.Infrastructure
             button.sprite = buttonPressedSprite;
             closedSafeBoxCanvasGroup.interactable = false;
             closedSafeBoxCanvasGroup.blocksRaycasts = false;
+            _audioPlayer.PlaySfx(_audioClip_correct, 0.2f);
+
             openedSafeBoxCanvasGroup.DOFade(1, 0.75f).OnComplete(() =>
             {
+                _audioPlayer.PlaySfx(_audioClip_openSafe, 0.2f);
                 openedSafeBoxCanvasGroup.interactable = true;
                 openedSafeBoxCanvasGroup.blocksRaycasts = true;
             });
@@ -81,6 +93,8 @@ namespace Runtime.Infrastructure
         private void ResetSafebox()
         {
             enteredCode = "";
+
+            _audioPlayer.PlaySfx(_audioClip_error, 0.2f);
             StartCoroutine(BlinkButton());
         }
 

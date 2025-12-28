@@ -20,6 +20,12 @@ namespace Runtime.Infrastructure
         [Inject] private readonly Inventory _inventory;
         [Inject] private readonly HandleInventory _handleInventory;
 
+        //SFX
+        [SerializeField] private AudioClip _audioClip_key;
+        [SerializeField] private AudioClip _audioClip_openDrawer;
+        [SerializeField] private AudioClip _audioClip_closeDrawer;
+        [Inject] private readonly AudioPlayer _audioPlayer;
+
         private bool unlocked;
         
         private bool closed;
@@ -65,6 +71,7 @@ namespace Runtime.Infrastructure
         {
             unlocked = true;
             _handleInventory.RemoveItemOnHand();
+            _audioPlayer.PlaySfx(_audioClip_key, 0.2f);
             Toggle();
         }
 
@@ -91,6 +98,7 @@ namespace Runtime.Infrastructure
             closed = true;
             closedDrawer.SetActive(true);
             openedDrawer.SetActive(false);
+            _audioPlayer.PlaySfx(_audioClip_closeDrawer, 0.2f);
         }
 
         private void Open()
@@ -98,6 +106,7 @@ namespace Runtime.Infrastructure
             closed = false;
             closedDrawer.SetActive(false);
             openedDrawer.SetActive(true);
+            _audioPlayer.PlaySfx(_audioClip_openDrawer, 0.2f);
         }
     }
 }
