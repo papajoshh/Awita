@@ -20,7 +20,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private Sprite peceraConAgua;
         [SerializeField] private Sprite peceraVacia;
         [SerializeField] private Sprite peceraWithFish;
-        
+        [SerializeField] private AudioClip _audioClip;
+
         [SerializeField] private string itemOnHand = "EmptyGlass";
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
@@ -29,6 +30,7 @@ namespace Runtime.Infrastructure
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
+        [Inject] private readonly AudioPlayer _audioPlayer;
 
         private bool fishIsOut;
 
@@ -52,6 +54,7 @@ namespace Runtime.Infrastructure
                 peceraRenderer.sprite = peceraConAgua;
                 fishRenderer.DOFade(0, 0.25f);
                 _showDialogue.Start(dialogueFishCompleted);
+                _audioPlayer.PlaySfx(_audioClip, 0.2f);
                 fishIsOut = true;
             }
             else

@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 namespace Runtime.Infrastructure
 {
@@ -7,6 +8,10 @@ namespace Runtime.Infrastructure
     {
         [SerializeField] private SpriteRenderer openedPoster;
         [SerializeField] private SpriteRenderer closedPoster;
+        [SerializeField] private AudioClip _audioClip;
+
+        [Inject] private readonly AudioPlayer _audioPlayer;
+
         protected override void Awake()
         {
             base.Awake();
@@ -31,6 +36,7 @@ namespace Runtime.Infrastructure
         {
             openedPoster.DOColor(Color.white, 0.75f);
             closedPoster.DOColor(Color.clear, 0.75f);
+            _audioPlayer.PlaySfx(_audioClip, 0.2f);
         }
     }
 }

@@ -20,11 +20,13 @@ namespace Runtime.Infrastructure
         [SerializeField] private SpriteRenderer ratoneraInRoomClosedRenderer;
         [SerializeField] private SpriteRenderer ratoneraInRoomOpenedRenderer;
         [SerializeField] private GameObject pincitas;
-        
+        [SerializeField] private AudioClip _audioClip_close;
+
         [Inject] private readonly Ratonera _ratonera;
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
+        [Inject] private readonly AudioPlayer _audioPlayer;
 
         protected override void Awake()
         {

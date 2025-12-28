@@ -10,6 +10,9 @@ namespace Runtime.Infrastructure
         
         public void PlayMusic(AudioClip clip, float volume = 0.2f)
         {
+            if (clip == null)
+                return;
+
             if (musicAudioSource)
             {
                 musicAudioSource.DOFade(0, 1f).OnComplete(() =>
@@ -26,6 +29,9 @@ namespace Runtime.Infrastructure
 
         public void PlaySfx(AudioClip clip, float volume = 0.2f)
         {
+            if (clip == null)
+                return;
+
             var hasBeenPlayed = false;
             foreach (var sfxAudioSource in sfxAudioSources)
             {

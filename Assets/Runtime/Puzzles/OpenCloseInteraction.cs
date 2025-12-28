@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace Runtime.Infrastructure
 {
@@ -7,6 +8,10 @@ namespace Runtime.Infrastructure
         [SerializeField] private GameObject openedDrawer;
         [SerializeField] private GameObject closedDrawer;
         [SerializeField] private bool startClosed = true;
+        [SerializeField] private AudioClip _audioClip_open;
+        [SerializeField] private AudioClip _audioClip_close;
+
+        [Inject] private readonly AudioPlayer _audioPlayer;
         private bool closed;
 
         protected override void Awake()
@@ -46,6 +51,7 @@ namespace Runtime.Infrastructure
             closed = true;
             closedDrawer.SetActive(true);
             openedDrawer.SetActive(false);
+            _audioPlayer.PlaySfx(_audioClip_close, 0.2f);
         }
 
         private void Open()
@@ -53,6 +59,7 @@ namespace Runtime.Infrastructure
             closed = false;
             closedDrawer.SetActive(false);
             openedDrawer.SetActive(true);
+            _audioPlayer.PlaySfx(_audioClip_open, 0.2f);
         }
     }
 }
