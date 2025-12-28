@@ -38,8 +38,9 @@ namespace Runtime.Infrastructure
         public override void Interact()
         {
             if (!Interactable) return;
-            PutIceOnBathroom();
             GetWater();
+            PutIceOnBathroom();
+            
         }
 
         private void PutIceOnBathroom()

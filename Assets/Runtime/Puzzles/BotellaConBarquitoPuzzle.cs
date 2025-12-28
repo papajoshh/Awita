@@ -37,8 +37,9 @@ namespace Runtime.Infrastructure
         public override void Interact()
         {
             if (!Interactable) return;
-            CompletelyDismountShip();
             GetWater();
+            CompletelyDismountShip();
+            
         }
 
         private void CompletelyDismountShip()

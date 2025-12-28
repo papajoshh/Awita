@@ -39,8 +39,9 @@ namespace Runtime.Infrastructure
         public override void Interact()
         {
             if (!Interactable) return;
-            GetFishOut();
             GetWater();
+            GetFishOut();
+            
         }
         private void GetFishOut()
         {

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.ItemManagement.Application;
@@ -7,9 +8,9 @@ using Zenject;
 
 namespace Runtime.Infrastructure
 {
-    public class TermoPuzzle:Interaction
+    public class GetWaterFromCisterna:Interaction
     {
-        [SerializeField] private string itemOnHand = "Cortapizzas";
+        [SerializeField] private RadioCassetteInteraction _radioCasseteInteraction;
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
@@ -19,39 +20,48 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueWaterNoItem;
         [SerializeField] private DialogueData dialogueWaterWrongItem;
 
-        [SerializeField] private SpriteRenderer pizzaRenderer;
-        [SerializeField] private SpriteRenderer boilerRenderer;
-        [SerializeField] private Sprite fullBoilerSprite;
-        [SerializeField] private Sprite emptyBoilerSprite;
+        [SerializeField] private SpriteRenderer ghostRenderer;
+        [SerializeField] private SpriteRenderer cisternaRenderer;
+        [SerializeField] private Sprite initialCisternaSprite;
+        [SerializeField] private Sprite cisternaWithTapRemovedSprite;
+        [SerializeField] private Sprite emptyCisternaSprite;
         
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
 
-        private bool pizzasWasRemoved = false;
-
+        private bool ghostIsGone = false;
+        private bool tapRemoved = false;
         protected override void Awake()
         {
-            boilerRenderer.sprite = fullBoilerSprite;
-            pizzaRenderer.enabled = true;
+            cisternaRenderer.sprite = initialCisternaSprite;
+            ghostRenderer.color = Color.clear;
         }
         public override void Interact()
         {
             if (!Interactable) return;
+            PutMusicToGhostToSayGoodbye();
             GetWater();
-            CutPizza();
+            RemoveTapCisterna();
             
         }
 
-        private void CutPizza()
+        private void PutMusicToGhostToSayGoodbye()
         {
-            if (pizzasWasRemoved) return;
-            if (_inventory.HasitemOnHand(itemOnHand))
+            if (ghostIsGone) return;
+            ghostRenderer.DOFade(1, 0.25f).OnComplete(InteractWithGhost);
+        }
+
+        private void InteractWithGhost()
+        {
+            if (_radioCasseteInteraction.IsMusicPlaying)
             {
-                RemovePizza();
+                SayGoodbyeToGhost();
             }
             else
             {
+                _showDialogue.OnEndDialogue += FadeGhost;
+                Disable();
                 if (_inventory.HasSomethingOnHand)
                 {
                     _showDialogue.Start(dialogueWrongItem);
@@ -63,15 +73,29 @@ namespace Runtime.Infrastructure
             }
         }
 
+        private void FadeGhost()
+        {
+            _showDialogue.OnEndDialogue -= FadeGhost;
+            Enable();
+            ghostRenderer.DOFade(0, 0.25f);
+        }
+
+        private void RemoveTapCisterna()
+        {
+            if (!ghostIsGone) return;
+            cisternaRenderer.sprite = cisternaWithTapRemovedSprite;
+            tapRemoved = true;
+        }
         private void GetWater()
         {
-            if (!pizzasWasRemoved) return;
+            if (!ghostIsGone) return;
+            if (!tapRemoved) return;
             if (_inventory.HasitemOnHand(itemOnHandTiGetWater))
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
                 _showDialogue.Start(dialogueWaterCompleted);
-                boilerRenderer.sprite = emptyBoilerSprite;
+                cisternaRenderer.sprite = emptyCisternaSprite;
                 Disable();
             }
             else
@@ -88,12 +112,20 @@ namespace Runtime.Infrastructure
             
         }
 
-        private void RemovePizza()
+        private void SayGoodbyeToGhost()
         {
-            if (pizzasWasRemoved) return;
-            pizzaRenderer.enabled = false;
-            _handleInventory.RemoveItemOnHand();
-            pizzasWasRemoved = true;
+            _showDialogue.Start(dialogueCompleted);
+            _showDialogue.OnEndDialogue += GoodbyeToGhost;
+            
+        }
+
+        private void GoodbyeToGhost()
+        {
+            _showDialogue.OnEndDialogue -= GoodbyeToGhost;
+            ghostRenderer.DOFade(0, 0.25f);
+
+            if (ghostIsGone) return;
+            ghostIsGone = true;
         }
     }
 }

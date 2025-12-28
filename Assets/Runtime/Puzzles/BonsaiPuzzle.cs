@@ -39,8 +39,9 @@ namespace Runtime.Infrastructure
         public override void Interact()
         {
             if (!Interactable) return;
-            CutAllBonsaiToAshes();
             GetWater();
+            CutAllBonsaiToAshes();
+            
         }
 
         private void CutAllBonsaiToAshes()
