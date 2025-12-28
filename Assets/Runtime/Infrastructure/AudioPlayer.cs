@@ -27,7 +27,7 @@ namespace Runtime.Infrastructure
                     musicAudioSource.clip = clip;
                     musicAudioSource.volume = volume;
                     musicAudioSource.Play();
-                    musicAudioSource.DOFade(1, 1f);
+                    musicAudioSource.DOFade(volume, 1f);
                 });
             }
         }
