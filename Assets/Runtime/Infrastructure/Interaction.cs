@@ -37,7 +37,7 @@ namespace Runtime.Infrastructure
             if (button) button.onClick.AddListener(OnClick);
         }
         
-        protected void OnDestroy()
+        protected virtual void OnDestroy()
         {
             if (button) button.onClick.RemoveAllListeners();
         }

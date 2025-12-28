@@ -16,6 +16,9 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
         [SerializeField] private Animator fireAnimator;
+        [SerializeField] private GameObject fire;
+        [SerializeField] private SpriteRenderer houseRenderer;
+        [SerializeField] private Sprite calcinadaHouseSprite;
         
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
@@ -26,7 +29,12 @@ namespace Runtime.Infrastructure
         [FormerlySerializedAs("sirenasClip")] [SerializeField] private AudioClip sirenasLoopClip;
         [SerializeField] private AudioClip fireLoopClip;
         [Inject] private readonly AudioPlayer _audioPlayer;
-        
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            StopAllCoroutines();
+        }
         public override void Interact()
         {
             if (!Interactable) return;
@@ -36,9 +44,10 @@ namespace Runtime.Infrastructure
                 _handleInventory.AddItem("GlassFullOfWater");
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
-                fireAnimator.Play("Calcinada");
-                _audioPlayer.StopSFX(sirenasLoopClip);
+                fire.SetActive(false);
                 _audioPlayer.StopSFX(fireLoopClip);
+                houseRenderer.sprite = calcinadaHouseSprite;
+                StartCoroutine(FirefightersGoOut());
                 Disable();
             }
             else
@@ -58,6 +67,7 @@ namespace Runtime.Infrastructure
         {
             yield return new WaitForSeconds(10f);
             _audioPlayer.StopSFX(sirenasLoopClip, true);
+            fireAnimator.Play("Calcinada");
         }
     }
 }

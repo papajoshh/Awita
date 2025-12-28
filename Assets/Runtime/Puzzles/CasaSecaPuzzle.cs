@@ -20,6 +20,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private AudioClip sirenasClipLoop;
         [SerializeField] private AudioClip fireClipLoop;
         [SerializeField] private GetWaterFromFireFighters getWaterFromFireFighters;
+        [SerializeField] private GameObject fire;
         
         [Inject] private readonly AudioPlayer _audioPlayer;
         [Inject] private readonly Inventory _inventory;
@@ -47,12 +48,12 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("Red");
                 _audioPlayer.PlaySFX(audioClip, 0.5f);
                 _audioPlayer.PlaySfxWithDelay(sirenasClipLoop, 0.2f, true, 9f);
                 _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, true, 9f);
                 _showDialogue.Start(dialogueCompleted);
-                casaEnLlamas.Play("Llamas");
+                casaEnLlamas.Play("Fire");
+                fire.SetActive(true);
                 inFlames = true;
                 Disable();
             }
