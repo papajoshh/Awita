@@ -59,7 +59,7 @@ namespace Runtime.Infrastructure
 
         private void Close(bool playSound = true)
         {
-            if(playSound) _audioPlayer.PlaySfx(closeAudio, 0.2f);
+            if(playSound) _audioPlayer.PlaySFX(closeAudio, 0.2f);
             quesoItem.Disable();
             hieloItem.Disable();
             openedCloset.color = new Color (1, 1, 1, 0);
@@ -69,7 +69,7 @@ namespace Runtime.Infrastructure
         private void Open()
         {
             quesoItem.Enable();
-            _audioPlayer.PlaySfx(openAudio, 0.2f);
+            _audioPlayer.PlaySFX(openAudio, 0.2f);
             openedCloset.DOColor(Color.white, 0.75f);
             closedCloset.DOColor(new Color (1, 1, 1, 0), 0.75f);
         }

@@ -71,7 +71,7 @@ namespace Runtime.Infrastructure
         {
             unlocked = true;
             _handleInventory.RemoveItemOnHand();
-            _audioPlayer.PlaySfx(_audioClip_key, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_key, 0.2f);
             Toggle();
         }
 
@@ -98,7 +98,7 @@ namespace Runtime.Infrastructure
             closed = true;
             closedDrawer.SetActive(true);
             openedDrawer.SetActive(false);
-            _audioPlayer.PlaySfx(_audioClip_closeDrawer, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_closeDrawer, 0.2f);
         }
 
         private void Open()
@@ -106,7 +106,7 @@ namespace Runtime.Infrastructure
             closed = false;
             closedDrawer.SetActive(false);
             openedDrawer.SetActive(true);
-            _audioPlayer.PlaySfx(_audioClip_openDrawer, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_openDrawer, 0.2f);
         }
     }
 }

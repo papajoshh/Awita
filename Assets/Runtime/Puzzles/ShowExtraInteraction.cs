@@ -18,7 +18,7 @@ namespace Runtime.Infrastructure
             if (!Interactable) return;
 
             _showPopupInteraction.Execute(openExtraInteraction);
-            _audioPlayer.PlaySfx(_audioClip, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip, 0.2f);
         }
     }
 }

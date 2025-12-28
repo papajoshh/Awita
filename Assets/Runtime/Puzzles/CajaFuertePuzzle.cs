@@ -48,7 +48,7 @@ namespace Runtime.Infrastructure
         {
             enteredCode += numero.ToString();
             UpdateIndicators();
-            _audioPlayer.PlaySfx(_audioClip_tecla, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_tecla, 0.2f);
             if (enteredCode.Length != correctCode.Length) return;
             if(string.Equals(enteredCode, correctCode))
             {
@@ -80,11 +80,11 @@ namespace Runtime.Infrastructure
             button.sprite = buttonPressedSprite;
             closedSafeBoxCanvasGroup.interactable = false;
             closedSafeBoxCanvasGroup.blocksRaycasts = false;
-            _audioPlayer.PlaySfx(_audioClip_correct, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_correct, 0.2f);
 
             openedSafeBoxCanvasGroup.DOFade(1, 0.75f).OnComplete(() =>
             {
-                _audioPlayer.PlaySfx(_audioClip_openSafe, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip_openSafe, 0.2f);
                 openedSafeBoxCanvasGroup.interactable = true;
                 openedSafeBoxCanvasGroup.blocksRaycasts = true;
             });
@@ -94,7 +94,7 @@ namespace Runtime.Infrastructure
         {
             enteredCode = "";
 
-            _audioPlayer.PlaySfx(_audioClip_error, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_error, 0.2f);
             StartCoroutine(BlinkButton());
         }
 

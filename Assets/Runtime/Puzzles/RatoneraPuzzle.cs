@@ -46,7 +46,7 @@ namespace Runtime.Infrastructure
             if (!Interactable) return;
             if (_inventory.HasitemOnHand(itemOnHand))
             {
-                _audioPlayer.PlaySfx(_audioClip, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip, 0.2f);
                 _handleInventory.RemoveItemOnHand();
                 _showDialogue.Start(dialogueCompleted);
                 Open();

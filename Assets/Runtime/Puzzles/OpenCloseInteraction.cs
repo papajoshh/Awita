@@ -51,7 +51,7 @@ namespace Runtime.Infrastructure
             closed = true;
             closedDrawer.SetActive(true);
             openedDrawer.SetActive(false);
-            _audioPlayer.PlaySfx(_audioClip_close, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_close, 0.2f);
         }
 
         private void Open()
@@ -59,7 +59,7 @@ namespace Runtime.Infrastructure
             closed = false;
             closedDrawer.SetActive(false);
             openedDrawer.SetActive(true);
-            _audioPlayer.PlaySfx(_audioClip_open, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_open, 0.2f);
         }
     }
 }

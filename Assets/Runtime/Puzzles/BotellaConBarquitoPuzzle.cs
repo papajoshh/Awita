@@ -74,7 +74,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 botellaRenderer.sprite = barquitoStages[barquitoStages.Length - 1];
                 Disable();
@@ -97,7 +97,7 @@ namespace Runtime.Infrastructure
         {
             dismountings++;
             botellaRenderer.sprite = barquitoStages[dismountings];
-            _audioPlayer.PlaySfx(_audioClip, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip, 0.2f);
 
             if (dismountings < dismountingsNeeded || completelyDismounted) return;
             _handleInventory.RemoveItemOnHand();

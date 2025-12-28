@@ -48,7 +48,7 @@ namespace Runtime.Infrastructure
             if (waterIsOut) return;
             boxesRenderer.DOColor(new Color(1, 1, 1, 0), 0.75f);
             boxesWithWaterOutRenderer.DOColor(Color.white, 0.75f);
-            _audioPlayer.PlaySfx(audio_abrir_cajas_de_carton, 0.2f);
+            _audioPlayer.PlaySFX(audio_abrir_cajas_de_carton, 0.2f);
             waterIsOut = true;
         }
         private void GetWater()
@@ -58,7 +58,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 boxesWithWaterOutRenderer.DOColor(new Color(1, 1, 1, 0), 0.75f);
                 boxesEmptyRenderer.DOColor(Color.white, 0.75f);

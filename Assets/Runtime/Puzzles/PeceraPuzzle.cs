@@ -57,7 +57,7 @@ namespace Runtime.Infrastructure
                 peceraRenderer.sprite = peceraConAgua;
                 fishRenderer.DOFade(0, 0.25f);
                 _showDialogue.Start(dialogueFishCompleted);
-                _audioPlayer.PlaySfx(_audioClip, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip, 0.2f);
                 fishIsOut = true;
             }
             else
@@ -88,7 +88,7 @@ namespace Runtime.Infrastructure
                 peceraRenderer.DOFade(0, 0.25f);
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
                 Disable();
             }

@@ -81,7 +81,7 @@ namespace Runtime.Infrastructure
         private void Clean()
         {
             numberOfCleans++;
-            _audioPlayer.PlaySfx(cleanAudio);
+            _audioPlayer.PlaySFX(cleanAudio);
             if (numberOfCleans <= 1)
             {
                 fregaPlatosRenderer.sprite = platosJabonososSprite;

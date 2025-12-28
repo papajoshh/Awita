@@ -56,7 +56,7 @@ namespace Runtime.Infrastructure
         {
             if (ghostIsGone) return;
 
-            _audioPlayer.PlaySfx(_audioClip_ghost_appears, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_ghost_appears, 0.2f);
             ghostRenderer.DOFade(1, 0.25f).OnComplete(InteractWithGhost);
         }
 
@@ -92,7 +92,7 @@ namespace Runtime.Infrastructure
         {
             if (!ghostIsGone) return;
             cisternaRenderer.sprite = cisternaWithTapRemovedSprite;
-            _audioPlayer.PlaySfx(_audioClip_move_cisterna, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip_move_cisterna, 0.2f);
             tapRemoved = true;
         }
         private void GetWater()
@@ -103,7 +103,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 cisternaRenderer.sprite = emptyCisternaSprite;
                 Disable();

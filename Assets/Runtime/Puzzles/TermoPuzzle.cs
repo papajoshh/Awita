@@ -75,7 +75,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 boilerRenderer.sprite = emptyBoilerSprite;
                 Disable();
@@ -100,7 +100,7 @@ namespace Runtime.Infrastructure
 
             pizzaRenderer.enabled = false;
             _handleInventory.RemoveItemOnHand();
-            _audioPlayer.PlaySfx(_audioClip, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip, 0.2f);
             pizzasWasRemoved = true;
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
@@ -8,32 +9,49 @@ using Zenject;
 
 namespace Runtime.Infrastructure
 {
-    public class GetWaterFromCloud: Interaction
+    public class CasaSecaPuzzle: Interaction
     {
-        [SerializeField] private string itemOnHand = "EmptyGlass";
+        [SerializeField] private string itemOnHand = "CoctelMolotov";
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
-        [SerializeField] private SpriteRenderer cloudRenderer;
+        [SerializeField] private Animator casaEnLlamas;
+        [SerializeField] private AudioClip audioClip;
+        [SerializeField] private AudioClip sirenasClip;
+        [SerializeField] private GetWaterFromFireFighters getWaterFromFireFighters;
         
+        [Inject] private readonly AudioPlayer _audioPlayer;
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
 
-        //SFX
-        [SerializeField] private AudioClip _audioClip_getWater;
-        [Inject] private readonly AudioPlayer _audioPlayer;
+        private float timeInFlames = 0;
+        private bool inFlames = false;
+        private bool firefightersArrived = false;
         
+        protected override void Awake()
+        {
+            base.Awake();
+            getWaterFromFireFighters.Disable();
+        }
+        private void Update()
+        {
+            if(inFlames) timeInFlames += Time.deltaTime;
+            if (timeInFlames > 10) FirefightersArrive();
+        }
+
         public override void Interact()
         {
             if (!Interactable) return;
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
+                _handleInventory.AddItem("Red");
+                _audioPlayer.PlaySFX(audioClip, 0.5f);
+                _audioPlayer.PlaySfxWithDelay(sirenasClip, 0.2f, true, 9f);
                 _showDialogue.Start(dialogueCompleted);
-                cloudRenderer.DOColor(new Color(1, 1, 1, 0), 2f);
+                casaEnLlamas.Play("Llamas");
+                inFlames = true;
                 Disable();
             }
             else
@@ -47,6 +65,11 @@ namespace Runtime.Infrastructure
                     _showDialogue.Start(dialogueNoItem);
                 }
             }
+        }
+        
+        private void FirefightersArrive()
+        {
+            getWaterFromFireFighters.Enable();
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Runtime.Infrastructure
             _router.Connect();
             turnOnRouter.DOColor(Color.white, 0.75f);
             turnOffRouter.DOColor(new Color (1, 1, 1, 0), 0.75f);
-            _audioPlayer.PlaySfx(_audioClip, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip, 0.2f);
         }
     }
 }

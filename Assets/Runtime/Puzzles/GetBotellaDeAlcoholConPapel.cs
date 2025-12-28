@@ -1,29 +1,25 @@
+using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Runtime.Infrastructure
 {
-    public class RefillGlassAndChangeImage: Interaction
+    public class GetBotellaDeAlcoholConPapel : Interaction
     {
-        [SerializeField] private string itemOnHand = "EmptyGlass";
+        [SerializeField] private string itemOnHand = "Alcohol";
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
-        [SerializeField] private Image rendererToChange;
-        [SerializeField] private Sprite spriteToChange;
+        [SerializeField] private AudioClip audioClip;
         
+        [Inject] private readonly AudioPlayer _audioPlayer;
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
-
-        //SFX
-        [SerializeField] private AudioClip _audioClip_getWater;
-        [Inject] private readonly AudioPlayer _audioPlayer;
 
         public override void Interact()
         {
@@ -31,10 +27,9 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
+                _handleInventory.AddItem("BotellaDeAlcoholConPapel");
+                _audioPlayer.PlaySFX(audioClip, 0.5f);
                 _showDialogue.Start(dialogueCompleted);
-                rendererToChange.sprite = spriteToChange;
                 Disable();
             }
             else

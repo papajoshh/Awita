@@ -45,7 +45,7 @@ namespace Runtime.Infrastructure
         private void Toggle()
         {
             _extractor.Toogle();
-            _audioPlayer.PlaySfx(_audioClip, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip, 0.2f);
             if (_extractor.IsExtracting)
                 Open();
             else 

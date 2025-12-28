@@ -76,7 +76,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
-                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
+                _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 bonsaiRenderer.sprite = bonsaiStages[bonsaiStages.Length - 1];
                 Disable();
@@ -100,7 +100,7 @@ namespace Runtime.Infrastructure
             cuts++;
             bonsaiRenderer.sprite = bonsaiStages[cuts];
 
-            _audioPlayer.PlaySfx(_audioClip, 0.2f);
+            _audioPlayer.PlaySFX(_audioClip, 0.2f);
 
             if (cuts == 1)
             {
