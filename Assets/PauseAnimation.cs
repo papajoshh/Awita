@@ -6,28 +6,27 @@ public class PauseAnimation : MonoBehaviour
     [SerializeField] private Animator _animator;
     public event Action OnEnded;
 
-    private bool cacheResume;
+    public static bool cacheResume;
+
+    private void Awake()
+    {
+        cacheResume = false;
+    }
+
     public void Pause()
     {
-        if (cacheResume)
+       /* if (cacheResume)
         {
             _animator.speed = 1;
             cacheResume = false;
             return;
-        }
+        }*/
         _animator.speed = 0;
     }
 
     public void Resume()
     {
-        if (_animator.speed >= 1)
-        {
-            cacheResume = true;
-        }
-        else
-        {
-            _animator.speed = 1;
-        }
+        if(cacheResume) cacheResume = false;
         _animator.speed = 1;
     }
 

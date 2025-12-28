@@ -35,7 +35,7 @@ namespace Runtime.Infrastructure
             {
                 "room" => new Vector3(0, 0, -10),
                 "bathroom" => new Vector3(20, 0, -10),
-                "kitchen" => new Vector3(20, 0, -10),
+                "kitchen" => new Vector3(40, 0, -10),
                 _ => throw new ArgumentOutOfRangeException(nameof(roomName), roomName, null)
             };
             _mainCamera.transform.parent.position = roomTransform;

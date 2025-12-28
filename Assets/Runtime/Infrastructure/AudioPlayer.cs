@@ -27,11 +27,9 @@ namespace Runtime.Infrastructure
                     musicAudioSource.clip = clip;
                     musicAudioSource.volume = volume;
                     musicAudioSource.Play();
-                    musicAudioSource.DOFade(1, 1f).OnComplete(() => {musicAudioSource.Stop();});
+                    musicAudioSource.DOFade(1, 1f);
                 });
             }
-            musicAudioSource.clip = clip;
-            musicAudioSource.Play();
         }
 
         public void PlaySFX(AudioClip clip, float volume = 0.2f, bool loop = false)

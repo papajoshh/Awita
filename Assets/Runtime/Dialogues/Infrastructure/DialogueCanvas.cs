@@ -45,6 +45,8 @@ namespace Runtime.Dialogues.Infrastructure
             {
                 _showDialogue.ShowNextLine();
             }
+
+            PauseAnimation.cacheResume = true;
         }
 
         public void Display(string line)
