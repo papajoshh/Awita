@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "*Un rat\xF3n vaquero, con antifaz,camisa de rayas blancas y negras sale corriendo
-    y se lleva el queso. "
+  - "*Se asoma un rat\xF3n vaquero, con antifaz,camisa de rayas blancas y negras.  "
+  - "*El rat\xF3n sale corriendo y se lleva el queso."
   - "*Sali\xF3 con tanta prisa que algunos objetos cayeron a su paso. "
   - "*Joder, ese rat\xF3n era realmente elegante."

@@ -1,8 +1,10 @@
+using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
@@ -14,12 +16,9 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
-        [SerializeField] private Image backgroundImage;
-        [SerializeField] private SpriteRenderer ratoneraInRoomRenderer;
-        [SerializeField] private Sprite ratoneraOpenInRoomSprite;
-        [SerializeField] private Sprite ratoneraClosedInRoomSprite;
-        [SerializeField] private Sprite ratoneraOpenSprite;
-        [SerializeField] private Sprite ratoneraClosedSprite;
+        [SerializeField] private Image backgroundCloseImage;
+        [SerializeField] private SpriteRenderer ratoneraInRoomClosedRenderer;
+        [SerializeField] private SpriteRenderer ratoneraInRoomOpenedRenderer;
         [SerializeField] private GameObject pincitas;
         
         [Inject] private readonly Ratonera _ratonera;
@@ -65,15 +64,18 @@ namespace Runtime.Infrastructure
 
         private void Open()
         {
-            backgroundImage.sprite = ratoneraOpenSprite;
-            ratoneraInRoomRenderer.sprite = ratoneraOpenInRoomSprite;
+            backgroundCloseImage.DOColor(Color.clear, 0.75f);
+            ratoneraInRoomClosedRenderer.DOColor(Color.clear, 0.75f);
+            ratoneraInRoomOpenedRenderer.DOColor(Color.white, 0.75f);
             pincitas.SetActive(true);
         }
 
         private void Close()
         {
-            backgroundImage.sprite = ratoneraClosedSprite;
-            ratoneraInRoomRenderer.sprite = ratoneraClosedInRoomSprite;
+            backgroundCloseImage.color = Color.white;
+            ratoneraInRoomClosedRenderer.color = Color.white;
+            ratoneraInRoomOpenedRenderer.color = Color.clear;
+            ;
             pincitas.SetActive(false);
         }
     }
