@@ -32,7 +32,8 @@ namespace Runtime
             Container.Bind<ExtraInteractionPuzzleCatalogue>().AsSingle();
             Container.Bind<Catalogue>().AsSingle();
             Container.Bind<Inventory>().AsSingle();
-            
+
+            Container.Bind<AudioPlayer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<HandleInventory>().AsSingle();
             Container.Bind<ShowDialogue>().AsSingle();
             Container.Bind<ShowPopupInteraction>().AsSingle();

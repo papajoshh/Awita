@@ -13,9 +13,10 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
-        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _audioClip;
 
         [Inject] private readonly Inventory _inventory;
+        [Inject] private readonly AudioPlayer _audioPlayer;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
 
@@ -26,7 +27,7 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _audioSource.Play();
+                _audioPlayer.PlayMusic(_audioClip, 0.2f);
                 IsMusicPlaying = true;
                 Disable();
             }
