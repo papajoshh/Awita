@@ -50,7 +50,7 @@ namespace Runtime.Infrastructure
                 _handleInventory.RemoveItemOnHand();
                 _audioPlayer.PlaySFX(audioClip, 0.5f);
                 _audioPlayer.PlaySfxWithDelay(sirenasClipLoop, 0.2f, true, 9f);
-                _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, true, 9f);
+                _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, false, 9f);
                 _showDialogue.Start(dialogueCompleted);
                 casaEnLlamas.Play("Fire");
                 fire.SetActive(true);

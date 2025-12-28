@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Quesito
   m_EditorClassIdentifier: 
   ID: Quesito
-  sprite: {fileID: 21300000, guid: f366f68d08bf7184c87e957e5eb8b3a7, type: 3}
+  sprite: {fileID: 21300000, guid: d6c2757d9ee5dc7479f339ecdd7ad232, type: 3}
   dialogue: {fileID: 11400000, guid: 9b1a51b76108e244aa8e365862c02e5f, type: 2}

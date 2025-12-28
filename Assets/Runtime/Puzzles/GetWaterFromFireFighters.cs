@@ -65,7 +65,7 @@ namespace Runtime.Infrastructure
 
         private IEnumerator FirefightersGoOut()
         {
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(5f);
             _audioPlayer.StopSFX(sirenasLoopClip, true);
             fireAnimator.Play("Calcinada");
         }
