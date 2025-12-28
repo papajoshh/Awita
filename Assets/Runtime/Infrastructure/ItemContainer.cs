@@ -110,7 +110,6 @@ namespace Runtime.Infrastructure
             isOver = true;
             if (!Interactable) return;
             _cursor.ChangeSprite(Icon);
-            _cursor.ChangeToItem(item.sprite);
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -122,7 +121,6 @@ namespace Runtime.Infrastructure
         {
             isOver = false;
             _cursor.ChangeToDefault(Icon);
-            _cursor.DropItem(item.sprite);
         }
     }
 }
