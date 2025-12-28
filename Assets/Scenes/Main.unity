@@ -2847,7 +2847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openExtraInteraction: TijerasDePoderDrawer
-  _audioClip: {fileID: 0}
+  _audioClip: {fileID: 8300000, guid: 40f2297cd82030146b0d45964e68b259, type: 3}
 --- !u!61 &270810905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3978,6 +3978,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: df44d2cc17b4edf4f84083352a45f5e8, type: 3}
   - {fileID: 21300000, guid: b203d5f36f35b504487bb4ad7bbbc5b7, type: 3}
   botellaRenderer: {fileID: 411670775}
+  _audioClip: {fileID: 8300000, guid: 690373d141f44b340a6183b5ddddb6d4, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!61 &411670774
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4913,8 +4915,8 @@ MonoBehaviour:
   openedDrawer: {fileID: 2077015035}
   closedDrawer: {fileID: 175303442}
   startClosed: 1
-  _audioClip_open: {fileID: 0}
-  _audioClip_close: {fileID: 0}
+  _audioClip_open: {fileID: 8300000, guid: 40f2297cd82030146b0d45964e68b259, type: 3}
+  _audioClip_close: {fileID: 8300000, guid: 3002d6af32bae8341b4a98eb4d97e0d2, type: 3}
 --- !u!1 &526932975
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,6 +6725,7 @@ MonoBehaviour:
   dialogueWrongItem: {fileID: 11400000, guid: bcf0699374bc9c64f9bec9eb494f4e97, type: 2}
   rendererToChange: {fileID: 695564132}
   spriteToChange: {fileID: 21300000, guid: 2a10c388784dac44680078de327f7992, type: 3}
+  _audioClip_getWater: {fileID: 0}
 --- !u!1 &735259094
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,6 +6965,7 @@ MonoBehaviour:
   dialogueWrongItem: {fileID: 11400000, guid: 5f4f197899e2cb14281ccb5550f22c43, type: 2}
   rendererToChange: {fileID: 765060121}
   spriteToChange: {fileID: 21300000, guid: 1a7482226c7dad44ab597152470b312a, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!61 &765060123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7474,6 +7478,7 @@ MonoBehaviour:
   dialogueWrongItem: {fileID: 11400000, guid: 5f4f197899e2cb14281ccb5550f22c43, type: 2}
   rendererToChange: {fileID: 830801729}
   spriteToChange: {fileID: 21300000, guid: 1a7482226c7dad44ab597152470b312a, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!1001 &865045618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8893,6 +8898,8 @@ MonoBehaviour:
   boilerRenderer: {fileID: 1153227129}
   fullBoilerSprite: {fileID: 21300000, guid: 374d7d56a8fe26448b9ac5426de7194f, type: 3}
   emptyBoilerSprite: {fileID: 21300000, guid: f8fe9f840663760479337b1847bcbbef, type: 3}
+  _audioClip: {fileID: 8300000, guid: 61f61857d41a9b94ab9b131c1312bdfa, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!1 &1155430663
 GameObject:
   m_ObjectHideFlags: 0
@@ -9466,7 +9473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openedCloset: {fileID: 1681569212}
   closedCloset: {fileID: 1835362977}
-  openAudio: {fileID: 0}
+  openAudio: {fileID: 8300000, guid: b7faa0e96262edf4bae9ce04e356f891, type: 3}
   itemContainer: {fileID: 1742872421}
 --- !u!1 &1178826882
 GameObject:
@@ -10226,7 +10233,6 @@ MonoBehaviour:
   dialogueCompleted: {fileID: 11400000, guid: 3128926ed1da5ef4a8a992f26c678a6a, type: 2}
   dialogueNoItem: {fileID: 11400000, guid: 1facce8211fb01b4e8280998d51b540d, type: 2}
   dialogueWrongItem: {fileID: 11400000, guid: c01095763d1ae0748953661066f4fa22, type: 2}
-  _audioClip: {fileID: 0}
   itemOnHandTiGetWater: EmptyGlass
   dialogueWaterCompleted: {fileID: 11400000, guid: cb015dced30627a4ebe3ea3052cba7ed, type: 2}
   dialogueWaterNoItem: {fileID: 11400000, guid: f9213d26e01510646960f3d7f475c90d, type: 2}
@@ -10239,6 +10245,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 763e72adcd6e4d44c9ea58460666a721, type: 3}
   bonsaiRenderer: {fileID: 1289081280}
   stick: {fileID: 1887832961}
+  _audioClip: {fileID: 8300000, guid: 0247dcf702d82534c9b0ce2b438a54aa, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!1 &1305549189
 GameObject:
   m_ObjectHideFlags: 0
@@ -10497,7 +10505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openedPoster: {fileID: 407792508}
   closedPoster: {fileID: 679149249}
-  _audioClip: {fileID: 0}
+  _audioClip: {fileID: 8300000, guid: 719b2673562df4342843875cbee4c95a, type: 3}
 --- !u!61 &1309544147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12294,6 +12302,8 @@ MonoBehaviour:
   initialBathroomSprite: {fileID: 21300000, guid: 42e2eb077211f29478a036df0dc936eb, type: 3}
   iceBathroomSprite: {fileID: 21300000, guid: 499aaafd19d806c498934f67b916c4f3, type: 3}
   emptyBathroomSprite: {fileID: 21300000, guid: 413f3e1a5102df64381fa6acb1b3c2bd, type: 3}
+  _audioClip: {fileID: 8300000, guid: 7ae545c613a17f94d9fc7cdd03980aa6, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!212 &1520352128
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12503,6 +12513,9 @@ MonoBehaviour:
   initialCisternaSprite: {fileID: 21300000, guid: 6f24edbdfc892794d8dc5e1b5b9efba2, type: 3}
   cisternaWithTapRemovedSprite: {fileID: 21300000, guid: fd2e8993cdda6a644a057aea4a736db3, type: 3}
   emptyCisternaSprite: {fileID: 21300000, guid: 1e3fa4e4f34121542a2fdada5d753cee, type: 3}
+  _audioClip_move_cisterna: {fileID: 8300000, guid: aa3d62ff37189a247a38570e0ed4abb3, type: 3}
+  _audioClip_ghost_appears: {fileID: 8300000, guid: 70e9bdcf4e1effd48a74f536079636ad, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!60 &1525632294
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14288,7 +14301,7 @@ MonoBehaviour:
   ratoneraInRoomClosedRenderer: {fileID: 1041411586}
   ratoneraInRoomOpenedRenderer: {fileID: 566358274}
   pincitas: {fileID: 1564287645}
-  _audioClip_close: {fileID: 0}
+  _audioClip: {fileID: 0}
 --- !u!114 &1691830620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14721,7 +14734,7 @@ Transform:
   m_GameObject: {fileID: 1742872418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.046, y: -0.267, z: 0}
+  m_LocalPosition: {x: 0.046, y: -0.267, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15359,11 +15372,12 @@ MonoBehaviour:
   peceraConAgua: {fileID: 21300000, guid: df2c4c39ab52c244f947754ea4c414e8, type: 3}
   peceraVacia: {fileID: 21300000, guid: 12224134000e17c44acd147a3f830f44, type: 3}
   peceraWithFish: {fileID: 21300000, guid: df2c4c39ab52c244f947754ea4c414e8, type: 3}
-  _audioClip: {fileID: 0}
   itemOnHand: EmptyGlass
   dialogueCompleted: {fileID: 11400000, guid: c0d534fb17ede6b4b95d35eec7e5100e, type: 2}
   dialogueNoItem: {fileID: 11400000, guid: 2cc5d6ffd7d9a024484df20708ee980f, type: 2}
   dialogueWrongItem: {fileID: 11400000, guid: 6f00e0c300a3c9c44b4daf5fae30443b, type: 2}
+  _audioClip: {fileID: 8300000, guid: 7ae545c613a17f94d9fc7cdd03980aa6, type: 3}
+  _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!61 &1801140409
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15778,7 +15792,7 @@ Transform:
   m_GameObject: {fileID: 1835362975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.019, z: -1}
+  m_LocalPosition: {x: 0, y: 0.019, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

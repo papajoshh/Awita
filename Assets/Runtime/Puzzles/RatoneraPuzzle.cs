@@ -78,7 +78,6 @@ namespace Runtime.Infrastructure
             backgroundCloseImage.color = Color.white;
             ratoneraInRoomClosedRenderer.color = Color.white;
             ratoneraInRoomOpenedRenderer.color = Color.clear;
-            ;
             pincitas.SetActive(false);
         }
     }
