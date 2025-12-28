@@ -28,6 +28,11 @@ namespace Runtime.Infrastructure
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
 
+        //SFX
+        [SerializeField] private AudioClip _audioClip;
+        [SerializeField] private AudioClip _audioClip_getWater;
+        [Inject] private readonly AudioPlayer _audioPlayer;
+
         private bool pizzasWasRemoved = false;
 
         protected override void Awake()
@@ -70,6 +75,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
+                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 boilerRenderer.sprite = emptyBoilerSprite;
                 Disable();
@@ -91,8 +97,10 @@ namespace Runtime.Infrastructure
         private void RemovePizza()
         {
             if (pizzasWasRemoved) return;
+
             pizzaRenderer.enabled = false;
             _handleInventory.RemoveItemOnHand();
+            _audioPlayer.PlaySfx(_audioClip, 0.2f);
             pizzasWasRemoved = true;
         }
     }

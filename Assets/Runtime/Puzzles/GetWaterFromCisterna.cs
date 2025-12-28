@@ -30,6 +30,12 @@ namespace Runtime.Infrastructure
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
 
+        //SFX
+        [SerializeField] private AudioClip _audioClip_move_cisterna;
+        [SerializeField] private AudioClip _audioClip_ghost_appears;
+        [SerializeField] private AudioClip _audioClip_getWater;
+        [Inject] private readonly AudioPlayer _audioPlayer;
+
         private bool ghostIsGone = false;
         private bool tapRemoved = false;
         protected override void Awake()
@@ -49,6 +55,8 @@ namespace Runtime.Infrastructure
         private void PutMusicToGhostToSayGoodbye()
         {
             if (ghostIsGone) return;
+
+            _audioPlayer.PlaySfx(_audioClip_ghost_appears, 0.2f);
             ghostRenderer.DOFade(1, 0.25f).OnComplete(InteractWithGhost);
         }
 
@@ -84,6 +92,7 @@ namespace Runtime.Infrastructure
         {
             if (!ghostIsGone) return;
             cisternaRenderer.sprite = cisternaWithTapRemovedSprite;
+            _audioPlayer.PlaySfx(_audioClip_move_cisterna, 0.2f);
             tapRemoved = true;
         }
         private void GetWater()
@@ -94,6 +103,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
+                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 cisternaRenderer.sprite = emptyCisternaSprite;
                 Disable();

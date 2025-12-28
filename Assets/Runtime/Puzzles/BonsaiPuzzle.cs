@@ -13,7 +13,6 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
-        [SerializeField] private AudioClip _audioClip;
 
         [SerializeField] private string itemOnHandTiGetWater = "EmptyGlass";
         [SerializeField] private DialogueData dialogueWaterCompleted;
@@ -25,9 +24,13 @@ namespace Runtime.Infrastructure
         [SerializeField] private GameObject stick;
         
         [Inject] private readonly Inventory _inventory;
-        [Inject] private readonly AudioPlayer _audioPlayer;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
+
+        //SFX
+        [SerializeField] private AudioClip _audioClip;
+        [SerializeField] private AudioClip _audioClip_getWater;
+        [Inject] private readonly AudioPlayer _audioPlayer;
 
         private int cuts = 0;
         private int cutsNeeded = 3;
@@ -73,6 +76,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
+                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 bonsaiRenderer.sprite = bonsaiStages[bonsaiStages.Length - 1];
                 Disable();

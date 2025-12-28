@@ -20,6 +20,10 @@ namespace Runtime.Infrastructure
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
 
+        //SFX
+        [SerializeField] private AudioClip _audioClip_getWater;
+        [Inject] private readonly AudioPlayer _audioPlayer;
+
         public override void Interact()
         {
             if (!Interactable) return;
@@ -27,6 +31,7 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddItem("GlassFullOfWater");
+                _audioPlayer.PlaySfx(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
                 rendererToChange.sprite = spriteToChange;
                 Disable();

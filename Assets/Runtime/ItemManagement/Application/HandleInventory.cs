@@ -1,6 +1,7 @@
 using Runtime.Application;
 using Runtime.Infrastructure;
 using Runtime.ItemManagement.Domain;
+using Zenject;
 
 namespace Runtime.ItemManagement.Application
 {
@@ -9,7 +10,7 @@ namespace Runtime.ItemManagement.Application
         private readonly Inventory _inventory;
         private readonly Pockets _pockets;
         private readonly Cursor _cursor;
-        
+
         public HandleInventory(Inventory inventory, Pockets pockets, Cursor cursor)
         {
             _inventory = inventory;

@@ -20,7 +20,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private SpriteRenderer ratoneraInRoomClosedRenderer;
         [SerializeField] private SpriteRenderer ratoneraInRoomOpenedRenderer;
         [SerializeField] private GameObject pincitas;
-        [SerializeField] private AudioClip _audioClip_close;
+        [SerializeField] private AudioClip _audioClip;
 
         [Inject] private readonly Ratonera _ratonera;
         [Inject] private readonly Inventory _inventory;
@@ -46,6 +46,7 @@ namespace Runtime.Infrastructure
             if (!Interactable) return;
             if (_inventory.HasitemOnHand(itemOnHand))
             {
+                _audioPlayer.PlaySfx(_audioClip, 0.2f);
                 _handleInventory.RemoveItemOnHand();
                 _showDialogue.Start(dialogueCompleted);
                 Open();
