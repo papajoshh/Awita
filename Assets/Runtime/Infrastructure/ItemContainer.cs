@@ -1,3 +1,4 @@
+using System;
 using Runtime.Application;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
@@ -17,6 +18,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         [Inject] private readonly ShowDialogue _showDialogue;
+        
+        public event Action OnRecollect;
         private Button button;
         private bool isOver;
         private bool glassWaterShowed = false;
@@ -87,6 +90,7 @@ namespace Runtime.Infrastructure
                 _showDialogue.Start(item.dialogue);
             }
             Destroy(gameObject);
+            OnRecollect?.Invoke();
         }
         
         public void Enable()
