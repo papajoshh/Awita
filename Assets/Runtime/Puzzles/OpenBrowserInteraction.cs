@@ -31,8 +31,8 @@ namespace Runtime.Infrastructure
             {
                 noInternetWindow.SetActive(true);
                 noInternetCanvasGroup.alpha = 1;
-                waterAtHomeCanvasGroup.interactable = true;
-                waterAtHomeCanvasGroup.blocksRaycasts = true;
+                noInternetCanvasGroup.interactable = true;
+                noInternetCanvasGroup.blocksRaycasts = true;
             }
         }
     }

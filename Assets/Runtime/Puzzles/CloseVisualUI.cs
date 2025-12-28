@@ -9,7 +9,6 @@ namespace Runtime.Infrastructure
         public override void Interact()
         {
             if(!Interactable) return;
-            Disable();
             canvasGroup.DOFade(0, 1F).OnComplete(() =>
             {
                 canvasGroup.interactable = false;
