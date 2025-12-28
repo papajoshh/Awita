@@ -4323,7 +4323,6 @@ MonoBehaviour:
   animatorKid: {fileID: 1811109249}
   pauseAnimation: {fileID: 519420034}
   pauseKidAnimation: {fileID: 1811109250}
-  hidrateInteraction: {fileID: 0}
 --- !u!61 &452026693
 BoxCollider2D:
   m_ObjectHideFlags: 0

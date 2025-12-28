@@ -1,4 +1,3 @@
-using System;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.Domain;
@@ -59,6 +58,7 @@ namespace Runtime.Infrastructure
         private void DisableAndGoToBathroom()
         {
             if (!_child.SecondLevelHidrationCompleted) return;
+            pauseAnimation.OnEnded -= DisableAndGoToBathroom;
             Disable();
             _transition.GoToRoom("bathroom");
             hidrateInteraction.Enable();

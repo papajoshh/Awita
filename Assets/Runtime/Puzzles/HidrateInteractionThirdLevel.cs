@@ -18,7 +18,6 @@ namespace Runtime.Infrastructure
         [SerializeField] private Animator animatorKid;
         [SerializeField] private PauseAnimation pauseAnimation;
         [SerializeField] private PauseAnimation pauseKidAnimation;
-        [SerializeField] private HidrateInteractionThirdLevel hidrateInteraction;
         
         [Inject] private readonly Child _child;
         [Inject] private readonly Inventory _inventory;
@@ -62,9 +61,8 @@ namespace Runtime.Infrastructure
         private void DisableAndGoToBathroom()
         {
             if (!_child.ThirdLevelHidrationCompleted) return;
+            pauseAnimation.OnEnded -= DisableAndGoToBathroom;
             Disable();
-            _transition.GoToRoom("bathroom");
-            hidrateInteraction.Enable();
         }
     }
 }
