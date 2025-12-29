@@ -25,7 +25,7 @@ public class GetRed : Interaction
         if (_inventory.HasitemOnHand(itemOnHand))
         {
             _handleInventory.RemoveItemOnHand();
-            _handleInventory.AddItem("Red");
+            _handleInventory.AddRed();
             _showDialogue.Start(dialogueCompleted);
             telaraña.DOFade(0, 0.25f);
             Disable();

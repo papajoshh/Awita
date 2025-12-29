@@ -41,7 +41,7 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("GlassFullOfWater");
+                _handleInventory.AddGlassOfWater();
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
                 fire.SetActive(false);

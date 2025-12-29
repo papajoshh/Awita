@@ -44,25 +44,7 @@ namespace Runtime.Infrastructure
             if (_child.FirstLevelHidrationCompleted) return;
             if (_inventory.HasitemOnHand(itemOnHand))
             {
-                _child.Hidrate();
-                animator.Play("DrinkWater");
-                animatorKid.Play("KidDrinkingAnimation");
-                _showDialogue.OnShowNewLine += pauseAnimation.Resume;
-                _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
-                _showDialogue.Start(dialogueCompleted);
-                _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("EmptyGlass");
-                foreach (var interaction in roomInteractions)
-                {
-                    interaction.Enable();
-                }
-
-                foreach (var item in roomitems)
-                {
-                    item.Enable();
-                }
-                Disable();
-                gameObject.SetActive(false);
+                HidrateChild();
             }
             else
             {
@@ -75,6 +57,34 @@ namespace Runtime.Infrastructure
                     _showDialogue.Start(dialogueNoItem);
                 }
             }
+        }
+
+        private void HidrateChild()
+        {
+            _child.Hidrate();
+            animator.Play("DrinkWater");
+            animatorKid.Play("KidDrinkingAnimation");
+            _showDialogue.OnShowNewLine += pauseAnimation.Resume;
+            _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
+            _showDialogue.Start(dialogueCompleted);
+            _handleInventory.RemoveItemOnHand();
+            _handleInventory.AddEmptyGlass();
+            foreach (var interaction in roomInteractions)
+            {
+                interaction.Enable();
+            }
+
+            foreach (var item in roomitems)
+            {
+                item.Enable();
+            }
+            Disable();
+            gameObject.SetActive(false);
+        }
+        public void SkipIntro()
+        {
+            _handleInventory.AddGlassOfWater();
+            HidrateChild();
         }
         
     }

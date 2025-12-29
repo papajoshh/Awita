@@ -25,7 +25,19 @@ namespace Runtime.Infrastructure
             sequence.Append(canvasGroup.DOFade(1, 0.3f).OnComplete(() => ChangeCameraToRoom(roomName)));
             sequence.Append(canvasGroup.DOFade(0, 0.3f).SetDelay(0.5f).OnComplete(() => canvasGroup.blocksRaycasts = false));
         }
-        
+
+        public void GoToRoom()
+        {
+            GoToRoom("room");
+        }
+        public void GoToBathroom()
+        {
+            GoToRoom("bathroom");
+        }
+        public void GoToKitchen()
+        {
+            GoToRoom("kitchen");
+        }
         private void ChangeCameraToRoom(string roomName)
         {
             CurrentRoom = roomName;

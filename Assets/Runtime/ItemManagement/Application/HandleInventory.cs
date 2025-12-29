@@ -63,5 +63,78 @@ namespace Runtime.ItemManagement.Application
                 SelectItem(id);
             }
         }
+
+        public void AddGlassOfWater()
+        {
+            AddItem("GlassFullOfWater");
+        }
+
+        public void AddEmptyGlass()
+        {
+            AddItem("EmptyGlass");
+        }
+        public void AddCoctelMolotov()
+        {
+            AddItem("CoctelMolotov");
+        }
+        public void AddBotellaDeAlcoholConPapel()
+        {
+            AddItem("BotellaDeAlcoholConPapel");
+        }
+
+        public void AddRed()
+        {
+            AddItem("Red");
+        }
+
+        public void AddAlcohol()
+        {
+            AddItem("Alcohol");
+        }
+
+        public void AddCassette()
+        {
+            AddItem("Cassette");
+        }
+
+        public void AddCortapizzas()
+        {
+            AddItem("Cortapizzas");
+        }
+
+        public void AddDrawerKey()
+        {
+            AddItem("DrawerKey");
+        }
+
+        public void AddHielo()
+        {
+            AddItem("Hielo");
+        }
+        
+        public void AddLimpiaplatos()
+        {
+            AddItem("Limpiaplatos");
+        }
+
+        public void AddPalo()
+        {
+            AddItem("Palo");
+        }
+
+        public void AddPincitas()
+        {
+            AddItem("Pincitas");
+        }
+        
+        public void AddQuesito()
+        {
+            AddItem("Quesito");
+        }
+        
+        public void AddTijerasPodar()
+        {
+            AddItem("TijerasPodar");
+        }
     }
 }

@@ -57,7 +57,7 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHandToGetWater))
             {
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("GlassFullOfWater");
+                _handleInventory.AddGlassOfWater();
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 boxesWithWaterOutRenderer.DOColor(new Color(1, 1, 1, 0), 0.75f);

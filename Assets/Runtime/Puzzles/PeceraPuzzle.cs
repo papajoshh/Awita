@@ -87,7 +87,7 @@ namespace Runtime.Infrastructure
             {
                 peceraRenderer.DOFade(0, 0.25f);
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("GlassFullOfWater");
+                _handleInventory.AddGlassOfWater();
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
                 Disable();

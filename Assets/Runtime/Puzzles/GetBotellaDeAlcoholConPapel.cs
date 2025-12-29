@@ -27,7 +27,7 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("BotellaDeAlcoholConPapel");
+                _handleInventory.AddBotellaDeAlcoholConPapel();
                 _audioPlayer.PlaySFX(audioClip, 0.5f);
                 _showDialogue.Start(dialogueCompleted);
                 Disable();

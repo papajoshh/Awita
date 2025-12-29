@@ -39,7 +39,7 @@ namespace Runtime.Infrastructure
                 pauseAnimation.OnEnded += DisableAndGoToBathroom;
                 _showDialogue.Start(dialogueCompleted);
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("EmptyGlass");
+                _handleInventory.AddGlassOfWater();
 
             }
             else

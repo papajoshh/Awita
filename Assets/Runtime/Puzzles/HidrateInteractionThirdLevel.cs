@@ -43,7 +43,7 @@ namespace Runtime.Infrastructure
                 _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
                 _showDialogue.Start(dialogueCompleted);
                 _handleInventory.RemoveItemOnHand();
-                _handleInventory.AddItem("EmptyGlass");
+                _handleInventory.AddGlassOfWater();
             }
             else
             {
