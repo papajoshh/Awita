@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PauseAnimation : MonoBehaviour
+public class KidPauseAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     public event Action OnEnded;
@@ -27,7 +27,7 @@ public class PauseAnimation : MonoBehaviour
 
     public void Resume()
     {
-        if(cacheResume) cacheResume = false;
+        if (cacheResume) cacheResume = false;
         _animator.speed = 1;
     }
 

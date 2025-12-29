@@ -45,8 +45,6 @@ namespace Runtime.Dialogues.Infrastructure
             {
                 _showDialogue.ShowNextLine();
             }
-
-            PauseAnimation.cacheResume = true;
         }
 
         public void Display(string line)
@@ -84,6 +82,8 @@ namespace Runtime.Dialogues.Infrastructure
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
+            PauseAnimation.cacheResume = true;
+            KidPauseAnimation.cacheResume = true;
             TypeLine("");
         }
     }

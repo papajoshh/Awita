@@ -17,7 +17,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private Animator animator;
         [SerializeField] private Animator animatorKid;
         [SerializeField] private PauseAnimation pauseAnimation;
-        [SerializeField] private PauseAnimation pauseKidAnimation;
+        [SerializeField] private KidPauseAnimation pauseKidAnimation;
         
         [Inject] private readonly Child _child;
         [Inject] private readonly Inventory _inventory;
