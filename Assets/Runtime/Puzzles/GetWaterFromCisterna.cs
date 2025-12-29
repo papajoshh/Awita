@@ -91,6 +91,8 @@ namespace Runtime.Infrastructure
         private void RemoveTapCisterna()
         {
             if (!ghostIsGone) return;
+            if (tapRemoved) return;
+
             cisternaRenderer.sprite = cisternaWithTapRemovedSprite;
             _audioPlayer.PlaySFX(_audioClip_move_cisterna, 0.2f);
             tapRemoved = true;
