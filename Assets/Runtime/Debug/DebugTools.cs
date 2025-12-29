@@ -116,6 +116,10 @@ namespace Runtime.Debug
         {
             if(string.IsNullOrEmpty(_nameEntered)) return;
             if (_nameEntered[0] != 'V') return;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                _handleInventory.AddGlassOfWater();
+            }
             if (Input.GetKeyDown(KeyCode.V))
             {
                 _handleInventory.AddEmptyGlass();
