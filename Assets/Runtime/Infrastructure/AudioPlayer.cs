@@ -61,7 +61,7 @@ namespace Runtime.Infrastructure
                 if (sfxAudioSource.clip != clip) continue;
                 if (withFade)
                 {
-                    sfxAudioSource.DOFade(1, 1f).OnComplete(() => {musicAudioSource.Stop();});
+                    sfxAudioSource.DOFade(0, 1f).OnComplete(() => {sfxAudioSource.Stop();});
                 }
                 else
                 {

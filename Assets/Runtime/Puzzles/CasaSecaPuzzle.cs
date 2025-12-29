@@ -1,5 +1,4 @@
-using System;
-using DG.Tweening;
+using System.Collections;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.ItemManagement.Application;
@@ -36,6 +35,13 @@ namespace Runtime.Infrastructure
             base.Awake();
             getWaterFromFireFighters.Disable();
         }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            StopAllCoroutines();
+        }
+
         private void Update()
         {
             if(inFlames) timeInFlames += Time.deltaTime;
@@ -49,13 +55,11 @@ namespace Runtime.Infrastructure
             {
                 _handleInventory.RemoveItemOnHand();
                 _audioPlayer.PlaySFX(audioClip, 0.5f);
-                _audioPlayer.PlaySfxWithDelay(sirenasClipLoop, 0.2f, true, 9f);
-                _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, false, 9f);
+                _audioPlayer.PlaySfxWithDelay(sirenasClipLoop, 0.2f, true, 15f);
+                _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, true, 15f);
                 _showDialogue.Start(dialogueCompleted);
-                casaEnLlamas.Play("Fire");
-                fire.SetActive(true);
-                inFlames = true;
                 Disable();
+                StartCoroutine(ThrowCoctel());
             }
             else
             {
@@ -73,6 +77,14 @@ namespace Runtime.Infrastructure
         private void FirefightersArrive()
         {
             getWaterFromFireFighters.Enable();
+        }
+
+        private IEnumerator ThrowCoctel()
+        {
+            yield return new WaitForSeconds(1f);
+            casaEnLlamas.Play("Fire");
+            fire.SetActive(true);
+            inFlames = true;
         }
     }
 }
