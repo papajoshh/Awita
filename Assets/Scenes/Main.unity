@@ -10609,6 +10609,8 @@ MonoBehaviour:
   dialogueCompleted: {fileID: 11400000, guid: fdd4463ce63579644b7c7886f2c24df9, type: 2}
   dialogueNoItem: {fileID: 11400000, guid: 31943c8cf3ade0d4cbb6394dfc7368e0, type: 2}
   dialogueWrongItem: {fileID: 11400000, guid: 27cd54ef161b8ab46a7204ea959981ac, type: 2}
+  _ghostRenderer: {fileID: 1178826884}
+  _happyGhost: {fileID: 21300000, guid: fdfd36355a7ac2b4faa734adcb54f6df, type: 3}
   _audioClip: {fileID: 8300000, guid: d2720eb7d6918414686ca33041bf98b0, type: 3}
   animation: {fileID: 1952502147}
 --- !u!60 &1155430668

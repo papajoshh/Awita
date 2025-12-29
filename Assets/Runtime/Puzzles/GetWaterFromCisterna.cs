@@ -38,6 +38,7 @@ namespace Runtime.Infrastructure
 
         private bool ghostIsGone = false;
         private bool tapRemoved = false;
+        private bool ghostIsSeen = false;
         protected override void Awake()
         {
             cisternaRenderer.sprite = initialCisternaSprite;
@@ -46,17 +47,21 @@ namespace Runtime.Infrastructure
         public override void Interact()
         {
             if (!Interactable) return;
-            PutMusicToGhostToSayGoodbye();
+            GhostAppearsForFirstTime();
             GetWater();
             RemoveTapCisterna();
-            
         }
 
-        private void PutMusicToGhostToSayGoodbye()
+        private void GhostAppearsForFirstTime()
         {
             if (ghostIsGone) return;
-
+            if (ghostIsSeen)
+            {
+                InteractWithGhost();
+                return;
+            }
             _audioPlayer.PlaySFX(_audioClip_ghost_appears, 0.2f);
+            ghostIsSeen = true;
             ghostRenderer.DOFade(1, 0.25f).OnComplete(InteractWithGhost);
         }
 
@@ -68,8 +73,6 @@ namespace Runtime.Infrastructure
             }
             else
             {
-                _showDialogue.OnEndDialogue += FadeGhost;
-                Disable();
                 if (_inventory.HasSomethingOnHand)
                 {
                     _showDialogue.Start(dialogueWrongItem);
@@ -80,14 +83,6 @@ namespace Runtime.Infrastructure
                 }
             }
         }
-
-        private void FadeGhost()
-        {
-            _showDialogue.OnEndDialogue -= FadeGhost;
-            Enable();
-            ghostRenderer.DOFade(0, 0.25f);
-        }
-
         private void RemoveTapCisterna()
         {
             if (!ghostIsGone) return;

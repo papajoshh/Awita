@@ -13,6 +13,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueCompleted;
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
+        [SerializeField] private SpriteRenderer _ghostRenderer;
+        [SerializeField] private Sprite _happyGhost;
         [SerializeField] private AudioClip _audioClip;
         [SerializeField] private GameObject animation;
 
@@ -36,6 +38,7 @@ namespace Runtime.Infrastructure
                 _handleInventory.RemoveItemOnHand();
                 _audioPlayer.PlayMusic(_audioClip, 0.2f);
                 IsMusicPlaying = true;
+                _ghostRenderer.sprite = _happyGhost;
                 animation.SetActive(true);
                 Disable();
             }
