@@ -56,6 +56,7 @@ namespace Runtime.Infrastructure
                 {
                     if (numberOfCleans == 0)
                     {
+                        _handleInventory.DeselectItem();
                         _showDialogue.Start(dialogueWrongItem);
                     }
                     else

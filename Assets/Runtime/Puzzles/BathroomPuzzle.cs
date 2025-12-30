@@ -63,6 +63,7 @@ namespace Runtime.Infrastructure
                 {
                     if (_inventory.HasitemOnHand(itemOnHandTiGetWater))
                     {
+                        _handleInventory.DeselectItem();
                         _showDialogue.Start(dialogueWrongWithGlass);
                     }
                     else

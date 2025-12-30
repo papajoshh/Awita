@@ -22,7 +22,6 @@ namespace Runtime.Infrastructure
         public event Action OnRecollect;
         private Button button;
         private bool isOver;
-        private bool glassWaterShowed = false;
         private Collider2D collider
         {
             get
@@ -80,12 +79,7 @@ namespace Runtime.Infrastructure
         private void RecollectItem()
         {
             _controller.AddItem(item.ID);
-            if (string.Equals(item.ID, "GlassFullOfWater"))
-            {
-                if(!glassWaterShowed)_showDialogue.Start(item.dialogue);
-                glassWaterShowed = true;
-            }
-            else if (!string.Equals(item.ID, "EmptyGlass"))
+            if (!string.Equals(item.ID, "EmptyGlass") && !string.Equals(item.ID, "GlassFullOfWater"))
             {
                 _showDialogue.Start(item.dialogue);
             }

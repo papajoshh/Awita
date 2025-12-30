@@ -2,6 +2,7 @@ using Runtime.Application;
 using Runtime.Infrastructure;
 using Runtime.ItemManagement.Domain;
 using Zenject;
+using static UnityEditor.Progress;
 
 namespace Runtime.ItemManagement.Application
 {
@@ -22,7 +23,11 @@ namespace Runtime.ItemManagement.Application
         {
             _inventory.Add(id);
             _pockets.Display(_inventory.ItemsInPockets);
-            SelectItem(id);
+
+            if(string.Equals(id, "GlassFullOfWater"))
+            {
+                SelectItem(id);
+            }
         }
 
         private void RemoveItem(string id)

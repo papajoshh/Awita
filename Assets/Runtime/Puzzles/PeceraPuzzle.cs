@@ -70,6 +70,7 @@ namespace Runtime.Infrastructure
                     }
                     else
                     {
+                        _handleInventory.DeselectItem();
                         _showDialogue.Start(dialogueFishWrongItem);
                     }
                     
@@ -97,6 +98,7 @@ namespace Runtime.Infrastructure
                 if (_inventory.HasSomethingOnHand)
                 {
                     _showDialogue.Start(dialogueWrongItem);
+                    _handleInventory.DeselectItem();
                 }
                 else
                 {

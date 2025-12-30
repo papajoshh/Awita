@@ -62,6 +62,7 @@ namespace Runtime.Infrastructure
             }
             else
             {
+                _handleInventory.DeselectItem();
                 ShowNoUnlockDialogue();
             }
             

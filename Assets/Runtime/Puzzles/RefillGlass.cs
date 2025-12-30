@@ -36,6 +36,7 @@ public class RefillGlass : Interaction
         {
             if (_inventory.HasSomethingOnHand)
             {
+                _handleInventory.DeselectItem();
                 _showDialogue.Start(dialogueWrongItem);
             }
             else

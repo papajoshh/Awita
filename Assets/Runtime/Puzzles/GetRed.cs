@@ -34,6 +34,7 @@ public class GetRed : Interaction
         {
             if (_inventory.HasSomethingOnHand)
             {
+                _handleInventory.DeselectItem();
                 _showDialogue.Start(dialogueWrongItem);
             }
             else
