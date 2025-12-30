@@ -38,6 +38,8 @@ namespace Runtime.ExtraInteraction.Infrastructure
 
         public void Show(int puzzleIndex)
         {
+            canvasGroup.blocksRaycasts = true;
+
             currentPuzzle =  containerPuzzles.transform.GetChild(puzzleIndex).gameObject;
             currentPuzzle.SetActive(true);
             
@@ -54,7 +56,6 @@ namespace Runtime.ExtraInteraction.Infrastructure
         {
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
         }
 
         private void OnHideComplete()
