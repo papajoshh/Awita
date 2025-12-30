@@ -517,6 +517,10 @@ PrefabInstance:
       propertyPath: ratoneraInRoomOpenedRenderer
       value: 
       objectReference: {fileID: 566358274}
+    - target: {fileID: 2377762864474758772, guid: 597072bc52434bd4f991697ba93fde9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3142553165976913586, guid: 597072bc52434bd4f991697ba93fde9c, type: 3}
       propertyPath: m_Name
       value: ExtraInteractionCanvas

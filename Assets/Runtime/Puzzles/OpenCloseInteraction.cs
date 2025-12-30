@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using Zenject;
 
@@ -19,11 +20,11 @@ namespace Runtime.Infrastructure
             base.Awake();
             if (startClosed)
             {
-                Close();
+                Close(muted: true);
             }
             else
             {
-                Open();
+                Open(muted: true);
             }
         }
 
@@ -46,20 +47,24 @@ namespace Runtime.Infrastructure
             openedDrawer.SetActive(false);
         }
 
-        private void Close()
+        private void Close(bool muted = false)
         {
             closed = true;
             closedDrawer.SetActive(true);
             openedDrawer.SetActive(false);
-            _audioPlayer.PlaySFX(_audioClip_close, 0.2f);
+
+            if (!muted)
+                _audioPlayer.PlaySFX(_audioClip_close, 0.2f);
         }
 
-        private void Open()
+        private void Open(bool muted = false)
         {
             closed = false;
             closedDrawer.SetActive(false);
             openedDrawer.SetActive(true);
-            _audioPlayer.PlaySFX(_audioClip_open, 0.2f);
+            
+            if (!muted)
+                _audioPlayer.PlaySFX(_audioClip_open, 0.2f);
         }
     }
 }
