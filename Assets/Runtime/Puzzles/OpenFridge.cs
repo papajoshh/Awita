@@ -13,6 +13,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private AudioClip closeAudio;
         [SerializeField] private ItemContainer quesoItem;
         [SerializeField] private ItemContainer hieloItem;
+        [SerializeField] private GameObject fridgeCloser;
         
         [Inject] private readonly AudioPlayer _audioPlayer;
 
@@ -21,32 +22,11 @@ namespace Runtime.Infrastructure
         {
             base.Awake();
             Close(false);
-            quesoItem.OnRecollect += CountItemsRecollect;
-            hieloItem.OnRecollect += CountItemsRecollect;
         }
         
         private void OnDestroy()
         {
-            quesoItem.OnRecollect -= CountItemsRecollect;
-            hieloItem.OnRecollect -= CountItemsRecollect;
-            
             StopAllCoroutines();
-        }
-        
-        
-        private void CountItemsRecollect()
-        {
-            count++;
-            if (count >= 2)
-            {
-                StartCoroutine(CloseWithDelay());
-            }
-        }
-
-        private IEnumerator CloseWithDelay()
-        {
-            yield return new WaitForSeconds(0.75f);
-            Close();
         }
 
         public override void Interact()
@@ -60,10 +40,9 @@ namespace Runtime.Infrastructure
         private void Close(bool playSound = true)
         {
             if(playSound) _audioPlayer.PlaySFX(closeAudio, 0.2f);
-            quesoItem.Disable();
-            hieloItem.Disable();
             openedCloset.color = new Color (1, 1, 1, 0);
             closedCloset.color = Color.white;
+            Enable();
         }
 
         private void Open()

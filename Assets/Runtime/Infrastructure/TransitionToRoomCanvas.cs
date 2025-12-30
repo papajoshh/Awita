@@ -22,8 +22,8 @@ namespace Runtime.Infrastructure
         {
             var sequence = DOTween.Sequence();
             canvasGroup.blocksRaycasts = true;
-            sequence.Append(canvasGroup.DOFade(1, 0.3f).OnComplete(() => ChangeCameraToRoom(roomName)));
-            sequence.Append(canvasGroup.DOFade(0, 0.3f).SetDelay(0.5f).OnComplete(() => canvasGroup.blocksRaycasts = false));
+            sequence.Append(canvasGroup.DOFade(1, 0.15f).OnComplete(() => ChangeCameraToRoom(roomName)));
+            sequence.Append(canvasGroup.DOFade(0, 0.15f).SetDelay(0.25f).OnComplete(() => canvasGroup.blocksRaycasts = false));
         }
 
         public void GoToRoom()
