@@ -17,6 +17,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
         [SerializeField] private Image backgroundCloseImage;
+        [SerializeField] private Image backgroundOpenedImage;
         [SerializeField] private SpriteRenderer ratoneraInRoomClosedRenderer;
         [SerializeField] private SpriteRenderer ratoneraInRoomOpenedRenderer;
         [SerializeField] private GameObject pincitas;
@@ -38,6 +39,7 @@ namespace Runtime.Infrastructure
             else
             {
                 Close();
+                backgroundOpenedImage.enabled = false;
             }
         }
 
@@ -67,6 +69,7 @@ namespace Runtime.Infrastructure
 
         private void Open()
         {
+            backgroundOpenedImage.enabled = true;
             backgroundCloseImage.DOColor(new Color (1, 1, 1, 0), 0.75f);
             ratoneraInRoomClosedRenderer.DOColor(new Color (1, 1, 1, 0), 0.75f);
             ratoneraInRoomOpenedRenderer.DOColor(Color.white, 0.75f);

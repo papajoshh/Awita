@@ -2004,7 +2004,7 @@ GameObject:
   - component: {fileID: 8445879679486249586}
   - component: {fileID: 220245187780867448}
   m_Layer: 5
-  m_Name: MiniPinzas
+  m_Name: Cassette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
