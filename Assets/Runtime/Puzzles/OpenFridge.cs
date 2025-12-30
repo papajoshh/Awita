@@ -18,15 +18,25 @@ namespace Runtime.Infrastructure
         [Inject] private readonly AudioPlayer _audioPlayer;
 
         private int count;
+        private FridgeCloser _closer;
+
         protected override void Awake()
         {
             base.Awake();
             Close(false);
+            fridgeCloser.SetActive(false);
+            _closer = fridgeCloser.GetComponent<FridgeCloser>();
         }
-        
+
+        private void OnEnable()
+        {
+            _closer.OnClose += CloseUsingDoor;
+        }
+
         private void OnDestroy()
         {
             StopAllCoroutines();
+            _closer.OnClose -= CloseUsingDoor;
         }
 
         public override void Interact()
@@ -39,19 +49,38 @@ namespace Runtime.Infrastructure
 
         private void Close(bool playSound = true)
         {
-            if(playSound) _audioPlayer.PlaySFX(closeAudio, 0.2f);
+            if (quesoItem != null)
+                quesoItem.Disable();
+
+            if (hieloItem != null)
+                hieloItem.Disable();
+
+            if (playSound) _audioPlayer.PlaySFX(closeAudio, 0.2f);
             openedCloset.color = new Color (1, 1, 1, 0);
             closedCloset.color = Color.white;
+            fridgeCloser.SetActive(false);
+
             Enable();
         }
 
         private void Open()
         {
-            quesoItem.Enable();
-            hieloItem.Enable();
+            if (quesoItem != null)
+                quesoItem.Enable();
+            
+            if (hieloItem != null)
+                hieloItem.Enable();
+
             _audioPlayer.PlaySFX(openAudio, 0.2f);
             openedCloset.DOColor(Color.white, 0.75f);
-            closedCloset.DOColor(new Color (1, 1, 1, 0), 0.75f);
+            closedCloset.DOColor(new Color (1, 1, 1, 0), 0.75f).OnComplete(() => {
+                fridgeCloser.SetActive(true);
+            });
+        }
+
+        private void CloseUsingDoor()
+        { 
+            Close();
         }
     }
 }

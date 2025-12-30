@@ -119,6 +119,7 @@ Transform:
   - {fileID: 5347262291560729094}
   - {fileID: 2567798968142903511}
   - {fileID: 7262483042407193290}
+  - {fileID: 3637026063755711792}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1966339866645943268
@@ -139,7 +140,7 @@ MonoBehaviour:
   closeAudio: {fileID: 8300000, guid: fd3e3c3dec62d664a852bddad59dbe44, type: 3}
   quesoItem: {fileID: 4222729444471976785}
   hieloItem: {fileID: 718580759661842807}
-  fridgeCloser: {fileID: 0}
+  fridgeCloser: {fileID: 836351486731974818}
 --- !u!61 &130822385836374565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,6 +186,113 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2400455, y: 5.5160885}
   m_EdgeRadius: 0
+--- !u!1 &836351486731974818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3637026063755711792}
+  - component: {fileID: 4124360133184525917}
+  - component: {fileID: 18340414721878831}
+  m_Layer: 0
+  m_Name: FridgeCloser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3637026063755711792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836351486731974818}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.005, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6622871032086913203}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &4124360133184525917
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836351486731974818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.6591797, y: 2.2824275}
+      - {x: -0.7679405, y: 2.492249}
+      - {x: -0.83426285, y: 2.6453266}
+      - {x: -1.0051403, y: 2.7915285}
+      - {x: -1.2494488, y: 2.899574}
+      - {x: -2.0544024, y: 3.1256125}
+      - {x: -2.3110733, y: 3.061058}
+      - {x: -2.451498, y: 2.894059}
+      - {x: -2.4674377, y: -2.941595}
+      - {x: -2.388773, y: -2.9882674}
+      - {x: -2.2602744, y: -2.9786158}
+      - {x: -0.6400665, y: -2.3938727}
+      - {x: -0.7231064, y: -2.2963748}
+      - {x: -0.731163, y: -2.2013896}
+      - {x: -0.69467926, y: 1.6104324}
+      - {x: -0.6546097, y: 1.7315216}
+      - {x: -0.58482456, y: 2.0019777}
+  m_UseDelaunayMesh: 0
+--- !u!114 &18340414721878831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836351486731974818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dc14a08d6740847abe95668aa854f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2569234977982686883
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +365,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 9edabd9f387fa4d4ab5dbf5366818729, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -277,6 +385,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6622871032086913203}
     m_Modifications:
+    - target: {fileID: 5147406850890229709, guid: cb6b8c2a1b412fe43b388f1284b312c1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7405337465977145275, guid: cb6b8c2a1b412fe43b388f1284b312c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.748
@@ -350,6 +462,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6622871032086913203}
     m_Modifications:
+    - target: {fileID: 2510544680715347069, guid: 442222684d347fe428da50318e0d5096, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3713798126724141514, guid: 442222684d347fe428da50318e0d5096, type: 3}
       propertyPath: m_Name
       value: Queso
