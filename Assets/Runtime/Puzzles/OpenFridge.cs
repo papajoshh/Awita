@@ -71,7 +71,7 @@ namespace Runtime.Infrastructure
             if (hieloItem != null)
                 hieloItem.Enable();
 
-            _audioPlayer.PlaySFX(openAudio, 0.2f);
+            _audioPlayer.PlaySFX(openAudio, 0.5f);
             openedCloset.DOColor(Color.white, 0.75f);
             closedCloset.DOColor(new Color (1, 1, 1, 0), 0.75f).OnComplete(() => {
                 fridgeCloser.SetActive(true);
