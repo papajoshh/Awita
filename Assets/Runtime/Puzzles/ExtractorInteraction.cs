@@ -70,7 +70,7 @@ namespace Runtime.Infrastructure
         {
             if (turnOnExtractor.enabled) return;
             _audioPlayer.PlaySFX(_audioClip);
-            _audioPlayer.PlaySFX(_extractorOn, 0.1f, true);
+            _audioPlayer.PlaySFX(_extractorOn, 0.1f, true, pos:transform.position);
             _humoEffect.SetActive(true);
             turnOnExtractor.enabled = true;
             turnOffExtractor.enabled = false;
