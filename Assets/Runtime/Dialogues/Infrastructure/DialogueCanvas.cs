@@ -2,6 +2,7 @@ using DG.Tweening;
 using Febucci.UI;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
+using Runtime.Infrastructure;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ namespace Runtime.Dialogues.Infrastructure
     {
         [Inject] private readonly ShowDialogue _showDialogue;
         [Inject] private readonly CurrentDialogue _currentDialogue;
+        [Inject] private readonly TravelButtonsCanvas _travelButtonsCanvas;
+        
         [SerializeField] private TextMeshProUGUI lineText;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private RectTransform rectTransform;
@@ -52,6 +55,7 @@ namespace Runtime.Dialogues.Infrastructure
             if (!isVisible)
             {
                 canvasGroup.DOFade(1, 0.25f).OnComplete(() =>OnShow(line));
+                _travelButtonsCanvas.Hide();
                 rectTransform.DOMove(showPosition.position, 0.25f);
             }
             else
@@ -68,6 +72,7 @@ namespace Runtime.Dialogues.Infrastructure
         public void Hide()
         {
             if (!isVisible) return;
+            _travelButtonsCanvas.Show();
             rectTransform.DOMove(hidePosition.position, 0.25f).OnComplete(OnHide);
         }
 

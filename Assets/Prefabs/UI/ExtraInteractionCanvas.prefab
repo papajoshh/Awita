@@ -526,6 +526,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5814971169046923086}
+  - {fileID: 6600558135702949101}
   - {fileID: 5097949462521199216}
   - {fileID: 1158447590027842860}
   m_Father: {fileID: 0}
@@ -729,10 +731,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf39ac35255942d780c91d346b8d0449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 5097949462521199216}
   roomButtons: {fileID: 2094614475077631718}
   bathroomButtons: {fileID: 3533648981189113537}
   kitchenButtons: {fileID: 7513295752431514585}
   canvasGroup: {fileID: 8125697264519433290}
+  _anchorShowed: {fileID: 6600558135702949101}
+  _anchorHid: {fileID: 5814971169046923086}
 --- !u!225 &8125697264519433290
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -994,6 +999,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomName: bathroom
+--- !u!1 &6675042418049876834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6600558135702949101}
+  m_Layer: 5
+  m_Name: ShowPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6600558135702949101
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675042418049876834}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6546171709746085793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 75, y: 73.3}
+  m_SizeDelta: {x: 497.2358, y: 182.7178}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7513295752431514585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1147,41 @@ MonoBehaviour:
   canvasGroup: {fileID: 6207489470735608853}
   containerPuzzles: {fileID: 3955301175339353624}
   closeButton: {fileID: 903014436894081189}
+--- !u!1 &7891970608074071598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5814971169046923086}
+  m_Layer: 5
+  m_Name: HidePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5814971169046923086
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891970608074071598}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6546171709746085793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 75, y: -101}
+  m_SizeDelta: {x: 497.2358, y: 182.7178}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9089075197017805831
 GameObject:
   m_ObjectHideFlags: 0

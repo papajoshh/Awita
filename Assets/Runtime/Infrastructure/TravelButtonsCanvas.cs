@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -6,12 +7,18 @@ namespace Runtime.Infrastructure
 {
     public class TravelButtonsCanvas: MonoBehaviour
     {
+        
+        [SerializeField] private RectTransform rectTransform;
         [SerializeField] private GameObject roomButtons;
         [SerializeField] private GameObject bathroomButtons;
         [SerializeField] private GameObject kitchenButtons;
         [SerializeField] private CanvasGroup canvasGroup;
-
+        [SerializeField] private RectTransform _anchorShowed;
+        [SerializeField] private RectTransform _anchorHid;
+        
         [Inject] private readonly TransitionToRoomCanvas transition;
+
+        private bool unlocked;
 
         private void Awake()
         {
@@ -26,6 +33,7 @@ namespace Runtime.Infrastructure
             kitchenButtons.SetActive(false);
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
+            unlocked = true;
         }
         
         public void UpdateCurrentState()
@@ -51,6 +59,18 @@ namespace Runtime.Infrastructure
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+        
+        public void Show()
+        {
+            if (!unlocked) return;
+            rectTransform.DOAnchorPosY(_anchorShowed.anchoredPosition.y, 0.75f);
+        }
+
+        public void Hide()
+        {
+            if (!unlocked) return;
+            rectTransform.DOAnchorPosY(_anchorHid.anchoredPosition.y, 0.75f);
         }
     }
 }

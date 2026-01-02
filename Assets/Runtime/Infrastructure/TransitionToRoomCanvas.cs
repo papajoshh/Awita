@@ -12,14 +12,18 @@ namespace Runtime.Infrastructure
         [Inject] private readonly TravelButtonsCanvas _travelButtonsCanvas;
         public string CurrentRoom { get; private set; } = "room";
         private Camera _mainCamera;
+        private bool unlocked;
+        
         private void Awake()
         {
             _mainCamera = Camera.main;
             canvasGroup.blocksRaycasts = false;
         }
 
+        
         public void GoToRoom(string roomName)
         {
+            unlocked = true;
             var sequence = DOTween.Sequence();
             canvasGroup.blocksRaycasts = true;
             sequence.Append(canvasGroup.DOFade(1, 0.15f).OnComplete(() => ChangeCameraToRoom(roomName)));
