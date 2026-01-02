@@ -19,6 +19,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueWaterCompleted;
         [SerializeField] private DialogueData dialogueWaterNoItem;
         [SerializeField] private DialogueData dialogueWaterWrongItem;
+        [SerializeField] private DialogueData dialogueWithEmptyGlassWrongItem;
         
         [SerializeField] private Sprite[] barquitoStages;
         [SerializeField] private SpriteRenderer botellaRenderer;
@@ -59,6 +60,11 @@ namespace Runtime.Infrastructure
             }
             else
             {
+                if (_handleInventory.HasEmptyGlass())
+                {
+                    _showDialogue.Start(dialogueWithEmptyGlassWrongItem);
+                    return;
+                }
                 if (_inventory.HasSomethingOnHand)
                 {
                     _handleInventory.DeselectItem();
@@ -95,6 +101,7 @@ namespace Runtime.Infrastructure
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;
                 }
+
                 if (_inventory.HasSomethingOnHand)
                 {
                     _showDialogue.Start(dialogueWaterWrongItem);

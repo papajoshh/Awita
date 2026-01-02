@@ -174,13 +174,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemOnHand: Pincitas
-  dialogueCompleted: {fileID: 11400000, guid: 3d96c99bdaf7f6f498d73e4a800e5f30, type: 2}
-  dialogueNoItem: {fileID: 11400000, guid: 37ad4b8b650824a42b038e54cd8cede8, type: 2}
-  dialogueWrongItem: {fileID: 11400000, guid: 3645f6d644d77d744a1d31648e80bbfe, type: 2}
+  dialogueCompleted: {fileID: 11400000, guid: f4099a59d9e6047469cb76d5d43f721c, type: 2}
+  dialogueNoItem: {fileID: 11400000, guid: 8392f5c041c47424fbf6259948747f6e, type: 2}
+  dialogueWrongItem: {fileID: 11400000, guid: c4115abc43e0ad34d9da78c7eca69408, type: 2}
   itemOnHandTiGetWater: EmptyGlass
   dialogueWaterCompleted: {fileID: 11400000, guid: 3d96c99bdaf7f6f498d73e4a800e5f30, type: 2}
   dialogueWaterNoItem: {fileID: 11400000, guid: 37ad4b8b650824a42b038e54cd8cede8, type: 2}
   dialogueWaterWrongItem: {fileID: 11400000, guid: 3645f6d644d77d744a1d31648e80bbfe, type: 2}
+  dialogueWithEmptyGlassWrongItem: {fileID: 11400000, guid: eefa89598dcd74241bb36d6f2f483ace, type: 2}
   barquitoStages:
   - {fileID: 21300000, guid: b30fa97207af7084f87814e6581e763e, type: 3}
   - {fileID: 21300000, guid: 4625dcf1784cd104295e2b641ed7d1f1, type: 3}

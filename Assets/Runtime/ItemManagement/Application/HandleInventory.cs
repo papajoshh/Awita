@@ -152,5 +152,9 @@ namespace Runtime.ItemManagement.Application
         {
             return _inventory.HasitemOnHand("GlassFullOfWater");
         }
+        public bool HasEmptyGlass()
+        {
+            return _inventory.HasitemOnHand("EmptyGlass");
+        }
     }
 }
