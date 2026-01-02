@@ -36,7 +36,7 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _audioPlayer.PlayMusic(_audioClip, 0.2f);
+                _audioPlayer.PlayMusic(_audioClip, 0.35f, pos: transform.position);
                 IsMusicPlaying = true;
                 _ghostRenderer.sprite = _happyGhost;
                 animation.SetActive(true);

@@ -54,9 +54,9 @@ namespace Runtime.Infrastructure
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
-                _audioPlayer.PlaySFX(audioClip, 0.5f);
-                _audioPlayer.PlaySfxWithDelay(sirenasClipLoop, 0.2f, true, 15f);
-                _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, true, 15f);
+                _audioPlayer.PlaySFX(audioClip, 0.5f, pos:transform.position);
+                _audioPlayer.PlaySfxWithDelay(sirenasClipLoop, 0.2f, true, 15f, transform.position);
+                _audioPlayer.PlaySfxWithDelay(fireClipLoop, 0.2f, true, 15f, transform.position);
                 _showDialogue.Start(dialogueCompleted);
                 Disable();
                 StartCoroutine(ThrowCoctel());

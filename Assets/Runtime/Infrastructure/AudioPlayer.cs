@@ -15,7 +15,7 @@ namespace Runtime.Infrastructure
             StopAllCoroutines();
         }
 
-        public void PlayMusic(AudioClip clip, float volume = 0.2f)
+        public void PlayMusic(AudioClip clip, float volume = 0.2f, Vector3 pos = new Vector3())
         {
             if (clip == null)
                 return;
@@ -24,6 +24,8 @@ namespace Runtime.Infrastructure
             {
                 musicAudioSource.DOFade(0, 1f).OnComplete(() =>
                 {
+                    musicAudioSource.transform.position = pos;
+                    musicAudioSource.spatialBlend = pos != Vector3.zero ? 1 : 0;
                     musicAudioSource.clip = clip;
                     musicAudioSource.volume = volume;
                     musicAudioSource.Play();
@@ -32,15 +34,17 @@ namespace Runtime.Infrastructure
             }
         }
 
-        public void PlaySFX(AudioClip clip, float volume = 0.2f, bool loop = false)
+        public void PlaySFX(AudioClip clip, float volume = 0.2f, bool loop = false, Vector3 pos = new Vector3())
         {
             if (clip == null)
                 return;
-
+            
             var hasBeenPlayed = false;
             foreach (var sfxAudioSource in sfxAudioSources)
             {
                 if (sfxAudioSource.isPlaying) continue;
+                sfxAudioSource.transform.position = pos;
+                sfxAudioSource.spatialBlend = pos != Vector3.zero ? 1 : 0;
                 sfxAudioSource.clip = clip;
                 sfxAudioSource.volume = volume;
                 sfxAudioSource.loop = loop;
@@ -71,12 +75,12 @@ namespace Runtime.Infrastructure
             }
         }
         
-        public void PlaySfxWithDelay(AudioClip clip, float volume = 0.2f, bool loop = false, float delay = 0f)
+        public void PlaySfxWithDelay(AudioClip clip, float volume = 0.2f, bool loop = false, float delay = 0f, Vector3 pos = new Vector3())
         {
-            StartCoroutine(WaitToPlaySfx(clip, volume, loop, delay));
+            StartCoroutine(WaitToPlaySfx(clip, volume, loop, delay, pos));
         }
         
-        private IEnumerator WaitToPlaySfx(AudioClip clip, float volume, bool loop, float delay)
+        private IEnumerator WaitToPlaySfx(AudioClip clip, float volume, bool loop, float delay, Vector3 pos = new Vector3())
         {
             yield return new WaitForSeconds(delay);
             PlaySFX(clip, volume, loop);

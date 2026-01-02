@@ -64,7 +64,7 @@ namespace Runtime.Infrastructure
         public void StartRaining()
         {
             lluvia.SetActive(true);
-            _audioPlayer.PlaySFX(_rainingAudio, 0.2f, true);
+            _audioPlayer.PlaySFX(_rainingAudio, 0.2f, true, transform.position);
             Enable();
         }
 
