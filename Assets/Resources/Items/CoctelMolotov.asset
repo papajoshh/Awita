@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CoctelMolotov
   m_EditorClassIdentifier: 
   ID: CoctelMolotov
-  sprite: {fileID: 21300000, guid: 5aebc0a1da1911042a8a621757010397, type: 3}
+  sprite: {fileID: 21300000, guid: 70aff9ac9499ff148a422944fdf1bff6, type: 3}
   dialogue: {fileID: 11400000, guid: e158927b8a4231041a6e0acd7a63eca2, type: 2}

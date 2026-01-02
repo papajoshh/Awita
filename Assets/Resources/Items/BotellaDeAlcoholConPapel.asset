@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BotellaDeAlcoholConPapel
   m_EditorClassIdentifier: 
   ID: BotellaDeAlcoholConPapel
-  sprite: {fileID: 21300000, guid: 5aebc0a1da1911042a8a621757010397, type: 3}
+  sprite: {fileID: 21300000, guid: 66e6fb5e3ef284944a2cfb223ed9dcda, type: 3}
   dialogue: {fileID: 11400000, guid: 724ea9cbdf557a84ebc294732a66537e, type: 2}
