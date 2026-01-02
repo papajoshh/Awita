@@ -10,6 +10,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private SpriteRenderer turnOffExtractor;
         [SerializeField] private AudioClip _audioClip;
         [SerializeField] private SpriteRenderer cloudRenderer;
+        [SerializeField] private GameObject lluvia;
         [SerializeField] private GetWaterFromCloud _getWaterFromCloud;
         [SerializeField] private GameObject _humoEffect;
 
@@ -24,6 +25,7 @@ namespace Runtime.Infrastructure
             base.Awake();
             Close();
             _getWaterFromCloud.Disable();
+            lluvia.SetActive(false);
         }
 
         private void Update()
@@ -53,8 +55,8 @@ namespace Runtime.Infrastructure
         }
         private void Close()
         {
-            turnOnExtractor.color = new Color (1, 1, 1, 0);
-            turnOffExtractor.color = Color.white;
+            turnOnExtractor.enabled = false;
+            turnOffExtractor.enabled = true;
             _tween?.Kill();
             if(!_cloud.IsRaining) _tween = cloudRenderer.DOColor(new Color(1, 1, 1, 0), 0.75f);
             _humoEffect.SetActive(false);
@@ -63,8 +65,8 @@ namespace Runtime.Infrastructure
         private void Open()
         {
             _humoEffect.SetActive(true);
-            turnOnExtractor.DOColor(Color.white, 0.75f);
-            turnOffExtractor.DOColor(new Color (1, 1, 1, 0), 0.75f);
+            turnOnExtractor.enabled = true;
+            turnOffExtractor.enabled = false;
             _tween?.Kill();
             if(!_cloud.IsRaining) _tween = cloudRenderer.DOColor(Color.white, 15);
         }
@@ -73,6 +75,7 @@ namespace Runtime.Infrastructure
         {
             if (_cloud.IsRaining) return;
             _cloud.StartRaining();
+            lluvia.SetActive(true);
             _getWaterFromCloud.Enable();
         }
     }
