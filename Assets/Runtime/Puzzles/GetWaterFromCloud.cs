@@ -15,6 +15,9 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueNoItem;
         [SerializeField] private DialogueData dialogueWrongItem;
         [SerializeField] private SpriteRenderer cloudRenderer;
+        [SerializeField] private ExtractorInteraction extractor;
+        [SerializeField] private GameObject lluvia;
+        
         
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
@@ -22,8 +25,14 @@ namespace Runtime.Infrastructure
 
         //SFX
         [SerializeField] private AudioClip _audioClip_getWater;
+        [SerializeField] private AudioClip _rainingAudio;
         [Inject] private readonly AudioPlayer _audioPlayer;
-        
+
+        protected override void Awake()
+        {
+            base.Awake();
+            lluvia.SetActive(false);
+        }
         public override void Interact()
         {
             if (!Interactable) return;
@@ -33,7 +42,9 @@ namespace Runtime.Infrastructure
                 _handleInventory.AddGlassOfWater();
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
-                cloudRenderer.DOColor(new Color(1, 1, 1, 0), 2f);
+                extractor.Open();
+                extractor.Disable();
+                StopRaining();
                 Disable();
             }
             else
@@ -48,6 +59,20 @@ namespace Runtime.Infrastructure
                     _showDialogue.Start(dialogueNoItem);
                 }
             }
+        }
+
+        public void StartRaining()
+        {
+            lluvia.SetActive(true);
+            _audioPlayer.PlaySFX(_rainingAudio, 0.2f, true);
+            Enable();
+        }
+
+        private void StopRaining()
+        {
+            cloudRenderer.DOColor(new Color(1, 1, 1, 0), 2f);
+            lluvia.SetActive(false);
+            _audioPlayer.StopSFX(_rainingAudio);
         }
     }
 }

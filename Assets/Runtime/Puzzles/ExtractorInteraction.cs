@@ -9,8 +9,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private SpriteRenderer turnOnExtractor;
         [SerializeField] private SpriteRenderer turnOffExtractor;
         [SerializeField] private AudioClip _audioClip;
+        [SerializeField] private AudioClip _extractorOn;
         [SerializeField] private SpriteRenderer cloudRenderer;
-        [SerializeField] private GameObject lluvia;
         [SerializeField] private GetWaterFromCloud _getWaterFromCloud;
         [SerializeField] private GameObject _humoEffect;
 
@@ -23,9 +23,11 @@ namespace Runtime.Infrastructure
         protected override void Awake()
         {
             base.Awake();
-            Close();
+            
+            turnOnExtractor.enabled = false;
+            turnOffExtractor.enabled = true;
+            cloudRenderer.color = new Color(1, 1, 1, 0);
             _getWaterFromCloud.Disable();
-            lluvia.SetActive(false);
         }
 
         private void Update()
@@ -47,7 +49,6 @@ namespace Runtime.Infrastructure
         private void Toggle()
         {
             _extractor.Toogle();
-            _audioPlayer.PlaySFX(_audioClip, 0.2f);
             if (_extractor.IsExtracting)
                 Open();
             else 
@@ -55,15 +56,21 @@ namespace Runtime.Infrastructure
         }
         private void Close()
         {
+            if (turnOffExtractor.enabled) return;
             turnOnExtractor.enabled = false;
             turnOffExtractor.enabled = true;
+            _audioPlayer.PlaySFX(_audioClip);
+            _audioPlayer.StopSFX(_extractorOn);
             _tween?.Kill();
             if(!_cloud.IsRaining) _tween = cloudRenderer.DOColor(new Color(1, 1, 1, 0), 0.75f);
             _humoEffect.SetActive(false);
         }
 
-        private void Open()
+        public void Open()
         {
+            if (turnOnExtractor.enabled) return;
+            _audioPlayer.PlaySFX(_audioClip);
+            _audioPlayer.PlaySFX(_extractorOn, 0.1f, true);
             _humoEffect.SetActive(true);
             turnOnExtractor.enabled = true;
             turnOffExtractor.enabled = false;
@@ -75,8 +82,7 @@ namespace Runtime.Infrastructure
         {
             if (_cloud.IsRaining) return;
             _cloud.StartRaining();
-            lluvia.SetActive(true);
-            _getWaterFromCloud.Enable();
+            _getWaterFromCloud.StartRaining();
         }
     }
 }

@@ -402,8 +402,8 @@ MonoBehaviour:
   turnOnExtractor: {fileID: 891305515683083768}
   turnOffExtractor: {fileID: 6075181620323986568}
   _audioClip: {fileID: 8300000, guid: 15021d1c668ecda459f374045b365bff, type: 3}
+  _extractorOn: {fileID: 8300000, guid: 4904a58d5acfcd44f880cee141ef1181, type: 3}
   cloudRenderer: {fileID: 648872046288076809}
-  lluvia: {fileID: 4239308093663945810}
   _getWaterFromCloud: {fileID: 8712401398768766467}
   _humoEffect: {fileID: 3359243739828005546}
 --- !u!1 &7192512832291314397
@@ -555,4 +555,7 @@ MonoBehaviour:
   dialogueNoItem: {fileID: 11400000, guid: 24e43bc7f9c54aa43b9d29a12de9dff5, type: 2}
   dialogueWrongItem: {fileID: 11400000, guid: dedc999f48c83af47934a15b29bc0a5a, type: 2}
   cloudRenderer: {fileID: 648872046288076809}
+  extractor: {fileID: 76763245037526645}
+  lluvia: {fileID: 4239308093663945810}
   _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
+  _rainingAudio: {fileID: 8300000, guid: c8c42d6ee282eb44386175281df9873b, type: 3}
