@@ -32,6 +32,7 @@ namespace Runtime.Infrastructure
         [Inject] private readonly AudioPlayer _audioPlayer;
 
         private bool waterIsOut = false;
+        private bool isDone;
         protected override void Awake()
         {
             boxesRenderer.color = Color.white;
@@ -56,6 +57,11 @@ namespace Runtime.Infrastructure
         private void GetWater()
         {
             if (!waterIsOut) return;
+            if (isDone)
+            {
+                _showDialogue.Start(_child.GetPhraseOfDryPlace());
+                return;
+            }
             if (_inventory.HasitemOnHand(itemOnHandToGetWater))
             {
                 _handleInventory.RemoveItemOnHand();
@@ -64,11 +70,11 @@ namespace Runtime.Infrastructure
                 _showDialogue.Start(dialogueWaterCompleted);
                 boxesWithWaterOutRenderer.DOColor(new Color(1, 1, 1, 0), 0.75f);
                 boxesEmptyRenderer.DOColor(Color.white, 0.75f);
-                Disable();
+                isDone = true;
             }
             else
             {
-                if (_handleInventory.HassGlassOfWater())
+                if (_handleInventory.HasGlassOfWater())
                 {
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;

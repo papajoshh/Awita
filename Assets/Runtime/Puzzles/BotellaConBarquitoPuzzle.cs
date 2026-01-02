@@ -36,6 +36,7 @@ namespace Runtime.Infrastructure
         private int dismountings = 0;
         private int dismountingsNeeded = 2;
         private bool completelyDismounted = false;
+        private bool isDone;
 
         protected override void Awake()
         {
@@ -73,6 +74,11 @@ namespace Runtime.Infrastructure
         private void GetWater()
         {
             if (!completelyDismounted) return;
+            if (isDone)
+            {
+                _showDialogue.Start(_child.GetPhraseOfDryPlace());
+                return;
+            }
             if (_inventory.HasitemOnHand(itemOnHandTiGetWater))
             {
                 _handleInventory.RemoveItemOnHand();
@@ -80,11 +86,11 @@ namespace Runtime.Infrastructure
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 botellaRenderer.sprite = barquitoStages[barquitoStages.Length - 1];
-                Disable();
+                isDone = true;
             }
             else
             {
-                if (_handleInventory.HassGlassOfWater())
+                if (_handleInventory.HasGlassOfWater())
                 {
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;

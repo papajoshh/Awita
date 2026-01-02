@@ -36,7 +36,7 @@ namespace Runtime.Infrastructure
         [Inject] private readonly AudioPlayer _audioPlayer;
 
         private bool pizzasWasRemoved = false;
-
+        private bool isDone;
         protected override void Awake()
         {
             boilerRenderer.sprite = fullBoilerSprite;
@@ -74,6 +74,11 @@ namespace Runtime.Infrastructure
         private void GetWater()
         {
             if (!pizzasWasRemoved) return;
+            if (isDone)
+            {
+                _showDialogue.Start(_child.GetPhraseOfDryPlace());
+                return;
+            }
             if (_inventory.HasitemOnHand(itemOnHandTiGetWater))
             {
                 _handleInventory.RemoveItemOnHand();
@@ -81,11 +86,11 @@ namespace Runtime.Infrastructure
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 boilerRenderer.sprite = emptyBoilerSprite;
-                Disable();
+                isDone = true;
             }
             else
             {
-                if (_handleInventory.HassGlassOfWater())
+                if (_handleInventory.HasGlassOfWater())
                 {
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;

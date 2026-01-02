@@ -21,11 +21,12 @@ namespace Runtime
         [SerializeField] private DialogueData iceChildDialogue;
         [SerializeField] private DialogueData alcoholChildDialogue;
         [SerializeField] private DialogueData enoughWaterDialogue;
+        [SerializeField] private DialogueData dryDialogue;
         public override void InstallBindings()
         {
             UIResources.Initialize();
             Container.Bind<CurrentDialogue>().AsSingle();
-            Container.Bind<Child>().FromInstance(Child.NewBorn(wrongWaterDialogueData, rightWaterDialogueData, alcoholChildDialogue, iceChildDialogue, enoughWaterDialogue)).AsSingle();
+            Container.Bind<Child>().FromInstance(Child.NewBorn(wrongWaterDialogueData, rightWaterDialogueData, alcoholChildDialogue, iceChildDialogue, enoughWaterDialogue,dryDialogue)).AsSingle();
             Container.Bind<CursorCanvas>().FromComponentInHierarchy().AsSingle();
             var allItems = Resources.LoadAll<Item>("Items").ToList();
             var allExtraPuzzles = Resources.LoadAll<ExtraInteractionPuzzle>("ExtraInteractionPuzzles").ToList();

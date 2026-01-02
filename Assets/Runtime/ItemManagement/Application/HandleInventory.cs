@@ -1,8 +1,5 @@
 using Runtime.Application;
-using Runtime.Infrastructure;
 using Runtime.ItemManagement.Domain;
-using Zenject;
-using static UnityEditor.Progress;
 
 namespace Runtime.ItemManagement.Application
 {
@@ -151,7 +148,7 @@ namespace Runtime.ItemManagement.Application
         {
             return _inventory.HasitemOnHand("Hielo");
         }
-        public bool HassGlassOfWater()
+        public bool HasGlassOfWater()
         {
             return _inventory.HasitemOnHand("GlassFullOfWater");
         }

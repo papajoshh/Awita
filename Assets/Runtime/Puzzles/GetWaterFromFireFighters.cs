@@ -32,6 +32,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private AudioClip fireLoopClip;
         [Inject] private readonly AudioPlayer _audioPlayer;
 
+        private bool isDone;
         protected override void OnDestroy()
         {
             base.OnDestroy();
@@ -40,6 +41,11 @@ namespace Runtime.Infrastructure
         public override void Interact()
         {
             if (!Interactable) return;
+            if (isDone)
+            {
+                _showDialogue.Start(_child.GetPhraseOfDryPlace());
+                return;
+            }
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 _handleInventory.RemoveItemOnHand();
@@ -50,11 +56,11 @@ namespace Runtime.Infrastructure
                 _audioPlayer.StopSFX(fireLoopClip);
                 houseRenderer.sprite = calcinadaHouseSprite;
                 StartCoroutine(FirefightersGoOut());
-                Disable();
+                isDone = true;
             }
             else
             {
-                if (_handleInventory.HassGlassOfWater())
+                if (_handleInventory.HasGlassOfWater())
                 {
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;

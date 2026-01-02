@@ -38,7 +38,8 @@ namespace Runtime.Infrastructure
         [Inject] private readonly AudioPlayer _audioPlayer;
 
         private bool fishIsOut;
-
+        private bool isDone;
+        
         protected override void Awake()
         {
             peceraRenderer.sprite = peceraConAgua;
@@ -86,6 +87,11 @@ namespace Runtime.Infrastructure
         private void GetWater()
         {
             if (!fishIsOut) return;
+            if (isDone)
+            {
+                _showDialogue.Start(_child.GetPhraseOfDryPlace());
+                return;
+            }
             if (_inventory.HasitemOnHand(itemOnHand))
             {
                 peceraRenderer.DOFade(0, 0.25f);
@@ -93,11 +99,11 @@ namespace Runtime.Infrastructure
                 _handleInventory.AddGlassOfWater();
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
-                Disable();
+                isDone = true;
             }
             else
             {
-                if (_handleInventory.HassGlassOfWater())
+                if (_handleInventory.HasGlassOfWater())
                 {
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;

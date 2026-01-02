@@ -37,6 +37,7 @@ namespace Runtime.Infrastructure
         private int cuts = 0;
         private int cutsNeeded = 3;
         private bool completelyCut = false;
+        private bool isDone;
 
         protected override void Awake()
         {
@@ -75,6 +76,11 @@ namespace Runtime.Infrastructure
         private void GetWater()
         {
             if (!completelyCut) return;
+            if (isDone)
+            {
+                _showDialogue.Start(_child.GetPhraseOfDryPlace());
+                return;
+            }
             if (_inventory.HasitemOnHand(itemOnHandTiGetWater))
             {
                 _handleInventory.RemoveItemOnHand();
@@ -82,11 +88,11 @@ namespace Runtime.Infrastructure
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 bonsaiRenderer.sprite = bonsaiStages[bonsaiStages.Length - 1];
-                Disable();
+                isDone = true;
             }
             else
             {
-                if (_handleInventory.HassGlassOfWater())
+                if (_handleInventory.HasGlassOfWater())
                 {
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;

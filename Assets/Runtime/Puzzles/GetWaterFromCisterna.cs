@@ -41,6 +41,7 @@ namespace Runtime.Infrastructure
         private bool ghostIsGone = false;
         private bool tapRemoved = false;
         private bool ghostIsSeen = false;
+        private bool isDone;
         protected override void Awake()
         {
             cisternaRenderer.sprite = initialCisternaSprite;
@@ -98,6 +99,11 @@ namespace Runtime.Infrastructure
         {
             if (!ghostIsGone) return;
             if (!tapRemoved) return;
+            if (isDone)
+            {
+                _showDialogue.Start(_child.GetPhraseOfDryPlace());
+                return;
+            }
             if (_inventory.HasitemOnHand(itemOnHandTiGetWater))
             {
                 _handleInventory.RemoveItemOnHand();
@@ -105,11 +111,11 @@ namespace Runtime.Infrastructure
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueWaterCompleted);
                 cisternaRenderer.sprite = emptyCisternaSprite;
-                Disable();
+                isDone = true;
             }
             else
             {
-                if (_handleInventory.HassGlassOfWater())
+                if (_handleInventory.HasGlassOfWater())
                 {
                     _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
                     return;
