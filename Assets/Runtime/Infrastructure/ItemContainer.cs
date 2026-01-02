@@ -16,6 +16,7 @@ namespace Runtime.Infrastructure
         [Inject] private readonly Cursor _cursor;
         [SerializeField] private Item item;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private bool loadSpriteOnAwake = true;
 
         [Inject] private readonly ShowDialogue _showDialogue;
         
@@ -46,9 +47,10 @@ namespace Runtime.Infrastructure
             if (!spriteRenderer)
             {
                 var image = GetComponent<Image>();
-                image.sprite = item.sprite;
+                if(loadSpriteOnAwake) image.sprite = item.sprite;
+                image.alphaHitTestMinimumThreshold = 0.1f;
             }
-            else
+            else if (loadSpriteOnAwake)
             {
                 spriteRenderer.sprite = item.sprite;
             }
