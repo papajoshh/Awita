@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
@@ -18,7 +19,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private SpriteRenderer cloudRenderer;
         [SerializeField] private ExtractorInteraction extractor;
         [SerializeField] private GameObject lluvia;
-        
+        [SerializeField] private Sprite cloudEyesOpen;
+        [SerializeField] private Sprite cloudEyesClosed;
         
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
@@ -35,6 +37,7 @@ namespace Runtime.Infrastructure
         {
             base.Awake();
             lluvia.SetActive(false);
+            StartCoroutine(Blink());
         }
         public override void Interact()
         {
@@ -87,5 +90,17 @@ namespace Runtime.Infrastructure
             lluvia.SetActive(false);
             _audioPlayer.StopSFX(_rainingAudio);
         }
+        private IEnumerator Blink()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(Random.Range(0.1f,10f));
+                cloudRenderer.sprite = cloudEyesClosed;
+                yield return new WaitForSeconds(Random.Range(0.1f,0.5f));
+                cloudRenderer.sprite = cloudEyesOpen;
+            }
+        }
     }
+    
+   
 }

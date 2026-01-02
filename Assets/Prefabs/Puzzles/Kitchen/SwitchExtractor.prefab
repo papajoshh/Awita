@@ -482,7 +482,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: 24fecf7e6ccbcc349b373efa18f8fdc9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0cd361efeab8ed4ca630482d0879765, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -529,7 +529,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.3, y: 0.87}
+    oldSize: {x: 2.32, y: 0.83}
     newSize: {x: 3.11, y: 2.69}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -557,5 +557,7 @@ MonoBehaviour:
   cloudRenderer: {fileID: 648872046288076809}
   extractor: {fileID: 76763245037526645}
   lluvia: {fileID: 4239308093663945810}
+  cloudEyesOpen: {fileID: 21300000, guid: b0cd361efeab8ed4ca630482d0879765, type: 3}
+  cloudEyesClosed: {fileID: 21300000, guid: 74e01a46aafab8946b9da694fcafdd62, type: 3}
   _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
   _rainingAudio: {fileID: 8300000, guid: c8c42d6ee282eb44386175281df9873b, type: 3}
