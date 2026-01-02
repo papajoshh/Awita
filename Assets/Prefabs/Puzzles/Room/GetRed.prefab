@@ -120,6 +120,7 @@ MonoBehaviour:
   dialogueNoItem: {fileID: 11400000, guid: 375af41b47ead33418632e52f7633880, type: 2}
   dialogueWrongItem: {fileID: 11400000, guid: 499075d55054ed94db59f775ec8e30b9, type: 2}
   "telara\xF1a": {fileID: 1149892556291891506}
+  "audio_telara\xF1a": {fileID: 8300000, guid: 674613b1166add443b66971508276546, type: 3}
 --- !u!212 &1149892556291891506
 SpriteRenderer:
   m_ObjectHideFlags: 0

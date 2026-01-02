@@ -423,6 +423,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9a7fceb0544bfcaef5fa0af2310d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wrongWaterDialogueData:
+  - {fileID: 11400000, guid: c44574f058e83404ab9f032536053830, type: 2}
+  - {fileID: 11400000, guid: 0bc2666053caa4d419b6d25d282b2cfe, type: 2}
+  - {fileID: 11400000, guid: 2ced97979b77e114698abac040837182, type: 2}
+  - {fileID: 11400000, guid: 3765a56cbb9efcc4a951eeefaf0a375a, type: 2}
+  - {fileID: 11400000, guid: 7c22bf6215b69db41b289c30089b0c54, type: 2}
+  rightWaterDialogueData:
+  - {fileID: 11400000, guid: 28fc316b697667d48850706929f26217, type: 2}
+  - {fileID: 11400000, guid: 5f0fd4d7abe3e18408c534ce89e2fa1a, type: 2}
+  - {fileID: 11400000, guid: 21828970c0c869c4eb0fe6fcef196682, type: 2}
+  - {fileID: 11400000, guid: 580605051d7467f4f88476e762c60b78, type: 2}
+  - {fileID: 11400000, guid: c1ccfd07bbcbfab46901b4551879adc7, type: 2}
+  - {fileID: 11400000, guid: 2c3b370f7b1ea5c4eb48b0bf8a5f3416, type: 2}
+  - {fileID: 11400000, guid: 326e6bfbed054164fadb6b7fd6eafac3, type: 2}
+  - {fileID: 11400000, guid: 57718a191186db247962340eae3588e0, type: 2}
+  - {fileID: 11400000, guid: f914c8f45ed406945b9da5bdeb7f1ea4, type: 2}
+  - {fileID: 11400000, guid: 97dd3b24e68bd7145bd430f685ee6887, type: 2}
+  - {fileID: 11400000, guid: e4999eb8a6dac0d458c7b90d142ff02d, type: 2}
+  - {fileID: 11400000, guid: 78b2607d81c5aea449d63dd0909b6602, type: 2}
 --- !u!1 &765060120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2423423950761331217, guid: 54012406e7a71ac4088824c5f60809d7, type: 3}

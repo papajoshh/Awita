@@ -14,8 +14,10 @@ public class GetRed : Interaction
     [SerializeField] private DialogueData dialogueNoItem;
     [SerializeField] private DialogueData dialogueWrongItem;
     [SerializeField] private SpriteRenderer telaraña;
+    [SerializeField] private AudioClip audio_telaraña;
     
     [Inject] private readonly Inventory _inventory;
+    [Inject] private readonly AudioPlayer _audioPlayer;
     [Inject] private HandleInventory _handleInventory;
     [Inject] private readonly ShowDialogue _showDialogue;
     
@@ -28,6 +30,7 @@ public class GetRed : Interaction
             _handleInventory.AddRed();
             _showDialogue.Start(dialogueCompleted);
             telaraña.DOFade(0, 0.25f);
+            _audioPlayer.PlaySFX(audio_telaraña);
             Disable();
         }
         else

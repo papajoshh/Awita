@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e489def3231b3b9498b023a35ff52116, type: 3}
-  m_Name: wrong_DameAwita 3
+  m_Name: 0_DameAwita
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - "Encuentra agua\u2026"
-  - Como sea.
+  - "Qu\xE9 sed tengo\u2026 "
+  - "P\xE1same ese vaso, porfa."

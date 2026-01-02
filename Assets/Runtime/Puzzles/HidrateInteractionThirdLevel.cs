@@ -41,7 +41,7 @@ namespace Runtime.Infrastructure
                 pauseAnimation.OnEnded += DisableAndGoToBathroom;
                 _showDialogue.OnShowNewLine += pauseAnimation.Resume;
                 _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
-                _showDialogue.Start(dialogueCompleted);
+                _showDialogue.Start(_child.GetPhraseOfHidratation());
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddEmptyGlass();
             }
@@ -50,11 +50,11 @@ namespace Runtime.Infrastructure
                 if (_inventory.HasSomethingOnHand)
                 {
                     _handleInventory.DeselectItem();
-                    _showDialogue.Start(dialogueWrongItem);
+                    _showDialogue.Start(_child.GetRandomWrongPhrase());
                 }
                 else
                 {
-                    _showDialogue.Start(dialogueNoItem);
+                    _showDialogue.Start(_child.GetRandomWrongPhrase());
                 }
             }
         }

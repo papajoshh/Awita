@@ -20,8 +20,10 @@ namespace Runtime.Infrastructure
         [SerializeField] private KidPauseAnimation pauseKidAnimation;
         [SerializeField] private Interaction[] roomInteractions;
         [SerializeField] private ItemContainer[] roomitems;
+        [SerializeField] private AudioClip _beber;
         
         [Inject] private readonly Child _child;
+        [Inject] private readonly AudioPlayer _audioPlayer;
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
@@ -51,15 +53,16 @@ namespace Runtime.Infrastructure
                 if (_inventory.HasSomethingOnHand)
                 {
                     _handleInventory.DeselectItem();
-                    _showDialogue.Start(dialogueWrongItem);
+                    _showDialogue.Start(_child.GetRandomWrongPhrase());
                 }
                 else
                 {
-                    _showDialogue.Start(dialogueNoItem);
+                    _showDialogue.Start(_child.GetRandomWrongPhrase());
                 }
             }
         }
 
+        
         private void HidrateChild()
         {
             _child.Hidrate();
@@ -67,7 +70,7 @@ namespace Runtime.Infrastructure
             animatorKid.Play("KidDrinkingAnimation");
             _showDialogue.OnShowNewLine += pauseAnimation.Resume;
             _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
-            _showDialogue.Start(dialogueCompleted);
+            _showDialogue.Start(_child.GetPhraseOfHidratation());
             _handleInventory.RemoveItemOnHand();
             _handleInventory.AddEmptyGlass();
             foreach (var interaction in roomInteractions)
