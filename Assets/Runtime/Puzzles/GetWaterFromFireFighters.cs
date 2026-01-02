@@ -52,11 +52,9 @@ namespace Runtime.Infrastructure
                 _handleInventory.AddGlassOfWater();
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
                 _showDialogue.Start(dialogueCompleted);
-                fire.SetActive(false);
-                _audioPlayer.StopSFX(fireLoopClip);
-                houseRenderer.sprite = calcinadaHouseSprite;
-                StartCoroutine(FirefightersGoOut());
-                isDone = true;
+                FirefightersGoOut();
+                StartCoroutine(StartToExtinguishFire());
+                Disable();
             }
             else
             {
@@ -77,9 +75,15 @@ namespace Runtime.Infrastructure
             }
         }
 
-        private IEnumerator FirefightersGoOut()
+        private IEnumerator StartToExtinguishFire()
         {
             yield return new WaitForSeconds(5f);
+            fire.SetActive(false);
+            _audioPlayer.StopSFX(fireLoopClip);
+            houseRenderer.sprite = calcinadaHouseSprite;
+        }
+        private void FirefightersGoOut()
+        {
             _audioPlayer.StopSFX(sirenasLoopClip, true);
             fireAnimator.Play("Calcinada");
         }
