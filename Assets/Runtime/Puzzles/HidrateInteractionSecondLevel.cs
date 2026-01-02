@@ -42,6 +42,14 @@ namespace Runtime.Infrastructure
                 _handleInventory.AddEmptyGlass();
 
             }
+            else if (_handleInventory.HasWhiskyOnHand())
+            {
+                _showDialogue.Start(_child.GetDialogueAlcohol());
+            }
+            else if (_handleInventory.HasIceOnHand())
+            {
+                _showDialogue.Start(_child.GetDialogueIce());
+            }
             else
             {
                 if (_inventory.HasSomethingOnHand)

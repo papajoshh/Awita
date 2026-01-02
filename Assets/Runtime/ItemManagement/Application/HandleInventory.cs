@@ -141,5 +141,15 @@ namespace Runtime.ItemManagement.Application
         {
             AddItem("TijerasPodar");
         }
+
+        public bool HasWhiskyOnHand()
+        {
+            return _inventory.HasitemOnHand("Alcohol");
+        }
+
+        public bool HasIceOnHand()
+        {
+            return _inventory.HasitemOnHand("Hielo");
+        }
     }
 }
