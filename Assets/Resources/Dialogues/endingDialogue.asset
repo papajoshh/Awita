@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e489def3231b3b9498b023a35ff52116, type: 3}
+  m_Name: endingDialogue
+  m_EditorClassIdentifier: 
+  _id: 
+  _dialogueLines:
+  - "Y el ni\xF1o bebi\xF3 piscinas."
+  - "Bebi\xF3 r\xEDos, pantanos y algunos oasis."
+  - "Prob\xF3 con el mar. Pero resulta que la sal da sed. \\n <size=50%><color=grey><align=center>Por
+    eso en algunos bares regalan los cacahuetes</align></color></size>"
+  - "Incluso se atrevi\xF3 a probar el agua del grifo. \\n <size=50%><color=grey><align=center>Qu\xE9
+    asco.</align></color></size>"
+  - Pero no hubo manera.
+  - Esta sed...
+  - 'Va para largo. '

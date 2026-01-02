@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - No hay manera...
-  - 'Estoy seco. '
-  - Y tengo sed.
+  - Oye... muchas gracias
+  - "Te est\xE1s esforzando mucho, de verdad."
+  - Pero... esta sed va para largo.
+  - Pero... esta sed va para largo.
+  - Tenemos... que pensar a lo grande.
+  - Hay
+  - Que
+  - Conseguir
+  - "Ag\xFCita."

@@ -25,6 +25,7 @@ namespace Runtime.Infrastructure
         [Inject] private readonly ShowDialogue _showDialogue;
         [Inject] private readonly TransitionToRoomCanvas _transition;
         [Inject] private readonly GameOverCanvas _gameOver;
+        [Inject] private readonly AudioPlayer _audioPlayer;
 
         protected override void Awake()
         {
@@ -43,6 +44,7 @@ namespace Runtime.Infrastructure
                 _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
                 _showDialogue.OnEndDialogue += ShowEnding;
                 _showDialogue.Start(_child.GetPhraseOfHidratation());
+                if(_child.ThirdLevelHidrationCompleted) _audioPlayer.StopMusic();
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddEmptyGlass();
             }

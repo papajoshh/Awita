@@ -34,6 +34,17 @@ namespace Runtime.Infrastructure
             }
         }
 
+        public void StopMusic(bool withFade = false)
+        {
+            if (withFade)
+            {
+                musicAudioSource.DOFade(0, 1f).OnComplete(() => {musicAudioSource.Stop();});
+            }
+            else
+            {
+                musicAudioSource.Stop();
+            }
+        }
         public void PlaySFX(AudioClip clip, float volume = 0.2f, bool loop = false, Vector3 pos = new Vector3())
         {
             if (clip == null)
