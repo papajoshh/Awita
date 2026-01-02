@@ -24,6 +24,7 @@ namespace Runtime.Infrastructure
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
         [Inject] private readonly TransitionToRoomCanvas _transition;
+        [Inject] private readonly GameOverCanvas _gameOver;
 
         protected override void Awake()
         {
@@ -38,9 +39,9 @@ namespace Runtime.Infrastructure
                 _child.Hidrate();
                 animator.Play("DrinkWater");
                 animatorKid.Play("KidDrinkingAnimation");
-                pauseAnimation.OnEnded += DisableAndGoToBathroom;
                 _showDialogue.OnShowNewLine += pauseAnimation.Resume;
                 _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
+                _showDialogue.OnEndDialogue += ShowEnding;
                 _showDialogue.Start(_child.GetPhraseOfHidratation());
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddEmptyGlass();
@@ -67,10 +68,11 @@ namespace Runtime.Infrastructure
             }
         }
         
-        private void DisableAndGoToBathroom()
+        private void ShowEnding()
         {
             if (!_child.ThirdLevelHidrationCompleted) return;
-            pauseAnimation.OnEnded -= DisableAndGoToBathroom;
+            _showDialogue.OnEndDialogue += ShowEnding;
+            _gameOver.Show();
             Disable();
         }
     }

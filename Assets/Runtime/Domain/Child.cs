@@ -55,7 +55,7 @@ namespace Runtime.Domain
 
         public DialogueData GetPhraseOfHidratation()
         {
-            return _rightDialogues[levelOfHidration];
+            return _rightDialogues[levelOfHidration - 1];
         }
         public DialogueData GetPhraseOfWaterOnGlass()
         {
