@@ -51,8 +51,8 @@ namespace Runtime.Infrastructure
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddGlassOfWater();
                 _audioPlayer.PlaySFX(_audioClip_getWater, 0.2f);
+                _showDialogue.OnEndDialogue += FirefightersGoOut;
                 _showDialogue.Start(dialogueCompleted);
-                FirefightersGoOut();
                 StartCoroutine(StartToExtinguishFire());
                 Disable();
             }
@@ -84,6 +84,7 @@ namespace Runtime.Infrastructure
         }
         private void FirefightersGoOut()
         {
+            _showDialogue.OnEndDialogue -= FirefightersGoOut;
             _audioPlayer.StopSFX(sirenasLoopClip, true);
             fireAnimator.Play("Calcinada");
         }
