@@ -83,7 +83,7 @@ namespace Runtime.Infrastructure
         private IEnumerator WaitToPlaySfx(AudioClip clip, float volume, bool loop, float delay, Vector3 pos = new Vector3())
         {
             yield return new WaitForSeconds(delay);
-            PlaySFX(clip, volume, loop);
+            PlaySFX(clip, volume, loop, pos);
         }
     }
 }

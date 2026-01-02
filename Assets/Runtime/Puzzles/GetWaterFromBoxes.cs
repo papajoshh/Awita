@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
+using Runtime.Domain;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace Runtime.Infrastructure
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
         [Inject] private readonly ShowDialogue _showDialogue;
+        [Inject] private readonly Child _child;
 
         //SFX
         [SerializeField] private AudioClip audio_abrir_cajas_de_carton;
@@ -66,6 +68,11 @@ namespace Runtime.Infrastructure
             }
             else
             {
+                if (_handleInventory.HassGlassOfWater())
+                {
+                    _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
+                    return;
+                }
                 if (_inventory.HasSomethingOnHand)
                 {
                     _handleInventory.DeselectItem();

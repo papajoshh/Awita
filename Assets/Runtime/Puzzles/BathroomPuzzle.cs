@@ -1,5 +1,6 @@
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
+using Runtime.Domain;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace Runtime.Infrastructure
         [SerializeField] private AudioClip _audioClip;
         [SerializeField] private AudioClip _audioClip_getWater;
         [Inject] private readonly AudioPlayer _audioPlayer;
-
+        [Inject] private readonly Child _child;
         private bool iceOnBathroom = false;
 
         protected override void Awake()
@@ -92,6 +93,11 @@ namespace Runtime.Infrastructure
             }
             else
             {
+                if (_handleInventory.HassGlassOfWater())
+                {
+                    _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
+                    return;
+                }
                 if (_inventory.HasSomethingOnHand)
                 {
                     _showDialogue.Start(dialogueWaterWrongItem);

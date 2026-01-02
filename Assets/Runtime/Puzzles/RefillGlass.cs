@@ -1,5 +1,6 @@
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
+using Runtime.Domain;
 using Runtime.Infrastructure;
 using Runtime.ItemManagement.Application;
 using Runtime.ItemManagement.Domain;
@@ -16,6 +17,7 @@ public class RefillGlass : Interaction
     [Inject] private readonly Inventory _inventory;
     [Inject] private HandleInventory _handleInventory;
     [Inject] private readonly ShowDialogue _showDialogue;
+    [Inject] private readonly Child _child;
 
     //SFX
     [SerializeField] private AudioClip _audioClip_getWater;
@@ -34,6 +36,11 @@ public class RefillGlass : Interaction
         }
         else
         {
+            if (_handleInventory.HassGlassOfWater())
+            {
+                _showDialogue.Start(_child.GetPhraseOfWaterOnGlass());
+                return;
+            }
             if (_inventory.HasSomethingOnHand)
             {
                 _handleInventory.DeselectItem();

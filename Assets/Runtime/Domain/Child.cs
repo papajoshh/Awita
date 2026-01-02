@@ -14,9 +14,10 @@ namespace Runtime.Domain
         private DialogueData[] _rightDialogues;
         private DialogueData _alcoholDialogue;
         private DialogueData _iceDialogue;
+        private DialogueData _enoughWaterDialogue;
         
         public event Action OnHidrate;
-        public static Child NewBorn(DialogueData[] wrongDialogues, DialogueData[] rightDialogues, DialogueData alcoholDialogue, DialogueData iceDialogue)
+        public static Child NewBorn(DialogueData[] wrongDialogues, DialogueData[] rightDialogues, DialogueData alcoholDialogue, DialogueData iceDialogue, DialogueData enoughWaterDialogue)
         {
             return new Child()
             {
@@ -24,7 +25,8 @@ namespace Runtime.Domain
                 _wrongDialogues = wrongDialogues,
                 _rightDialogues = rightDialogues,
                 _alcoholDialogue = alcoholDialogue,
-                _iceDialogue = iceDialogue
+                _iceDialogue = iceDialogue,
+                _enoughWaterDialogue = enoughWaterDialogue
             };
         }
 
@@ -52,6 +54,10 @@ namespace Runtime.Domain
         public DialogueData GetPhraseOfHidratation()
         {
             return _rightDialogues[levelOfHidration];
+        }
+        public DialogueData GetPhraseOfWaterOnGlass()
+        {
+            return _enoughWaterDialogue;
         }
     }
 }

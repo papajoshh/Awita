@@ -442,6 +442,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 97dd3b24e68bd7145bd430f685ee6887, type: 2}
   - {fileID: 11400000, guid: e4999eb8a6dac0d458c7b90d142ff02d, type: 2}
   - {fileID: 11400000, guid: 78b2607d81c5aea449d63dd0909b6602, type: 2}
+  iceChildDialogue: {fileID: 11400000, guid: b9374c5f7a4b50644ab897b87c5f2c2c, type: 2}
+  alcoholChildDialogue: {fileID: 11400000, guid: 76ea8e60908a1bc4e9e56cf09ddacffb, type: 2}
+  enoughWaterDialogue: {fileID: 11400000, guid: 580131a785856d64daaeb910cd606ea1, type: 2}
 --- !u!1 &765060120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2423423950761331217, guid: 54012406e7a71ac4088824c5f60809d7, type: 3}
