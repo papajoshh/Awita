@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Runtime.Application;
 using Runtime.Dialogues.Domain;
 using Runtime.ItemManagement.Application;
@@ -17,11 +18,10 @@ namespace Runtime.Infrastructure
         [SerializeField] private DialogueData dialogueSecondNoItem;
         [SerializeField] private DialogueData dialogueSecondWrongItem;
 
-        [SerializeField] private ItemContainer cortapizzas;
-        [SerializeField] private SpriteRenderer fregaPlatosRenderer;
-        [SerializeField] private Sprite initialPlatosSuciosSprite;
-        [SerializeField] private Sprite platosJabonososSprite;
-        [SerializeField] private Sprite cleanPlatosSprite;
+        [SerializeField] private GameObject cleanDishes;
+        [SerializeField] private SpriteRenderer initialPlatosSuciosRenderer;
+        [SerializeField] private SpriteRenderer platosJabonososRenderer;
+        [SerializeField] private SpriteRenderer cleanPlatosRenderer;
         [SerializeField] private AudioClip cleanAudio;
         
         [Inject] private readonly Inventory _inventory;
@@ -34,8 +34,10 @@ namespace Runtime.Infrastructure
         
         protected override void Awake()
         {
-            fregaPlatosRenderer.sprite = initialPlatosSuciosSprite;
-            cortapizzas.Disable();
+            initialPlatosSuciosRenderer.color = Color.white;
+            platosJabonososRenderer.color = new Color(1, 1, 1, 0);
+            cleanPlatosRenderer.color = new Color(1, 1, 1, 0);
+            cleanDishes.SetActive(false);
         }
         public override void Interact()
         {
@@ -85,18 +87,20 @@ namespace Runtime.Infrastructure
             _audioPlayer.PlaySFX(cleanAudio);
             if (numberOfCleans <= 1)
             {
-                fregaPlatosRenderer.sprite = platosJabonososSprite;
+                initialPlatosSuciosRenderer.DOColor(new Color(1, 1, 1, 0), 0.5f);
+                platosJabonososRenderer.DOColor(Color.white, 0.5f);
             }
             else
             {
                 absolutelyClean = true;
-                fregaPlatosRenderer.sprite = cleanPlatosSprite;
+                platosJabonososRenderer.DOColor(new Color(1, 1, 1, 0), 0.5f);
+                cleanPlatosRenderer.DOColor(Color.white, 0.5f);
             }
 
             if (!absolutelyClean) return;
             _showDialogue.Start(dialogueSecondCompleted);
             _handleInventory.RemoveItemOnHand();
-            cortapizzas.Enable();
+            cleanDishes.SetActive(true);
             Disable();
         }
     }
