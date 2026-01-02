@@ -36,7 +36,7 @@ namespace Runtime.Infrastructure
                 animatorKid.Play("KidDrinkingAnimation");
                 _showDialogue.OnShowNewLine += pauseAnimation.Resume;
                 _showDialogue.OnShowNewLine += pauseKidAnimation.Resume;
-                pauseAnimation.OnEnded += DisableAndGoToBathroom;
+                _showDialogue.OnEndDialogue += DisableAndGoToBathroom;
                 _showDialogue.Start(_child.GetPhraseOfHidratation());
                 _handleInventory.RemoveItemOnHand();
                 _handleInventory.AddEmptyGlass();
@@ -67,7 +67,7 @@ namespace Runtime.Infrastructure
         private void DisableAndGoToBathroom()
         {
             if (!_child.SecondLevelHidrationCompleted) return;
-            pauseAnimation.OnEnded -= DisableAndGoToBathroom;
+            _showDialogue.OnEndDialogue -= DisableAndGoToBathroom;
             Disable();
             _transition.GoToRoom("bathroom");
             hidrateInteraction.Enable();
