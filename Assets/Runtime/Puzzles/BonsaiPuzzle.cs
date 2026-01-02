@@ -23,6 +23,8 @@ namespace Runtime.Infrastructure
         [SerializeField] private Sprite[] bonsaiStages;
         [SerializeField] private SpriteRenderer bonsaiRenderer;
         [SerializeField] private GameObject stick;
+        [SerializeField] private Vector2 macetaOffset;
+        [SerializeField] private Vector2 macetaSize;
         
         [Inject] private readonly Inventory _inventory;
         [Inject] private HandleInventory _handleInventory;
@@ -125,6 +127,8 @@ namespace Runtime.Infrastructure
                 _handleInventory.RemoveItemOnHand();
                 _showDialogue.Start(dialogueCompleted);
                 completelyCut = true;
+                collider.offset = macetaOffset;
+                ((BoxCollider2D)collider).size = macetaSize;
             }
         }
     }

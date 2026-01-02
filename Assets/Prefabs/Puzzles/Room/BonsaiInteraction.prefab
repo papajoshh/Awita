@@ -108,6 +108,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 763e72adcd6e4d44c9ea58460666a721, type: 3}
   bonsaiRenderer: {fileID: 7585983948356032617}
   stick: {fileID: 2514108242611270564}
+  macetaOffset: {x: -0.267202, y: -1.205769}
+  macetaSize: {x: 3.089502, y: 2.540102}
   _audioClip: {fileID: 8300000, guid: 0247dcf702d82534c9b0ce2b438a54aa, type: 3}
   _audioClip_getWater: {fileID: 8300000, guid: 7f455487e556d094ca9f727652f6e780, type: 3}
 --- !u!212 &7585983948356032617

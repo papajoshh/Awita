@@ -18,8 +18,9 @@ namespace Runtime.Infrastructure
 
         private Button button;
         private bool isOver;
+        
 
-        private Collider2D collider
+        protected Collider2D collider
         {
             get
             {
