@@ -36,8 +36,8 @@ namespace Runtime.Infrastructure
         private void Open()
         {
             _router.Connect();
-            turnOnRouter.DOColor(Color.white, 0.75f);
-            turnOffRouter.DOColor(new Color (1, 1, 1, 0), 0.75f);
+            turnOnRouter.color = Color.white;
+            turnOffRouter.color = new Color (1, 1, 1, 0);
             _audioPlayer.PlaySFX(_audioClip, 0.2f);
         }
     }

@@ -60,14 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a83239aeaa6f75c469cd3877af55e4b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6867800f5afcfe942b823f2a9b4ffb75, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 11400000, guid: 1f6b49b7bd784594595662810042d14f, type: 2}
+  _dialogueWithGlass: {fileID: 0}
+  itemOnHandToGetWater: EmptyGlass
 --- !u!1 &1956219335271872480
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ namespace Runtime.Infrastructure
         {
             button = GetComponent<Button>();
             if (button) button.onClick.AddListener(OnClick);
+            if (GetComponent<Image>()) GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
         }
         
         protected virtual void OnDestroy()

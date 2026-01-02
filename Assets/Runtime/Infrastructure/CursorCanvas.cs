@@ -27,6 +27,7 @@ namespace Runtime.Infrastructure
 
         private void Update()
         {
+            UnityEngine.Application.targetFrameRate = 60;
             FollowMouse();
             ChangeSpriteOnHover();
         }

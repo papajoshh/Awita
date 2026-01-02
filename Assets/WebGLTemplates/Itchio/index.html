@@ -23,7 +23,7 @@
   </head>
   <body>
     <canvas id="unity-canvas" width={{{ WIDTH }}} height={{{ HEIGHT }}} tabindex="-1"></canvas>
-    <script src="{{{ LOADER_FILENAME }}}"></script>
+    <script src="Build/{{{ LOADER_FILENAME }}}"></script>
     <script>
       var canvas = document.querySelector("#unity-canvas");
       var baseWidth = {{{ WIDTH }}};
@@ -64,9 +64,9 @@
       resizeCanvas();
 
       createUnityInstance(canvas, {
-        dataUrl: "{{{ DATA_FILENAME }}}",
-        frameworkUrl: "{{{ FRAMEWORK_FILENAME }}}",
-        codeUrl: "{{{ CODE_FILENAME }}}",
+        dataUrl: "Build/{{{ DATA_FILENAME }}}",
+        frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: "Build/{{{ CODE_FILENAME }}}",
 #if STREAMING_ASSETS
         streamingAssetsUrl: "StreamingAssets",
 #endif
