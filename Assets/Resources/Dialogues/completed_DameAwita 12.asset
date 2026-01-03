@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: placeholder
   _dialogueLines:
-  - Oye... muchas gracias
+  - Oye... muchas gracias.
   - "Te est\xE1s esforzando mucho, de verdad."
   - Pero... esta sed va para largo.
-  - Pero... esta sed va para largo.
   - Tenemos... que pensar a lo grande.
-  - Hay
-  - Que
-  - Conseguir
+  - Hay.
+  - Que.
+  - Conseguir.
   - "Ag\xFCita."

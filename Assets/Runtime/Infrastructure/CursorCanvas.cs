@@ -34,6 +34,9 @@ namespace Runtime.Infrastructure
 
         private void FollowMouse()
         {
+            if (UnityEngine.Cursor.visible == true)
+                UnityEngine.Cursor.visible = false;
+
             Vector2 mousePosition = Input.mousePosition;
             rectTransform.position = mousePosition + hotSpot;
         }
